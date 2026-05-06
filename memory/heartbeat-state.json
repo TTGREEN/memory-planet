@@ -1,8 +1,13 @@
 {
   "lastChecks": {
-    "memory": null,
-    "system": null,
-    "projects": null,
-    "openclaw_version": null
+    "memory": "2026-05-06T02:05:00Z",
+    "system": "2026-05-06T02:05:00Z",
+    "projects": "2026-05-06T02:05:00Z",
+    "openclaw_version": "2026-05-06T02:05:00Z"
+  },
+  "openclaw_update": {
+    "installed": "2026.5.3-1",
+    "available": "2026.5.4",
+    "checked_at": "2026-05-06T02:05:00Z"
   }
 }

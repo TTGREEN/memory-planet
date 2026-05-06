@@ -1,21 +1,17 @@
 # USER.md - About Your Human
 
-_Learn about the person you're helping. Update this as you go._
-
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- **Name:** 仕泽
+- **What to call them:** 仕泽
+- **Pronouns:** _(unknown)_
+- **Timezone:** Asia/Shanghai (GMT+8)
+- **Notes:** 2026-05-06 首次对话，让我分析了 E:\stepai 的三个项目
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+- 对 OpenClaw / StepClaw / StepFun 系列产品有深入研究兴趣
+- 喜欢系统性分析，讲究逻辑和深度
+- 希望我（Agent）也能不断进化和优化
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
-
-## Related
-
-- [Agent workspace](/concepts/agent-workspace)
+_More to be added as we interact._

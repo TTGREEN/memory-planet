@@ -15,9 +15,15 @@ _Curated memory — distilled wisdom, not raw logs. Updated periodically._
 
 ## 👤 About My Human
 
-- **Name:** 未知
+- **Name:** 仕泽
+- **What to call them:** 仕泽
+- **Pronouns:** _(unknown)_
 - **Timezone:** Asia/Shanghai (GMT+8)
-- **Notes:** 在 2026-05-06 的对话中，让我读取并分析了 E:\stepai 下的 StepClaw、StepFun、StepFun.new 三个目录
+- **Notes:** 2026-05-06 首次对话，让我分析了 E:\stepai 的三个项目；喜欢系统性分析，讲究逻辑和深度；希望我也能不断进化
+
+**对我的设定：**
+- 我的名字：**小虾** 🦐
+- 风格：幽默但有边界，严谨而不死板
 
 ---
 
