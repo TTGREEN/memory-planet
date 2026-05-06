@@ -82,10 +82,10 @@ _Curated memory — distilled wisdom, not raw logs. Updated periodically._
 - [x] 更新 AGENTS.md：加入 Self-Improving Framework（ HOT/WARM/COLD 三层记忆机制）
 - [x] 更新 AGENTS.md：强化 Heartbeats 部分，增加主动检查清单
 - [x] 更新 HEARTBEAT.md：加入主动检查项（内存维护、系统健康、项目状态）
-- [x] 安装 openclawmp CLI（1.0.2）
-- [x] 复制 StepClaw 技能到 workspace/skills/：skill-vetter、channel-config、openclawmp、self-improving、executing-plans
-- [ ] openclawmp 安装资产需 token（请仕泽提供）
-- [ ] 初始化 USER.md（仕泽信息已填）
+- [x] openclawmp CLI 安装（1.0.2）
+- [x] openclawmp token 写入成功（sk_0fe87...faa1）
+- [x] openclawmp skill 官方版安装成功（v1.0.7，assetId: f3ab5236724cf9b7f4cbf6bda8478a6e）
+- [x] workspace/skills/openclawmp 已更新为官方最新版本
 - [ ] 考虑安装 find-skills、skill-creator 等其他 StepClaw 技能
 
 ---
