@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html charset="utf-8">
+<head>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 400px; font-family: 'Microsoft YaHei', Arial, sans-serif; background: #fafafa; font-size: 13px; color: #333; }
+.header { background: linear-gradient(135deg, #FF6B00, #FF8533); color: white; padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
+.header-icon { font-size: 22px; }
+.header-text h1 { font-size: 15px; font-weight: 600; }
+.header-text p { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+
+.info-bar { background: #fff; border-bottom: 1px solid #eee; padding: 8px 14px; display: flex; gap: 16px; font-size: 12px; }
+.info-item { display: flex; gap: 4px; align-items: center; }
+.info-label { color: #999; }
+.info-value { font-weight: 600; color: #333; }
+.info-value.orange { color: #FF6B00; }
+
+.btn-area { padding: 10px 14px; display: flex; gap: 8px; }
+.btn { flex: 1; padding: 9px 8px; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity .15s; }
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: linear-gradient(135deg, #FF6B00, #FF8533); color: white; }
+.btn-secondary { background: #fff; color: #FF6B00; border: 1.5px solid #FF6B00; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.status-bar { padding: 0 14px 8px; }
+.status { padding: 7px 10px; border-radius: 5px; font-size: 12px; text-align: center; margin-top: 6px; display: none; }
+.status.show { display: block; }
+.status.ok { background: #f6ffed; color: #52c41a; border: 1px solid #b7eb8f; }
+.status.err { background: #fff2f0; color: #ff4d4f; border: 1px solid #ffccc7; }
+.status.info { background: #f0f5ff; color: #1890ff; border: 1px solid #adc6ff; }
+
+.result-header { padding: 8px 14px; background: #fff; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+.result-title { font-size: 12px; color: #666; font-weight: 600; }
+.result-count { font-size: 11px; color: #999; }
+
+#result-list { max-height: 260px; overflow-y: auto; padding: 4px 8px; }
+.result-item { background: #fff; border-radius: 5px; padding: 7px 10px; margin-bottom: 4px; cursor: pointer; transition: background .12s; }
+.result-item:hover { background: #fff7e6; }
+.result-item .item-title { font-size: 12px; color: #333; line-height: 1.4; margin-bottom: 2px; }
+.result-item .item-meta { font-size: 11px; color: #999; display: flex; gap: 8px; }
+.result-item .item-price { color: #FF6B00; font-weight: 600; }
+.more-items { padding: 6px 10px; text-align: center; color: #999; font-size: 12px; }
+
+.footer { padding: 8px 14px; border-top: 1px solid #eee; display: flex; gap: 6px; }
+.footer .btn { flex: 1; padding: 7px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">🔶</div>
+  <div class="header-text">
+    <h1>1688标题采集器</h1>
+    <p>搜索结果 · 直接采集 · 无需API</p>
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-item"><span class="info-label">卡片</span><span class="info-value orange" id="card-count">-</span></div>
+  <div class="info-item"><span class="info-label">选择器</span><span class="info-value" id="card-sel" style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">-</span></div>
+  <div class="info-item"><span class="info-label">已采</span><span class="info-value" id="collected-count">0</span></div>
+</div>
+
+<div class="btn-area">
+  <button class="btn btn-primary" id="btn-collect">🔍 采集当前页</button>
+  <button class="btn btn-secondary" id="btn-export" disabled>📥 导出</button>
+</div>
+
+<div class="status-bar">
+  <div class="status" id="status-msg"></div>
+</div>
+
+<div class="result-header" id="result-header" style="display:none;">
+  <span class="result-title">采集结果</span>
+  <span class="result-count" id="result-count"></span>
+</div>
+
+<div id="result-list"></div>
+
+<div class="footer">
+  <button class="btn btn-secondary" id="btn-copy" disabled>📋 复制标题</button>
+  <button class="btn btn-secondary" id="btn-copyall" disabled>📋 复制全部</button>
+  <button class="btn btn-secondary" id="btn-clear">🗑 清空</button>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

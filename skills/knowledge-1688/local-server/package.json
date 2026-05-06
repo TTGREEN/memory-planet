@@ -1,0 +1,16 @@
+{
+  "name": "1688-local-server",
+  "version": "1.0.0",
+  "description": "本地服务：为 Chrome 扩展提供 embedding、关键词查询等核心能力（无数据库依赖）",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.22.1",
+    "ollama": "^0.5.0"
+  }
+}

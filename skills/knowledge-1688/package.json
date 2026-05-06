@@ -1,0 +1,15 @@
+{
+  "name": "knowledge-1688-mtop-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "batch_embed_keywords.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sqlite3": "^6.0.1"
+  }
+}
