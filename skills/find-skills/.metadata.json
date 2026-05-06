@@ -1,0 +1,40 @@
+{
+  "assetId": "a77da975967c3bfe4fc46457f09e6d5b",
+  "assetType": 2,
+  "category": "",
+  "createdAt": "2026-03-01T00:00:00.000Z",
+  "description": "Helps users discover and install agent skills when they ask questions like how do I do X, find a skill for X, is there a skill that can...",
+  "displayName": "Find Skills",
+  "longDescription": "",
+  "name": "find-skills",
+  "ownerUserId": "3c9c493205a90db1948d819aa786ef27",
+  "tags": [
+    {
+      "description": "",
+      "displayName": "clawhub",
+      "tagId": "3a6fdf8d5ccfe9eaaaf098db4b9e75a9"
+    },
+    {
+      "description": "",
+      "displayName": "discovery",
+      "tagId": "3c7f2371e184fdd68e12fa9e99035f93"
+    },
+    {
+      "description": "",
+      "displayName": "ecosystem",
+      "tagId": "2d5dd4e3ad2db5509e4158e538fb40ed"
+    },
+    {
+      "description": "",
+      "displayName": "install",
+      "tagId": "4ea5a9ca7c71b58752a3f4be1d8e4cc4"
+    },
+    {
+      "description": "",
+      "displayName": "skills",
+      "tagId": "d79c998ece109f19e54575cd0f9470c8"
+    }
+  ],
+  "updatedAt": "2026-03-01T00:00:00.000Z",
+  "viewerCanExpandReversionHistory": false
+}
