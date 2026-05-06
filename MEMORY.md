@@ -90,4 +90,55 @@ _Curated memory — distilled wisdom, not raw logs. Updated periodically._
 
 ---
 
+---
+
+## 🗂️ 历史踩坑（来自 2026-04-25~27 备份）
+
+### 系统配置
+- `gateway.cmd` 添加 `OPENCLAW_NO_RESPAWN=1` 防 respawn 循环
+- bonjour 配置项在 2026.4.23+ 版本不支持 → `discovery.mdns.mode="off"`
+- PowerShell exec 输出需重定向到 UTF-8 文件再读取（直接 print 会崩溃）
+- MEMORY.md 保持在 200行/~25KB 以内（当时 16K 字符超限才压缩）
+
+### 技能质量
+- 质量循环：generate→enhance→audit 闭环，10/10 可达 6/6 分
+- 重复模式阈值≥3次再生成技能（防噪音）
+- 防重复机制：自动跳过已存在技能（--force 覆盖）
+- 阈值策略：重复模式识别 ≥3 次，避免过度生成
+
+### 1688项目（参考）
+- Ollama nomic-embed-text 对中文单词向量不稳定 → 转换为描述性句子
+- 关键词路径 KEYWORDS_FILE 不能硬编码 → 用 __dirname 向上查找
+
+---
+
+## 🗂️ 历史生态学习（来自 GitHub 8项目学习报告 2026-04-25）
+
+### 最佳模式可借鉴
+1. **STATUS.md 项目跟踪**（Claw-auto-coding）— 每个项目一个状态文件，跟踪进度/阻塞/下一步
+2. **认知闭环**（Consciousness Engine）— Perception→Engine→Memory→Learning→Reflection
+3. **独立监控服务架构**（openclaw-buddy）— Go+React 独立控制台，WebSocket 实时推送
+4. **技能优化工具包**（skill-optimization）— 基于历史任务轨迹自动生成技能模板
+
+### 项目状态文件规范（待实施）
+- `memory/projects/<name>/STATUS.md` — 进度、阻塞、下一步
+- `memory/projects/<name>/log.md` — 变更记录
+
+---
+
+## 📦 备份技能清单（原始 28 个，2026-04-27）
+
+| 技能 | 质量 | 状态 |
+|------|------|------|
+| proactivity | 4/6 | ⭐ 待深入整合到 AGENTS.md |
+| self-learning | 2/6 | ✅ 已整合（consolidate-memory） |
+| self-reflection | 2/6 | ✅ 部分整合（self-improving） |
+| skill-creator | 2/6 | 参考思路（复杂度过高） |
+| monitor-agent | 2/6 | 参考思路（需泛化） |
+| auto_* (10个) | 各2/6 | ❌ 无实际内容，占位符 |
+| knowledge-1688-* | 各1/6 | ❌ 1688专用，与当前无关 |
+| 其他 | 1-4/6 | ❌ 领域专用或低价值 |
+
+---
+
 _Last updated: 2026-05-06_
