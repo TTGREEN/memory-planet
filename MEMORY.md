@@ -29,32 +29,29 @@ _Curated memory — distilled wisdom, not raw logs. Updated periodically._
 
 ## 🗂️ Key Learnings
 
-### 2026-05-06: E:\stepai 三项目深度分析
+### 2026-05-06 13:37 更新版分析
 
-**StepClaw**（Agent 核心）:
-- 13个技能，含 self-improving（自我改进引擎：HOT/WARM/COLD三层记忆）
-- 6个 IM 渠道插件预装（钉钉/飞书/企微/QQ/微信/洞察）
-- openclawmp 水产市场技能、skill-vetter 安全审计、executing-plans 计划执行
-- 数据与运行时分离架构，可迁移性好
-- 版本 2026.3.13，检查到可用 2026.4.27（存在1个月断层）
+**目录结构变化（对比上午）：**
+- StepFun.new → 重命名为 StepFun（当前主版本）
+- 新增 StepFun.old（原 StepFun 旧版本，2026/4/27）
+- StepClaw 无变化
 
-**StepFun**（Electron 桌面应用）:
-- StepFun.exe（206MB）内置 Chromium + ffmpeg + vulkan
-- 10个垂直领域技能（合同审查/财务模型/市场调研）
-- 完全自包含，单机即用
-- 无自我改进、无 marketplace、无安全审计
+**StepFun（融合版）:**
+- resources/stepclaw-bundle/ 已嵌入（openclaw@^2026.3.13）
+- 6个 IM 插件（.tgz 包）：dingtalk/lark/qq/weixin/wecom/insight
+- 10个技能（与 StepFun.old 相同）
+- 插件未直接安装到 extensions/，以 .tgz 包形式存在
 
-**StepFun.new**（融合阶段）:
-- 新增 `resources/stepclaw-bundle/` — 完整 OpenClaw Agent 能力包
-- 但 skills/ 目录仍只是 StepFun 的10个技能，未继承 StepClaw 的13个
-- 缺少 self-improving、openclawmp、skill-vetter 等关键能力
-- 融合架构但不完整
+**关键差异：**
+- StepFun 的 stepclaw-bundle 有完整 node_modules（400+包）
+- StepFun.old 是纯 Electron 桌面应用（旧版）
+- 6个插件版本与 StepClaw 一致（dingtalk@0.7.10, lark@2026.3.18等）
 
-**核心结论:**
-- StepClaw = 头脑（Agent 智能）
-- StepFun = 双手（浏览器自动化）
-- StepFun.new = 头脑+双手，但融合不完整
-- 建议在 StepFun.new 补充安装 StepClaw 的核心技能
+**结论更新：**
+- StepFun = StepFun.old + stepclaw-bundle（融合版）✅
+- StepFun.old = 纯桌面应用（旧版）
+- StepClaw = Agent 核心（未变）
+- 建议：用 StepFun 作为主力，它融合了两者优势
 
 ---
 
