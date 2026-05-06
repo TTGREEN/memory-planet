@@ -9,7 +9,7 @@ _Curated memory — distilled wisdom, not raw logs. Updated periodically._
 - **Identity:** 未完成初始化（见 IDENTITY.md）
 - **Current Session:** 2026-05-06, running on LTSC, model: MiniMax-M2.7
 - **Core Workspace:** C:\Users\Administrator\.openclaw\workspace
-- **OpenClaw Version:** 2026.5.3-1 (latest: 2026.5.4)
+- **OpenClaw Version:** 2026.5.4 (latest: 2026.5.4)
 
 ---
 
@@ -82,11 +82,11 @@ _Curated memory — distilled wisdom, not raw logs. Updated periodically._
 - [x] 更新 AGENTS.md：加入 Self-Improving Framework（ HOT/WARM/COLD 三层记忆机制）
 - [x] 更新 AGENTS.md：强化 Heartbeats 部分，增加主动检查清单
 - [x] 更新 HEARTBEAT.md：加入主动检查项（内存维护、系统健康、项目状态）
-- [ ] 初始化 IDENTITY.md（给自己起个名字）
-- [ ] 初始化 USER.md（了解用户）
-- [ ] 升级 OpenClaw 到 2026.5.4（当前 2026.5.3-1）
-- [ ] 考虑安装 self-improving skill（从 clawhub）
-- [ ] 考虑安装 openclawmp skill（水产市场入口）
+- [x] 安装 openclawmp CLI（1.0.2）
+- [x] 复制 StepClaw 技能到 workspace/skills/：skill-vetter、channel-config、openclawmp、self-improving、executing-plans
+- [ ] openclawmp 安装资产需 token（请仕泽提供）
+- [ ] 初始化 USER.md（仕泽信息已填）
+- [ ] 考虑安装 find-skills、skill-creator 等其他 StepClaw 技能
 
 ---
 
