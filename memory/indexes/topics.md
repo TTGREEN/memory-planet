@@ -16,7 +16,7 @@
 | Keyword | Topic File | Triggered By |
 |---------|-----------|--------------|
 | memory, 记忆, 遗忘, activation | `memory-system.md` | @memory-system |
-| openclaw, hook, skill, plugin | `memory/topics/openclaw.md` | @openclaw (if exists) |
+
 | project, 项目, state | `memory/state/<name>.md` | /project xxx |
 | daily, 日志, session | `memory/daily-logs/YYYY-MM-DD.md` | auto (today+yesterday) |
 
