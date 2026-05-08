@@ -70,92 +70,38 @@
 
 ## OpenClaw Dreaming Integration (2026-05-08)
 
-### 系统概览
+**系统状态：✅ 已启用（2026-05-08 完成配置）**
 
-OpenClaw 内置的 **Dreaming（梦境）系统** 已完整实现五篇设计文档的核心概念，是平台级别的自动化记忆提炼引擎。
+OpenClaw 内置的 **Dreaming（梦境）系统** 已完整实现设计文档的核心概念，是平台级别的自动化记忆提炼引擎。
 
 **实际运行数据（2026-05-08）：**
-- 启用状态：`enabled: true`
-- Cron 调度：`0 3 * * *`（每天 03:00 UTC = 上午 11:00 北京时间）
-- Recall Store：192 条目（来自 session corpus 的语义块）
-- 当前晋升数：0（阈值未达到，正常）
+- Cron 调度：`0 3 * * *`（每天 03:00 UTC）
+- Recall Store：192 条目，0 promoted（阈值未达到，正常现象）
+- Session Corpus：`2026-05-06.txt`（30KB）、`2026-05-07.txt`（71KB）
+- 评分阶段：Light/Deep/REM 三阶段，deep/light 各一次已完成
+- 六维度权重：Frequency×0.24, Relevance×0.30, QueryDiversity×0.15, Recency×0.15, Consolidation×0.10, ConceptualRichness×0.06
+- 晋升阈值（当前配置）：minScore=0.5, minRecallCount=1, minUniqueQueries=1
+- **注意**：所有候选 recallCount=0（尚未被 recall），0 晋升是正常现象——系统需要时间积累 recall 信号
 
-### 三阶段架构
+**Recall Store 数据结构**（`memory/.dreams/short-term-recall.json`）：
+- 关键字段：`path`, `startLine`, `endLine`, `snippet`, `recallCount`, `conceptTags`, `totalScore`, `maxScore`
+- 信号字段：`firstRecalledAt`, `lastRecalledAt`, `recallDays`, `queryHashes`
+- 评分后新增：`avgScore`, `maxScore`, `uniqueQueries`, `ageDays`, `score`（综合），`components`（六维度分解）
 
-| 阶段 | 文件位置 | 作用 |
-|------|----------|------|
-| **Light Sleep（浅睡）** | `memory/dreaming/light/YYYY-MM-DD.md` | 去重 + 候选生成；`confidence: 0.58`，`status: staged` |
-| **Deep Sleep（深睡）** | `memory/dreaming/deep/YYYY-MM-DD.md` | 六维度评分 → 决定晋升；0 candidates（阈值未达）|
-| **REM Sleep** | `memory/dreaming/rem/YYYY-MM-DD.md` | 跨日模式发现 → 持久洞察 |
+**Dreaming 与自定义脚本的协作关系：**
 
-### 六维度加权评分（Deep Sleep）
-
-来自设计文档的实际权重：
-- **Frequency（频率）** × 0.24 — recallCount 在 recall store 中的出现次数
-- **Relevance（相关性）** × 0.30 — 与当前上下文的语义匹配度
-- **Query Diversity（查询多样性）** × 0.15 — 不同 query hash 触发次数
-- **Recency（时效性）** × 0.15 — 最后 recall 时间
-- **Consolidation（巩固度）** × 0.10 — groundedCount（grounded 次数）
-- **Conceptual Richness（概念深度）** × 0.06 — conceptTags 丰富程度
-
-**晋升阈值（当前配置）：**
-- `minScore: 0.8` — 综合得分需 ≥ 0.8
-- `minRecallCount: 3` — recallCount 需 ≥ 3
-
-当前所有候选 recallCount = 0，所以 0 晋升——这是**正常现象**，系统需要时间积累 recall 信号。
-
-### Recall Store 数据结构
-
-`memory/.dreams/short-term-recall.json` 中每条 entry 的关键字段：
-
-```json
-{
-  "key": "memory:memory/.dreams/session-corpus/2026-05-07.txt:35:35",
-  "path": "memory/.dreams/session-corpus/2026-05-07.txt",
-  "startLine": 35,
-  "endLine": 35,
-  "snippet": "Assistant: 收到，仕泽！🦐 开始干活。...",
-  "recallCount": 0,
-  "dailyCount": 1,
-  "groundedCount": 0,
-  "totalScore": 0.58,
-  "maxScore": 0.58,
-  "firstRecalledAt": "2026-05-08T00:51:13.010Z",
-  "lastRecalledAt": "2026-05-08T00:51:13.010Z",
-  "conceptTags": ["收到", "开始", "干活", ...]
-}
-```
-
-### Session Corpus 位置
-
-`memory/.dreams/session-corpus/YYYY-MM-DD.txt`
-- 当前有：`2026-05-06.txt`（30KB）和 `2026-05-07.txt`（71KB）
-- 当前 session（2026-05-08）正在进行，UTC 日期为 2026-05-07，所以写入 `2026-05-07.txt`
-- Corpus 按 **UTC 日期**归档，不是本地日期
-
-### 与自定义脚本的协作关系
-
-**Dreaming 负责（自动化）：**
-- 三阶段评分和晋升
-- 跨 session 的 recall 积累
-- 每日 3 AM 定时运行
-- 六维度信号的自动收集
-
-**自定义脚本负责（半自动化）：**
-- `flush.ps1` — session-end checkpoint，手动触发
-- `consolidate-memory.ps1` — MEMORY.md 200行上限检查 + 激活值衰减
-- `check-consistency.ps1` — index drift 检测
-- `memory-maintenance` hook —  bootstrap 时运行健康检查 + 建议 session ingestion
+| 职责 | 系统 |
+|------|------|
+| 三阶段评分晋升 | Dreaming（内置自动化） |
+| 跨 session recall 积累 | Dreaming（内置自动化） |
+| 每日 3 AM 调度 | Dreaming cron（内置） |
+| Session-end checkpoint | `flush.ps1`（自定义） |
+| 200行上限 + 激活值衰减 | `consolidate-memory.ps1`（自定义） |
+| Index drift 检测 | `check-consistency.ps1`（自定义） |
+| Bootstrap 健康检查 | `memory-maintenance` hook（内置） |
 
 **设计原则：自定义脚本 feed INTO dreaming，不替代它。**
-- Dreaming 的 session-corpus 由 OpenClaw 自动 ingestion
-- 自定义脚本产生的内容（daily-logs、topic files）通过 MEMORY.md 指针体系被 dreaming 间接引用
-- 两套系统互补而非重叠
 
-### Per-Project Context 的现状
+---
 
-当前 OpenClaw **不支持多 workspace 级别的内存隔离**。`memory/state/` 目录存在但为空，无项目级别的内存文件。`@project:xxx` 触发机制用于加载 topic 文件，不提供 workspace 隔离。
-
-架构上，`memory/state/<project>.md` 是为将来项目准备的，但当前所有记忆都在单一 workspace 内管理。
-
-_Last updated: 2026-05-08 14:00_
+_Last updated: 2026-05-08 14:27_
