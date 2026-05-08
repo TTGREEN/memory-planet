@@ -1,4 +1,6 @@
 # Dream Integration — OpenClaw Dreaming + Custom Scripts
+> **⚠️ OBSOLETE — 2026-05-08**
+> 内容已迁移至 `memory/ARCHITECTURE.md`。本文保留作为历史参考。
 
 ## Overview
 

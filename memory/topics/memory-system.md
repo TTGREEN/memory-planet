@@ -1,6 +1,6 @@
 # Topic: memory-system
-# Domain-specific knowledge about this agent's memory system
-# 格式规则：每个 entry 必须有 [YYYY-MM-DD]
+> **⚠️ OBSOLETE — 2026-05-08**
+> 内容已迁移至 `memory/ARCHITECTURE.md`。本文保留作为历史参考。
 
 ---
 

@@ -1,8 +1,21 @@
 # Memory System Architecture v3
 
-> **Status:** Design — do not implement yet
+> **Status:** ✅ Fully Implemented
 > **Date:** 2026-05-08
 > **Supersedes:** memory/topics/memory-system.md, memory/topics/dream-integration.md
+
+---
+
+## Phase Execution Status
+
+| Phase | Description | Status | Notes |
+|-------|-------------|--------|-------|
+| 1 | Create `memory.js` + `config.json` | ✅ Done | All 6 sub-commands implemented |
+| 2 | Redirect usage to `memory.js` | ✅ Done | AGENTS.md references `memory.js` |
+| 3 | Delete redundant scripts | ✅ Done | 11 scripts → archive; flush.ps1 deleted |
+| 4 | Archive design docs | ✅ Done | Topic files marked obsolete |
+
+**Last updated:** 2026-05-08 17:37 (flush.ps1 deleted, topic files marked obsolete)
 
 ---
 
@@ -238,25 +251,28 @@ The consolidation scripts' pattern detection (3x same lesson in daily logs) is s
 
 ```
 memory/
-├── ARCHITECTURE.md           ← This file (replaces topics/memory-system.md)
+├── ARCHITECTURE.md           ← This file (fully implemented)
 ├── config.json               ← Central configuration
 ├── scripts/
 │   └── memory.js             ← THE ONE SCRIPT (6 sub-commands)
-│   └── flush.ps1             ← DELETED (absorbed)
-│   └── consolidate-memory.*  ← DELETED (absorbed, pattern only kept)
-│   └── compact-memory.ps1    ← DELETED (absorbed)
-│   └── check-consistency.ps1 ← DELETED (absorbed)
-│   └── scan-project.ps1      ← DELETED (absorbed)
-│   └── search-logs.*         ← DELETED (absorbed)
-│   └── build-search-index.ps1← DELETED (absorbed)
+│   └── flush.ps1             ← DELETED 2026-05-08 (memory.js flush is the only entry)
+│   └── consolidate-memory.*  ← Archived 2026-05-08 (Dreaming owns scoring)
+│   └── compact-memory.ps1    ← Archived 2026-05-08 (absorbed into memory.js)
+│   └── check-consistency.ps1 ← Archived 2026-05-08 (absorbed into memory.js)
+│   └── scan-project.ps1      ← Archived 2026-05-08 (absorbed into memory.js)
+│   └── search-logs.*         ← Archived 2026-05-08 (absorbed into memory.js)
+│   └── build-search-index.ps1← Archived 2026-05-08 (absorbed into memory.js)
+│   └── node_modules/         ← better-sqlite3 (git-ignored)
+│   └── package.json          ← Dependencies
 ├── topics/
-│   ├── memory-system.md       ← Marked obsolete
-│   └── dream-integration.md  ← Marked obsolete
+│   ├── memory-system.md       ← ⚠️ OBSOLETE — content moved here
+│   └── dream-integration.md  ← ⚠️ OBSOLETE — content moved here
 ├── daily-logs/
 ├── state/
 ├── indexes/
 ├── archive/
-└── logs.db                   ← FTS5 search index (managed by memory.js search)
+│   └── scripts-2026-05-08/  ← Archived originals (git history preserved)
+└── logs.db                   ← FTS5 search index (better-sqlite3, git-ignored)
 
 hooks/
 └── memory-maintenance/
