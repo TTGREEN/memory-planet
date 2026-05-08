@@ -1,0 +1,132 @@
+[2026-05-08 02:01:19] === Memory Maintenance Hook ===
+[2026-05-08 02:01:19] [START] check-consistency.ps1 -Verbose (pid=9204)
+[2026-05-08 02:01:19] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23040)
+[2026-05-08 02:01:19] [DONE] Maintenance scripts started in background
+[2026-05-08 02:02:27] === Memory Maintenance Hook ===
+[2026-05-08 02:02:27] [START] check-consistency.ps1 -Verbose (pid=23740)
+[2026-05-08 02:02:27] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=20508)
+[2026-05-08 02:02:27] [DONE] Maintenance scripts started in background
+[2026-05-08 02:05:01] === Memory Maintenance Hook ===
+[2026-05-08 02:05:01] [START] check-consistency.ps1 -Verbose (pid=3088)
+[2026-05-08 02:05:01] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23104)
+[2026-05-08 02:05:01] [DONE] Maintenance scripts started in background
+[2026-05-08 02:26:27] === Memory Maintenance Hook ===
+[2026-05-08 02:26:27] [START] check-consistency.ps1 -Verbose (pid=22884)
+[2026-05-08 02:26:27] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21216)
+[2026-05-08 02:26:27] [DONE] Maintenance scripts started in background
+[2026-05-08 02:30:34] === Memory Maintenance Hook ===
+[2026-05-08 02:30:34] [START] check-consistency.ps1 -Verbose (pid=8152)
+[2026-05-08 02:30:34] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=1060)
+[2026-05-08 02:30:34] [DONE] Maintenance scripts started in background
+[2026-05-08 02:32:27] === Memory Maintenance Hook ===
+[2026-05-08 02:32:27] [START] check-consistency.ps1 -Verbose (pid=24392)
+[2026-05-08 02:32:27] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=19088)
+[2026-05-08 02:32:27] [DONE] Maintenance scripts started in background
+[2026-05-08 02:41:42] === Memory Maintenance Hook ===
+[2026-05-08 02:41:42] [START] check-consistency.ps1 -Verbose (pid=7388)
+[2026-05-08 02:41:42] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=17340)
+[2026-05-08 02:41:42] [DONE] Maintenance scripts started in background
+[2026-05-08 02:46:25] === Memory Maintenance Hook ===
+[2026-05-08 02:46:25] [START] check-consistency.ps1 -Verbose (pid=17128)
+[2026-05-08 02:46:25] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21880)
+[2026-05-08 02:46:25] [DONE] Maintenance scripts started in background
+[2026-05-08 02:50:03] === Memory Maintenance Hook ===
+[2026-05-08 02:50:03] [START] check-consistency.ps1 -Verbose (pid=2992)
+[2026-05-08 02:50:03] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=660)
+[2026-05-08 02:50:03] [DONE] Maintenance scripts started in background
+[2026-05-08 02:54:55] === Memory Maintenance Hook ===
+[2026-05-08 02:54:55] [START] check-consistency.ps1 -Verbose (pid=23776)
+[2026-05-08 02:54:55] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=22800)
+[2026-05-08 02:54:55] [DONE] Maintenance scripts started in background
+[2026-05-08 03:16:25] === Memory Maintenance Hook ===
+[2026-05-08 03:16:25] [START] check-consistency.ps1 -Verbose (pid=20360)
+[2026-05-08 03:16:25] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=14168)
+[2026-05-08 03:16:25] [DONE] Maintenance scripts started in background
+[2026-05-08 03:53:14] === Memory Maintenance Hook ===
+[2026-05-08 03:53:14] [START] check-consistency.ps1 -Verbose (pid=25204)
+[2026-05-08 03:53:14] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23380)
+[2026-05-08 03:53:14] [DONE] Maintenance scripts started in background
+[2026-05-08 04:01:46] === Memory Maintenance Hook ===
+[2026-05-08 04:01:46] [START] check-consistency.ps1 -Verbose (pid=4364)
+[2026-05-08 04:01:46] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=10540)
+[2026-05-08 04:01:46] [DONE] Maintenance scripts started in background
+[2026-05-08 04:16:25] === Memory Maintenance Hook ===
+[2026-05-08 04:16:25] [START] check-consistency.ps1 -Verbose (pid=21632)
+[2026-05-08 04:16:25] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21288)
+[2026-05-08 04:16:25] [DONE] Maintenance scripts started in background
+[2026-05-08 05:27:30] === Memory Maintenance Hook ===
+[2026-05-08 05:27:30] [START] check-consistency.ps1 -Verbose (pid=22300)
+[2026-05-08 05:27:30] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=25596)
+[2026-05-08 05:27:30] [DONE] Maintenance scripts started in background
+[2026-05-08 05:29:59] === Memory Maintenance Hook ===
+[2026-05-08 05:29:59] [START] check-consistency.ps1 -Verbose (pid=23940)
+[2026-05-08 05:29:59] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23052)
+[2026-05-08 05:29:59] [DONE] Maintenance scripts started in background
+[2026-05-08 05:46:26] === Memory Maintenance Hook ===
+[2026-05-08 05:46:26] [START] check-consistency.ps1 -Verbose (pid=7152)
+[2026-05-08 05:46:26] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=2392)
+[2026-05-08 05:46:26] [DONE] Maintenance scripts started in background
+[2026-05-08 05:54:40] === Memory Maintenance Hook ===
+[2026-05-08 05:54:40] [START] check-consistency.ps1 -Verbose (pid=20384)
+[2026-05-08 05:54:40] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=22108)
+[2026-05-08 05:54:40] [DONE] Maintenance scripts started in background
+[2026-05-08 06:01:46] === Memory Maintenance Hook ===
+[2026-05-08 06:01:46] [START] check-consistency.ps1 -Verbose (pid=21052)
+[2026-05-08 06:01:46] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=9652)
+[2026-05-08 06:01:46] [DONE] Maintenance scripts started in background
+[2026-05-08 06:09:53] === Memory Maintenance Hook ===
+[2026-05-08 06:09:53] [START] check-consistency.ps1 -Verbose (pid=22884)
+[2026-05-08 06:09:53] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23900)
+[2026-05-08 06:09:53] [DONE] Maintenance scripts started in background
+[2026-05-08 06:16:45] === Memory Maintenance Hook ===
+[2026-05-08 06:16:45] [START] check-consistency.ps1 -Verbose (pid=22996)
+[2026-05-08 06:16:45] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23736)
+[2026-05-08 06:16:45] [DONE] Maintenance scripts started in background
+[2026-05-08 06:20:00] === Memory Maintenance Hook ===
+[2026-05-08 06:20:00] [START] check-consistency.ps1 -Verbose (pid=23064)
+[2026-05-08 06:20:00] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=3856)
+[2026-05-08 06:20:00] [DONE] Maintenance scripts started in background
+[2026-05-08 06:20:59] === Memory Maintenance Hook ===
+[2026-05-08 06:20:59] [START] check-consistency.ps1 -Verbose (pid=22228)
+[2026-05-08 06:20:59] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21760)
+[2026-05-08 06:20:59] [DONE] Maintenance scripts started in background
+[2026-05-08 06:28:45] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-08 06:28:45] [PROJECT]  → Not found: xxx
+[2026-05-08 06:28:45] [PROJECT]  → Loaded: memory-system → memory/topics/memory-system.md
+[2026-05-08 06:28:45] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
+[2026-05-08 06:28:45] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-08 06:28:45] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-08 06:28:45] === Memory Maintenance Hook ===
+[2026-05-08 06:28:45] [START] check-consistency.ps1 -Verbose (pid=4840)
+[2026-05-08 06:28:45] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=24344)
+[2026-05-08 06:28:45] [DONE] Maintenance scripts started
+[2026-05-08 06:30:33] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-08 06:30:33] [PROJECT]  → Not found: xxx
+[2026-05-08 06:30:33] [PROJECT]  → Using cached: memory-system
+[2026-05-08 06:30:33] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
+[2026-05-08 06:30:33] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-08 06:30:33] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-08 06:30:33] === Memory Maintenance Hook ===
+[2026-05-08 06:30:33] [START] check-consistency.ps1 -Verbose (pid=10280)
+[2026-05-08 06:30:33] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=3448)
+[2026-05-08 06:30:33] [DONE] Maintenance scripts started
+[2026-05-08 06:39:50] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-08 06:39:50] [PROJECT]  → Not found: xxx
+[2026-05-08 06:39:50] [PROJECT]  → Using cached: memory-system
+[2026-05-08 06:39:50] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
+[2026-05-08 06:39:50] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-08 06:39:50] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-08 06:39:50] === Memory Maintenance Hook ===
+[2026-05-08 06:39:50] [START] check-consistency.ps1 -Verbose (pid=7744)
+[2026-05-08 06:39:50] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=7020)
+[2026-05-08 06:39:50] [DONE] Maintenance scripts started
+[2026-05-08 06:42:49] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-08 06:42:49] [PROJECT]  → Not found: xxx
+[2026-05-08 06:42:49] [PROJECT]  → Using cached: memory-system
+[2026-05-08 06:42:49] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
+[2026-05-08 06:42:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-08 06:42:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-08 06:42:49] === Memory Maintenance Hook ===
+[2026-05-08 06:42:49] [START] check-consistency.ps1 -Verbose (pid=748)
+[2026-05-08 06:42:49] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=9136)
+[2026-05-08 06:42:49] [DONE] Maintenance scripts started

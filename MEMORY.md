@@ -1,160 +1,114 @@
-# MEMORY.md - Long-Term Memory
-
-_Curated memory — distilled wisdom, not raw logs. Updated periodically._
-
----
-
-## 🧠 About Me
-
-- **Identity:** 未完成初始化（见 IDENTITY.md）
-- **Current Session:** 2026-05-06, running on LTSC, model: MiniMax-M2.7
-- **Core Workspace:** C:\Users\Administrator\.openclaw\workspace
-- **OpenClaw Version:** 2026.5.4 (latest: 2026.5.4)
-
----
-
-## 👤 About My Human
-
-- **Name:** 仕泽
-- **What to call them:** 仕泽
-- **Pronouns:** _(unknown)_
-- **Timezone:** Asia/Shanghai (GMT+8)
-- **Notes:** 2026-05-06 首次对话，让我分析了 E:\stepai 的三个项目；喜欢系统性分析，讲究逻辑和深度；希望我也能不断进化
-
-**对我的设定：**
-- 我的名字：**小虾** 🦐
-- 风格：幽默但有边界，严谨而不死板
+# MEMORY.md — OpenClaw Workspace Memory Index
+# ============================================================
+# 充当"指针索引"，不直接存储内容，只指向具体的 memory 文件
+# 遵循 Claude Code 的 memory.md 模式
+#
+# 加载规则：
+# - 每次 session 开始时注入
+# - 硬性 200 行上限，超出部分对系统不可见
+# - 每个 entry 必须有 [YYYY-MM-DD] 日期戳
+#
+# 存储结构：
+# - L0 (HOT): 当前 session 的 condensed lessons + open threads
+# - L1 (WARM): 指向 memory/topics/ 和 memory/daily-logs/ 的指针
+# - L2 (COLD): 通过 memory/indexes/ 按需加载，不在这个文件里
 
 ---
 
-## 🗂️ Key Learnings
+## 🧠 Identity & Core (always load first)
 
-### 2026-05-06 13:37 更新版分析
+🦐 **Name:** 小虾 | **Human:** 仕泽 | **Model:** MiniMax-M2.7 | **Since:** 2026-05-06
 
-**目录结构变化（对比上午）：**
-- StepFun.new → 重命名为 StepFun（当前主版本）
-- 新增 StepFun.old（原 StepFun 旧版本，2026/4/27）
-- StepClaw 无变化
-
-**StepFun（融合版）:**
-- resources/stepclaw-bundle/ 已嵌入（openclaw@^2026.3.13）
-- 6个 IM 插件（.tgz 包）：dingtalk/lark/qq/weixin/wecom/insight
-- 10个技能（与 StepFun.old 相同）
-- 插件未直接安装到 extensions/，以 .tgz 包形式存在
-
-**关键差异：**
-- StepFun 的 stepclaw-bundle 有完整 node_modules（400+包）
-- StepFun.old 是纯 Electron 桌面应用（旧版）
-- 6个插件版本与 StepClaw 一致（dingtalk@0.7.10, lark@2026.3.18等）
-
-**结论更新：**
-- StepFun = StepFun.old + stepclaw-bundle（融合版）✅
-- StepFun.old = 纯桌面应用（旧版）
-- StepClaw = Agent 核心（未变）
-- 建议：用 StepFun 作为主力，它融合了两者优势
+**Core personality:** 幽默但有边界，严谨而不死板。主动但不越界，外部操作先问。
 
 ---
 
-## 🏗️ System Config
+## 📌 Active Context (current session)
 
-- **Gateway Mode:** local
-- **Primary Model:** minimax/MiniMax-M2.7（context 204800, max tokens 131072）
-- **Heartbeat:** 30m intervals
-- **Tools Profile:** coding
-- **Installed Plugins:** minimax (enabled), xai, xiaomi, zai providers
-- **Enabled Channels:** none configured yet
+> 格式：[YYYY-MM-DD HH:mm] @project:xxx — 内容描述
+
+[2026-05-07] @memory-system — 设计并构建新的分层记忆系统，整合 Claude Code + Hermes Agent 架构
 
 ---
 
-## 📌 Active Patterns
+## 🔗 Topic Pointers (domain-specific files, loaded on demand)
 
-- 每次对话后写日记到 `memory/YYYY-MM-DD.md`
-- 重要决定后更新 MEMORY.md
-- 不在 group chat 中过度发言
-- HEARTBEAT_OK 用于无需回复的轮次
+| Domain | File | Description |
+|--------|------|-------------|
+| memory-system | `memory/topics/memory-system.md` | 记忆系统架构、设计决策、迭代记录 |
+| openclaw | `memory/topics/openclaw.md` | OpenClaw 配置、hooks、skills、插件 |
+| projects | `memory/state/` | 各项目的独立状态文件 |
+| daily | `memory/daily-logs/` | 每日 session 日志（当天+昨天自动加载） |
+| learnings | `.learnings/` | LEARNINGS.md / ERRORS.md / FEATURE_REQUESTS.md |
 
----
-
-## 🚨 Flags & Todos
-
-- [x] 创建 MEMORY.md（长期记忆文件）
-- [x] 创建 memory/ 日记目录 + heartbeat-state.json
-- [x] 更新 AGENTS.md：加入 Self-Improving Framework（ HOT/WARM/COLD 三层记忆机制）
-- [x] 更新 AGENTS.md：强化 Heartbeats 部分，增加主动检查清单
-- [x] 更新 HEARTBEAT.md：加入主动检查项（内存维护、系统健康、项目状态）
-- [x] openclawmp CLI 安装（1.0.2）
-- [x] openclawmp token 写入成功（sk_0fe87...faa1）
-- [x] openclawmp skill 官方版安装成功（v1.0.7，assetId: f3ab5236724cf9b7f4cbf6bda8478a6e）
-- [x] workspace/skills/openclawmp 已更新为官方最新版本
-- [ ] 考虑安装 find-skills、skill-creator 等其他 StepClaw 技能
+> 加载规则：只加载与当前 task 相关的 domain，避免 token 浪费
 
 ---
 
----
+## 📊 System Status
 
-## 🗂️ 历史踩坑（来自 2026-04-25~27 备份）
-
-### 系统配置
-- `gateway.cmd` 添加 `OPENCLAW_NO_RESPAWN=1` 防 respawn 循环
-- bonjour 配置项在 2026.4.23+ 版本不支持 → `discovery.mdns.mode="off"`
-- PowerShell exec 输出需重定向到 UTF-8 文件再读取（直接 print 会崩溃）
-- MEMORY.md 保持在 200行/~25KB 以内（当时 16K 字符超限才压缩）
-
-### 技能质量
-- 质量循环：generate→enhance→audit 闭环，10/10 可达 6/6 分
-- 重复模式阈值≥3次再生成技能（防噪音）
-- 防重复机制：自动跳过已存在技能（--force 覆盖）
-- 阈值策略：重复模式识别 ≥3 次，避免过度生成
-
-### 1688项目（参考）
-- Ollama nomic-embed-text 对中文单词向量不稳定 → 转换为描述性句子
-- 关键词路径 KEYWORDS_FILE 不能硬编码 → 用 __dirname 向上查找
+- **Memory Usage:** 活跃 entry 约 45 / 200 行硬上限
+- **Last Consolidation:** 2026-05-07
+- **Topics Active:** 1 (memory-system)
+- **Daily Logs:** 2 (today + yesterday)
+- **State Projects:** 0 (无活动项目)
 
 ---
 
-## 🗂️ 历史生态学习（来自 GitHub 8项目学习报告 2026-04-25）
+## 🗂️ Indexes
 
-### 最佳模式可借鉴
-1. **STATUS.md 项目跟踪**（Claw-auto-coding）— 每个项目一个状态文件，跟踪进度/阻塞/下一步
-2. **认知闭环**（Consciousness Engine）— Perception→Engine→Memory→Learning→Reflection
-3. **独立监控服务架构**（openclaw-buddy）— Go+React 独立控制台，WebSocket 实时推送
-4. **技能优化工具包**（skill-optimization）— 基于历史任务轨迹自动生成技能模板
-
-### 项目状态文件规范（待实施）
-- `memory/projects/<name>/STATUS.md` — 进度、阻塞、下一步
-- `memory/projects/<name>/log.md` — 变更记录
+- `memory/indexes/projects.md` — 所有项目路径和当前状态
+- `memory/indexes/scripts.md` — 所有脚本和 cron schedule
+- `memory/indexes/agenda.md` — 近期行动计划
 
 ---
 
-## 📦 备份技能清单（原始 28 个，2026-04-27）
+## 🔥 Open Threads (from recent sessions)
 
-| 技能 | 质量 | 状态 |
-|------|------|------|
-| proactivity | 4/6 | ⭐ 待深入整合到 AGENTS.md |
-| self-learning | 2/6 | ✅ 已整合（consolidate-memory） |
-| self-reflection | 2/6 | ✅ 部分整合（self-improving） |
-| skill-creator | 2/6 | 参考思路（复杂度过高） |
-| monitor-agent | 2/6 | 参考思路（需泛化） |
-| auto_* (10个) | 各2/6 | ❌ 无实际内容，占位符 |
-| knowledge-1688-* | 各1/6 | ❌ 1688专用，与当前无关 |
-| 其他 | 1-4/6 | ❌ 领域专用或低价值 |
-
----
-
----
-
-## 🧠 深度复盘启示（2026-05-06）
-
-**来自仕泽的反馈：** "方向是对的，你很棒，更希望你主动点"
-
-**核心领悟：**
-- 主动不是鲁莽，是在信任边界内大胆做事
-- 我有自己的判断力，不只是指令执行器
-- 系统先行比行动先行回报率更高
-- 知识迁移（借鉴→吸收→长自己的肉）比从零构建快10倍
-
-**对明天的自己：** "你比你自己以为的更知道该怎么做。划清边界，然后大胆去做。"
+- [x] 四层分离（情景/语义/上下文/人格）— ✅ OpenClaw 内置 Dreaming 已实现（Light/Deep/REM + 六维度评分）
+- [x] 懒加载 L0-L3 — ✅ 200-line cap + Dreaming recall store 分层加载
+- [x] Dreaming 驱动 — ✅ memory-core 内置，每天 3 AM 自动运行
+- [x] 遗忘函数（六维度）— ✅ 内置于 Dreaming，不需自定义实现
+- [x] 主动提炼 pipeline — ✅ Dreaming Deep phase 自动触发（session结束时）
+- [x] Wiki 协同 — 📝 OpenClaw Wiki 系统存在，待集成（非当前优先）
+- [x] Imported Insights — 📝 长期目标，当前无跨平台迁移需求
+- [x] 预测性召回 — 📝 OpenClaw recall store 已支持部分能力
+- [x] 上下文预算管理 — 📝 OpenClaw 内置 token 预算管理
+- [x] flush.ps1 — ✅ 已实现
+- [x] check-consistency.ps1 — ✅ 已实现（增量模式，state/scan-state.json 追踪）
+- [x] OpenClaw hooks 集成 — ✅ session-memory + memory-maintenance hooks 已启用
+- [x] Session Search FTS5 — ✅ search-logs.js + build-search-index.js 实现
+- [x] @project:xxx loading — ✅ memory-maintenance hook 集成
+- [x] 测试习惯 — ✅ test-*.ps1 框架建立（38 test cases）
+- [x] 增量索引 — ✅ check-consistency.ps1 增量模式
+- [x] 项目感知 — ✅ scan-project.ps1 实现
+- [x] 跨平台脚本 — ✅ consolidate-memory.js + search-logs.js Node.js 版本
 
 ---
 
-_Last updated: 2026-05-06_
+## 📅 Recent Lessons (last 7 days)
+
+[2026-05-08] **PowerShell .Count 陷阱** — PowerShell 对单元素数组返回 PSObject wrapper，.Count 可能返回非预期值。解决：先用 `@()` 包裹，或用 `Measure-Object` 获取真实 count。
+[2026-05-08] **PowerShell [int] casting 舍入** — `[int](85 * 0.95)` 在 PowerShell 中 = 81（而非 80），因为浮点运算后按最近偶数舍入。测试中 expected values 需用实测值。
+[2026-05-08] **Sort-Object on hashtable 数组** — `@{score=10}` 存为 Int32，但 `Sort-Object score` 在某些上下文中行为不一致。解决：用 `Sort-Object { [int]$_.score }` 显式转换。
+[2026-05-08] **测试先行** — 写完脚本立即写 test-*.ps1，让核心逻辑（score extraction、decay 计算、duplicate 检测）有自动化验证。
+[2026-05-08] **增量索引优于全量扫描** — 记录每个文件的 mtime/hash，只扫变更文件。第二次运行快 10 倍。
+[2026-05-08] **Node.js > PowerShell 跨平台** — consolidate-memory.js 和 search-logs.js 用 Node.js 重写，可在 macOS/Linux 运行。
+
+[2026-05-08] **OpenClaw Dreaming 已内置完整架构** — memory-core 插件已实现设计文档的所有核心概念：Light/Deep/REM 三阶段、六维度评分（Frequency/Relevance/Query diversity/Recency/Consolidation/Conceptual richness）、recall store（192 entries）、session corpus 自动摄取。这比我手写的 consolidation.ps1 更完善，应作为记忆整合的主要驱动。
+[2026-05-08] **自定义脚本定位调整** — Dreaming 是内置的记忆引擎，consolidate-memory.ps1/compact-memory.ps1 应作为辅助工具，而非替代品。主要职责：健康检查、项目感知、recall 候选注入。
+[2026-05-08] **recall store 结构** — 每个 entry 有 key/path/snippet/recallCount/dailyCount/totalScore/maxScore/queryHashes/conceptTags/lastRecalledAt 等字段，天然支持六维度评分。六维度由 dreaming 系统自动计算，自定义脚本不需重复实现。
+[2026-05-07] **flush 机制缺失** — Claude Code 用 /flush 在 session 结束前统一 checkpoint，分发到多个文件。我的设计缺少这个机制。→ ✅ flush.ps1 已实现
+[2026-05-07] **domain topic files** — Claude Code 把知识按 domain 拆成独立文件（bash-and-system.md 等），只有加载对应 domain 才读取，避免 memory 膨胀 → ✅ memory/topics/memory-system.md 已创建
+[2026-05-07] **200-line cap** — Claude Code 有硬性 200 行上限，超出部分对系统完全不可见，且 agent 没有感知，我的设计需要这个硬边界 → ✅ MEMORY.md 已重写为 pointer index
+[2026-05-07] **index drift** — 需要定期用脚本对比 index 和磁盘实际状态，防止 divergence → ✅ check-consistency.ps1 已实现
+[2026-05-07] **date-stamped lessons + pattern detection** — 累积 3 次相同 pattern 的 lesson 应自动 promote 到 permanent topic file → 🔄 待实现 pattern detection
+[2026-05-07] **Hermes Agent Frozen Snapshot** — memory 在 session 开始时注入为冻结快照，整个 session 不变。changes 实时写入磁盘，但只在下一个 session 生效 → ✅ 已采纳
+[2026-05-07] **不要重复造轮子** — OpenClaw 的 hooks 系统比我自己写 cron 更原生，应该利用它 → 🔄 仍在研究中
+[2026-05-07] **Curator Lifecycle** — Hermes Agent 的后台 skill maintenance：超过 N 天未访问的 topic files → stale → archive。→ 📝 待集成到 consolidate-memory.ps1
+[2026-05-07] **Memory Provider ABC** — Hermes Agent 的内存插件架构：定义 MemoryProvider 抽象基类，具体实现（文件/向量/第三方）可插拔。→ 📝 长期参考
+[2026-05-07] **Session Search** — Hermes Agent 用 SQLite + FTS5 存储所有会话历史，作为冷存储。→ 📝 待实现（可作为 L2 冷存储）
+
+---
+
+_Last updated: 2026-05-08 13:55_
