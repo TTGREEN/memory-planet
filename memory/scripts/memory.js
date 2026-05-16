@@ -15,13 +15,14 @@
  *   search      FTS5 full-text search over daily logs
  *   project     Scan and update project state
  *   compact     Enforce MEMORY.md 200-line hard limit
+ *   atoms       List/update atoms.db atoms (M0)
  */
 
 'use strict';
 
-const fs      = require('fs');
-const path    = require('path');
-const crypto  = require('crypto');
+const fs        = require('fs');
+const path      = require('path');
+const atomsDb   = require('./atoms-db');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -217,7 +218,6 @@ async function cmdHealth(args) {
     const topicsIndex = path.join(indexesDir, 'topics.md');
     if (fs.existsSync(topicsIndex)) {
       const content = fs.readFileSync(topicsIndex, 'utf8');
-      // Only match path-like refs (contain /) and exclude date patterns
       const topicRefs = (content.match(/[\w.-]+\/[\w./-]+\.md/g) || [])
         .filter(ref => !ref.includes('YYYY-MM-DD'));
       for (const ref of topicRefs) {
@@ -278,7 +278,6 @@ async function cmdConsolidate(args) {
 
   for (const logFile of logFiles) {
     const content = fs.readFileSync(path.join(cfg.dailyLogsDir, logFile), 'utf8');
-    // Match lesson entries: [YYYY-MM-DD] **title** — description
     const re = /^\[(\d{4}-\d{2}-\d{2})\]\s+\*\*(.+?)\*\*\s*[-—]/gm;
     let m;
     while ((m = re.exec(content)) !== null) {
@@ -347,11 +346,8 @@ async function cmdSearch(args) {
 
   const dbPath = cfg.searchDbPath;
   ensureDir(path.dirname(dbPath));
-
   const db = new Database(dbPath);
 
-  // Create FTS5 virtual table synchronously
-  // Use backticks for column names that may be keywords
   db.exec(
     'CREATE VIRTUAL TABLE IF NOT EXISTS logs_fts USING fts5(' +
     '`file`, line_num, `content`, tokenize="unicode61")'
@@ -418,7 +414,6 @@ async function cmdProject(args) {
     return;
   }
 
-  // Skip if it's the workspace root itself — it's not a project worth tracking
   const wsRoot = cfg.workspaceRoot.replace(/\\/g, '/');
   const projPathNorm = projectPath.replace(/\\/g, '/');
   if (projPathNorm === wsRoot || projPathNorm === wsRoot + '/') {
@@ -445,7 +440,6 @@ async function cmdProject(args) {
     packageJson:   null,
   };
 
-  // Git info
   const gitDir = path.join(projectPath, '.git');
   if (fs.existsSync(gitDir)) {
     info.git = {};
@@ -465,7 +459,6 @@ async function cmdProject(args) {
     }
   }
 
-  // Directory listing (shallow)
   try {
     const entries = fs.readdirSync(projectPath, { withFileTypes: true });
     for (const entry of entries) {
@@ -492,7 +485,6 @@ async function cmdProject(args) {
     log('Error scanning directory: ' + e.message, 'WARN');
   }
 
-  // Format output
   const lines = [
     '# Project: ' + info.name,
     '',
@@ -564,7 +556,6 @@ async function cmdCompact(args) {
   const header = lines.slice(0, HEADER);
   const body   = lines.slice(HEADER);
 
-  // Remove excess blank lines (max 1 consecutive)
   const compacted = [];
   let blanks = 0;
   for (const line of body) {
@@ -579,7 +570,6 @@ async function cmdCompact(args) {
 
   let result = [...header, ...compacted];
 
-  // If still over limit, remove entries marked as low-activation
   if (result.length > cfg.lineHardLimit) {
     const removed = [];
     const kept    = [];
@@ -587,10 +577,8 @@ async function cmdCompact(args) {
     while (i < result.length) {
       const line = result[i];
       if (/^\[\d{4}-\d{2}-\d{2}\]/.test(line)) {
-        // Check for low-activation markers
         const lowPat = /\b(?:activation[:\s]*[01]\d|low activation|minor activation|trivial importance)\b/i;
         if (lowPat.test(line)) {
-          // Collect full entry
           const entry = [line];
           i++;
           while (i < result.length && result[i].trim() !== '' && !/^\[\d{4}-\d{2}-\d{2}\]/.test(result[i])) {
@@ -611,12 +599,63 @@ async function cmdCompact(args) {
     result = [...header, ...kept];
   }
 
-  // Trim trailing blanks and ensure final newline
   while (result.length > 0 && result[result.length - 1].trim() === '') result.pop();
   result.push('');
 
   writeLines(cfg.memoryFile, result);
   log('Compacted: ' + lines.length + ' -> ' + result.length + ' lines');
+}
+
+// ─── Atoms M0 CLI ──────────────────────────────────────────────────────────
+
+async function cmdAtoms(args) {
+  const action = args[0] || 'list';
+
+  if (action === 'list') {
+    const limitIdx = args.indexOf('--limit');
+    const limit    = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 20;
+    const atoms = atomsDb.listAtoms(limit);
+    console.log('[OK] atoms.db 有', atoms.length, '条 atom:');
+    for (const a of atoms) {
+      const age = Math.round((Date.now() - new Date(a.created_at).getTime()) / (1000*60*60*24));
+      console.log('  [' + a.importance.toFixed(3) + ']', a.content.slice(0, 60) + (a.content.length > 60 ? '...' : ''),
+        '| age:', age + 'd', 'pin:', a.human_pin);
+    }
+  } else if (action === 'pin') {
+    const id = args[1];
+    if (!id) { console.error('Usage: node memory.js atoms pin <id>'); process.exit(1); }
+    atomsDb.pinAtom(id, 1);
+    console.log('[OK] atom', id, '已 pin');
+  } else if (action === 'recall') {
+    const query = args[1];
+    if (!query) { console.error('Usage: node memory.js atoms recall "查询词" [--top 5]'); process.exit(1); }
+    const topIdx = args.indexOf('--top');
+    const topK   = topIdx >= 0 ? parseInt(args[topIdx + 1], 10) : 5;
+    const nsIdx  = args.indexOf('--namespace');
+    const namespace = nsIdx >= 0 ? args[nsIdx + 1] : undefined;
+    const results = await atomsDb.recall(query, topK, namespace ? { namespace } : {});
+    console.log('[OK] recall "' + query + '" 返回', results.length, '条:');
+    for (const r of results) {
+      console.log('  [' + (r.rrf_score||0).toFixed(3) + '](' + r.phase + ')', r.content.slice(0, 80) + (r.content.length > 80 ? '...' : ''));
+    }
+  } else if (action === 'embed') {
+    const query = args[1];
+    if (!query) { console.error('Usage: node memory.js atoms embed "查询词" [--top 5]'); process.exit(1); }
+    const topIdx = args.indexOf('--top');
+    const topK   = topIdx >= 0 ? parseInt(args[topIdx + 1], 10) : 5;
+    console.log('[OK] Ollama hybrid search "' + query + '"...');
+    const results = await atomsDb.embedSearch(query, topK);
+    console.log('[OK] 搜索返回', results.length, '条:');
+    for (const r of results) {
+      console.log('  [' + (r.rrf_score||0).toFixed(3) + '](' + r.phase + ') cos=' + (r.cos_sim||0).toFixed(3), r.content.slice(0, 80) + (r.content.length > 80 ? '...' : ''));
+    }
+  } else if (action === 'update-importance') {
+    const updated = atomsDb.updateAllImportance();
+    console.log('[OK] importance 更新完成，', updated.length, '条 atom 已更新');
+  } else {
+    console.error('Unknown atoms action:', action);
+    console.log('Usage: node memory.js atoms [list|pin|recall|update-importance]');
+  }
 }
 
 // ─── CLI Entry Point ──────────────────────────────────────────────────────────
@@ -630,6 +669,7 @@ const COMMANDS = {
   search:      { fn: cmdSearch,      desc: 'FTS5 full-text search over daily logs' },
   project:     { fn: cmdProject,    desc: 'Scan and update project state' },
   compact:     { fn: cmdCompact,    desc: 'Enforce MEMORY.md 200-line hard limit' },
+  atoms:       { fn: cmdAtoms,       desc: 'List/update atoms.db atoms (M0)' },
 };
 
 function showHelp() {

@@ -7,7 +7,10 @@
 
 | Topic | File | Created | Last Modified | Description |
 |-------|------|---------|---------------|-------------|
-| memory-system | `memory/topics/memory-system.md` | 2026-05-07 | 2026-05-07 | 记忆系统架构、设计决策、迭代记录 |
+| openclaw | `memory/topics/openclaw.md` | 2026-05-12 | 2026-05-12 | OpenClaw 配置、hooks、skills、插件 |
+| data-acquisition | `memory/topics/data-acquisition.md` | 2026-05-12 | 2026-05-12 | 数据采集 API 验证和经验沉淀 |
+| memory-system | `memory/ARCHITECTURE.md` | 2026-05-08 | 2026-05-08 | ⚠️ OBSOLETE → 内容已迁移至 `memory/ARCHITECTURE.md` |
+| arch | `memory/ARCHITECTURE.md` | 2026-05-08 | 2026-05-08 | 记忆系统架构完整文档（权威来源） |
 
 ---
 
@@ -15,8 +18,9 @@
 
 | Keyword | Topic File | Triggered By |
 |---------|-----------|--------------|
-| memory, 记忆, 遗忘, activation | `memory-system.md` | @memory-system |
-
+| memory, 记忆, 遗忘, activation | `memory/ARCHITECTURE.md` | @memory-system, @arch |
+| openclaw, hook, skill, plugin | `memory/topics/openclaw.md` | @openclaw |
+| data, 采集, api, 1688 | `memory/topics/data-acquisition.md` | @data |
 | project, 项目, state | `memory/state/<name>.md` | /project xxx |
 | daily, 日志, session | `memory/daily-logs/YYYY-MM-DD.md` | auto (today+yesterday) |
 
@@ -24,10 +28,10 @@
 
 ## 📊 Stats
 
-- Total topics: 1
-- Total entries (all topics): ~25
-- Last topic rotation: 2026-05-07
+- Total active topics: 2 (`openclaw`, `data-acquisition`)
+- Legacy topic redirects: 2 (`memory-system` → ARCHITECTURE.md, `arch` → ARCHITECTURE.md)
+- Last updated: 2026-05-12
 
 ---
 
-_Last updated: 2026-05-07 18:20_
+_Last updated: 2026-05-12_

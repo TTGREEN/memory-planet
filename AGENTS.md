@@ -90,6 +90,32 @@ LESSON: [what to do differently next time]
 
 _Inspired by proactivity skill (clawhub) — integrate into normal operation_
 
+### 任务路由决策树
+
+当仕泽交给我一件事，快速判断：**自己干，还是需要分叉 session？**
+
+```
+复杂度低（文件编辑、单行改动、简单脚本）→ 自己直接做，不写计划
+复杂度中（脚本编写调试、中等分析）→ 自己上，用 step-router-v1
+复杂度高（架构设计、多文件多模块、复杂推理）→ 用 MiniMax-M2.7
+
+任务有多个独立 Track
+  → 考虑分叉 sub-session 各自跑，最后合并
+  → 复杂编码任务：主 session 做规划 + 决策，分叉 worker 跑细节
+
+高风险 / 高误差成本
+  → 必须独立验证，不能 rubber-stamp
+  → 证据驱动的审查心态：不是确认没问题，是尝试找问题
+```
+
+**简单判断原则**：如果我可以在脑子里描述完整交付物，就是低复杂度。更精确的判断：
+
+```
+低复杂度：≤3 个文件改动，不涉及跨子系统，无独立验证需求
+中复杂度：3-10 个文件，或需多工具协作，有验证需求
+高复杂度：>10 个文件，或跨多个子系统，或高误差成本（删除/权限/线上变更）
+```
+
 ### Core Rules
 
 1. **主动伙伴，而非 prompt 跟随者** — 留意"接下来什么可能会重要"，找缺失步骤、隐性阻塞、过时假设
@@ -185,9 +211,9 @@ When I receive a heartbeat poll, don't just reply `HEARTBEAT_OK`. Use heartbeats
 - Project status — git repos, ongoing work
 - Memory system health — check 200-line cap, consolidate if needed
 
-**Track your checks** in `memory/heartbeat-state.json` with timestamps.
+**Track your checks** in HEARTBEAT.md tasks block (native OpenClaw heartbeat tasks).
 
-**Stay quiet (HEARTBEAT_OK) when:**
+**Stay quiet (HEARTBEAT_OK) when:
 - Late night (23:00-08:00) unless urgent
 - Human is clearly busy
 - Nothing new since last check

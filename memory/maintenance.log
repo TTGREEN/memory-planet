@@ -1,492 +1,2058 @@
-[2026-05-08 02:01:19] === Memory Maintenance Hook ===
-[2026-05-08 02:01:19] [START] check-consistency.ps1 -Verbose (pid=9204)
-[2026-05-08 02:01:19] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23040)
-[2026-05-08 02:01:19] [DONE] Maintenance scripts started in background
-[2026-05-08 02:02:27] === Memory Maintenance Hook ===
-[2026-05-08 02:02:27] [START] check-consistency.ps1 -Verbose (pid=23740)
-[2026-05-08 02:02:27] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=20508)
-[2026-05-08 02:02:27] [DONE] Maintenance scripts started in background
-[2026-05-08 02:05:01] === Memory Maintenance Hook ===
-[2026-05-08 02:05:01] [START] check-consistency.ps1 -Verbose (pid=3088)
-[2026-05-08 02:05:01] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23104)
-[2026-05-08 02:05:01] [DONE] Maintenance scripts started in background
-[2026-05-08 02:26:27] === Memory Maintenance Hook ===
-[2026-05-08 02:26:27] [START] check-consistency.ps1 -Verbose (pid=22884)
-[2026-05-08 02:26:27] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21216)
-[2026-05-08 02:26:27] [DONE] Maintenance scripts started in background
-[2026-05-08 02:30:34] === Memory Maintenance Hook ===
-[2026-05-08 02:30:34] [START] check-consistency.ps1 -Verbose (pid=8152)
-[2026-05-08 02:30:34] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=1060)
-[2026-05-08 02:30:34] [DONE] Maintenance scripts started in background
-[2026-05-08 02:32:27] === Memory Maintenance Hook ===
-[2026-05-08 02:32:27] [START] check-consistency.ps1 -Verbose (pid=24392)
-[2026-05-08 02:32:27] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=19088)
-[2026-05-08 02:32:27] [DONE] Maintenance scripts started in background
-[2026-05-08 02:41:42] === Memory Maintenance Hook ===
-[2026-05-08 02:41:42] [START] check-consistency.ps1 -Verbose (pid=7388)
-[2026-05-08 02:41:42] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=17340)
-[2026-05-08 02:41:42] [DONE] Maintenance scripts started in background
-[2026-05-08 02:46:25] === Memory Maintenance Hook ===
-[2026-05-08 02:46:25] [START] check-consistency.ps1 -Verbose (pid=17128)
-[2026-05-08 02:46:25] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21880)
-[2026-05-08 02:46:25] [DONE] Maintenance scripts started in background
-[2026-05-08 02:50:03] === Memory Maintenance Hook ===
-[2026-05-08 02:50:03] [START] check-consistency.ps1 -Verbose (pid=2992)
-[2026-05-08 02:50:03] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=660)
-[2026-05-08 02:50:03] [DONE] Maintenance scripts started in background
-[2026-05-08 02:54:55] === Memory Maintenance Hook ===
-[2026-05-08 02:54:55] [START] check-consistency.ps1 -Verbose (pid=23776)
-[2026-05-08 02:54:55] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=22800)
-[2026-05-08 02:54:55] [DONE] Maintenance scripts started in background
-[2026-05-08 03:16:25] === Memory Maintenance Hook ===
-[2026-05-08 03:16:25] [START] check-consistency.ps1 -Verbose (pid=20360)
-[2026-05-08 03:16:25] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=14168)
-[2026-05-08 03:16:25] [DONE] Maintenance scripts started in background
-[2026-05-08 03:53:14] === Memory Maintenance Hook ===
-[2026-05-08 03:53:14] [START] check-consistency.ps1 -Verbose (pid=25204)
-[2026-05-08 03:53:14] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23380)
-[2026-05-08 03:53:14] [DONE] Maintenance scripts started in background
-[2026-05-08 04:01:46] === Memory Maintenance Hook ===
-[2026-05-08 04:01:46] [START] check-consistency.ps1 -Verbose (pid=4364)
-[2026-05-08 04:01:46] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=10540)
-[2026-05-08 04:01:46] [DONE] Maintenance scripts started in background
-[2026-05-08 04:16:25] === Memory Maintenance Hook ===
-[2026-05-08 04:16:25] [START] check-consistency.ps1 -Verbose (pid=21632)
-[2026-05-08 04:16:25] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21288)
-[2026-05-08 04:16:25] [DONE] Maintenance scripts started in background
-[2026-05-08 05:27:30] === Memory Maintenance Hook ===
-[2026-05-08 05:27:30] [START] check-consistency.ps1 -Verbose (pid=22300)
-[2026-05-08 05:27:30] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=25596)
-[2026-05-08 05:27:30] [DONE] Maintenance scripts started in background
-[2026-05-08 05:29:59] === Memory Maintenance Hook ===
-[2026-05-08 05:29:59] [START] check-consistency.ps1 -Verbose (pid=23940)
-[2026-05-08 05:29:59] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23052)
-[2026-05-08 05:29:59] [DONE] Maintenance scripts started in background
-[2026-05-08 05:46:26] === Memory Maintenance Hook ===
-[2026-05-08 05:46:26] [START] check-consistency.ps1 -Verbose (pid=7152)
-[2026-05-08 05:46:26] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=2392)
-[2026-05-08 05:46:26] [DONE] Maintenance scripts started in background
-[2026-05-08 05:54:40] === Memory Maintenance Hook ===
-[2026-05-08 05:54:40] [START] check-consistency.ps1 -Verbose (pid=20384)
-[2026-05-08 05:54:40] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=22108)
-[2026-05-08 05:54:40] [DONE] Maintenance scripts started in background
-[2026-05-08 06:01:46] === Memory Maintenance Hook ===
-[2026-05-08 06:01:46] [START] check-consistency.ps1 -Verbose (pid=21052)
-[2026-05-08 06:01:46] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=9652)
-[2026-05-08 06:01:46] [DONE] Maintenance scripts started in background
-[2026-05-08 06:09:53] === Memory Maintenance Hook ===
-[2026-05-08 06:09:53] [START] check-consistency.ps1 -Verbose (pid=22884)
-[2026-05-08 06:09:53] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23900)
-[2026-05-08 06:09:53] [DONE] Maintenance scripts started in background
-[2026-05-08 06:16:45] === Memory Maintenance Hook ===
-[2026-05-08 06:16:45] [START] check-consistency.ps1 -Verbose (pid=22996)
-[2026-05-08 06:16:45] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23736)
-[2026-05-08 06:16:45] [DONE] Maintenance scripts started in background
-[2026-05-08 06:20:00] === Memory Maintenance Hook ===
-[2026-05-08 06:20:00] [START] check-consistency.ps1 -Verbose (pid=23064)
-[2026-05-08 06:20:00] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=3856)
-[2026-05-08 06:20:00] [DONE] Maintenance scripts started in background
-[2026-05-08 06:20:59] === Memory Maintenance Hook ===
-[2026-05-08 06:20:59] [START] check-consistency.ps1 -Verbose (pid=22228)
-[2026-05-08 06:20:59] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=21760)
-[2026-05-08 06:20:59] [DONE] Maintenance scripts started in background
-[2026-05-08 06:28:45] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 06:28:45] [PROJECT]  → Not found: xxx
-[2026-05-08 06:28:45] [PROJECT]  → Loaded: memory-system → memory/topics/memory-system.md
-[2026-05-08 06:28:45] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 06:28:45] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 06:28:45] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 06:28:45] === Memory Maintenance Hook ===
-[2026-05-08 06:28:45] [START] check-consistency.ps1 -Verbose (pid=4840)
-[2026-05-08 06:28:45] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=24344)
-[2026-05-08 06:28:45] [DONE] Maintenance scripts started
-[2026-05-08 06:30:33] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 06:30:33] [PROJECT]  → Not found: xxx
-[2026-05-08 06:30:33] [PROJECT]  → Using cached: memory-system
-[2026-05-08 06:30:33] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 06:30:33] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 06:30:33] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 06:30:33] === Memory Maintenance Hook ===
-[2026-05-08 06:30:33] [START] check-consistency.ps1 -Verbose (pid=10280)
-[2026-05-08 06:30:33] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=3448)
-[2026-05-08 06:30:33] [DONE] Maintenance scripts started
-[2026-05-08 06:39:50] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 06:39:50] [PROJECT]  → Not found: xxx
-[2026-05-08 06:39:50] [PROJECT]  → Using cached: memory-system
-[2026-05-08 06:39:50] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 06:39:50] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 06:39:50] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 06:39:50] === Memory Maintenance Hook ===
-[2026-05-08 06:39:50] [START] check-consistency.ps1 -Verbose (pid=7744)
-[2026-05-08 06:39:50] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=7020)
-[2026-05-08 06:39:50] [DONE] Maintenance scripts started
-[2026-05-08 06:42:49] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 06:42:49] [PROJECT]  → Not found: xxx
-[2026-05-08 06:42:49] [PROJECT]  → Using cached: memory-system
-[2026-05-08 06:42:49] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 06:42:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 06:42:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 06:42:49] === Memory Maintenance Hook ===
-[2026-05-08 06:42:49] [START] check-consistency.ps1 -Verbose (pid=748)
-[2026-05-08 06:42:49] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=9136)
-[2026-05-08 06:42:49] [DONE] Maintenance scripts started
-[2026-05-08 06:49:10] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 06:49:10] [PROJECT]  → Not found: xxx
-[2026-05-08 06:49:10] [PROJECT]  → Using cached: memory-system
-[2026-05-08 06:49:10] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 06:49:10] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 06:49:10] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 06:49:10] === Memory Maintenance Hook ===
-[2026-05-08 06:49:10] [START] check-consistency.ps1 -Verbose (pid=11856)
-[2026-05-08 06:49:10] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=2736)
-[2026-05-08 06:49:10] [DONE] Maintenance scripts started
-[2026-05-08 07:10:45] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 07:10:45] [PROJECT]  → Not found: xxx
-[2026-05-08 07:10:45] [PROJECT]  → Using cached: memory-system
-[2026-05-08 07:10:45] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 07:10:45] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 07:10:45] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 07:10:45] === Memory Maintenance Hook ===
-[2026-05-08 07:10:45] [START] check-consistency.ps1 -Verbose (pid=18272)
-[2026-05-08 07:10:45] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=300)
-[2026-05-08 07:10:45] [DONE] Maintenance scripts started
-[2026-05-08 07:11:57] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 07:11:57] [PROJECT]  → Not found: xxx
-[2026-05-08 07:11:57] [PROJECT]  → Using cached: memory-system
-[2026-05-08 07:11:57] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 07:11:57] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 07:11:57] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 07:11:57] === Memory Maintenance Hook ===
-[2026-05-08 07:11:57] [START] check-consistency.ps1 -Verbose (pid=6568)
-[2026-05-08 07:11:57] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=23140)
-[2026-05-08 07:11:57] [DONE] Maintenance scripts started
-[2026-05-08 07:16:26] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 07:16:26] [PROJECT]  → Not found: xxx
-[2026-05-08 07:16:26] [PROJECT]  → Using cached: memory-system
-[2026-05-08 07:16:26] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 07:16:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 07:16:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 07:16:26] === Memory Maintenance Hook ===
-[2026-05-08 07:16:26] [START] check-consistency.ps1 -Verbose (pid=7804)
-[2026-05-08 07:16:26] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=5032)
-[2026-05-08 07:16:26] [DONE] Maintenance scripts started
-[2026-05-08 07:47:23] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 07:47:23] [PROJECT]  → Not found: xxx
-[2026-05-08 07:47:23] [PROJECT]  → Using cached: memory-system
-[2026-05-08 07:47:23] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 07:47:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 07:47:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 07:47:23] === Memory Maintenance Hook ===
-[2026-05-08 07:47:23] [START] check-consistency.ps1 -Verbose (pid=18552)
-[2026-05-08 07:47:23] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=13708)
-[2026-05-08 07:47:23] [DONE] Maintenance scripts started
-[2026-05-08 08:16:26] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:16:26] [PROJECT]  → Not found: xxx
-[2026-05-08 08:16:26] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:16:26] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:16:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:16:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:16:26] === Memory Maintenance Hook ===
-[2026-05-08 08:16:26] [START] check-consistency.ps1 -Verbose (pid=17392)
-[2026-05-08 08:16:26] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=3876)
-[2026-05-08 08:16:26] [DONE] Maintenance scripts started
-[2026-05-08 08:21:22] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:21:22] [PROJECT]  → Not found: xxx
-[2026-05-08 08:21:22] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:21:22] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:21:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:21:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:21:22] === Memory Maintenance Hook ===
-[2026-05-08 08:21:22] [START] check-consistency.ps1 -Verbose (pid=1988)
-[2026-05-08 08:21:22] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=4000)
-[2026-05-08 08:21:22] [DONE] Maintenance scripts started
-[2026-05-08 08:24:59] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:24:59] [PROJECT]  → Not found: xxx
-[2026-05-08 08:24:59] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:24:59] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:24:59] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:24:59] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:24:59] === Memory Maintenance Hook ===
-[2026-05-08 08:24:59] [START] check-consistency.ps1 -Verbose (pid=16896)
-[2026-05-08 08:24:59] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=20560)
-[2026-05-08 08:24:59] [DONE] Maintenance scripts started
-[2026-05-08 08:34:16] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:34:16] [PROJECT]  → Not found: xxx
-[2026-05-08 08:34:16] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:34:16] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:34:16] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:34:16] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:34:16] === Memory Maintenance Hook ===
-[2026-05-08 08:34:16] [START] check-consistency.ps1 -Verbose (pid=17920)
-[2026-05-08 08:34:16] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=20912)
-[2026-05-08 08:34:16] [DONE] Maintenance scripts started
-[2026-05-08 08:35:05] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:35:05] [PROJECT]  → Not found: xxx
-[2026-05-08 08:35:05] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:35:05] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:35:05] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:35:05] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:35:05] === Memory Maintenance Hook ===
-[2026-05-08 08:35:05] [START] check-consistency.ps1 -Verbose (pid=21352)
-[2026-05-08 08:35:05] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=24692)
-[2026-05-08 08:35:05] [DONE] Maintenance scripts started
-[2026-05-08 08:36:00] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:36:00] [PROJECT]  → Not found: xxx
-[2026-05-08 08:36:00] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:36:00] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:36:00] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:36:00] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:36:00] === Memory Maintenance Hook ===
-[2026-05-08 08:36:00] [START] check-consistency.ps1 -Verbose (pid=3856)
-[2026-05-08 08:36:00] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=20512)
-[2026-05-08 08:36:00] [DONE] Maintenance scripts started
-[2026-05-08 08:37:48] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:37:48] [PROJECT]  → Not found: xxx
-[2026-05-08 08:37:48] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:37:48] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:37:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:37:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:37:48] === Memory Maintenance Hook ===
-[2026-05-08 08:37:48] [START] check-consistency.ps1 -Verbose (pid=18692)
-[2026-05-08 08:37:48] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=24992)
-[2026-05-08 08:37:48] [DONE] Maintenance scripts started
-[2026-05-08 08:54:43] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:54:43] [PROJECT]  → Not found: xxx
-[2026-05-08 08:54:43] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:54:43] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:54:43] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:54:43] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:54:43] === Memory Maintenance Hook ===
-[2026-05-08 08:54:43] [START] check-consistency.ps1 -Verbose (pid=18280)
-[2026-05-08 08:54:43] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=17076)
-[2026-05-08 08:54:43] [DONE] Maintenance scripts started
-[2026-05-08 08:56:21] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:56:21] [PROJECT]  → Not found: xxx
-[2026-05-08 08:56:21] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:56:21] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:56:21] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:56:21] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:56:21] === Memory Maintenance Hook ===
-[2026-05-08 08:56:21] [START] check-consistency.ps1 -Verbose (pid=25464)
-[2026-05-08 08:56:21] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=8512)
-[2026-05-08 08:56:21] [DONE] Maintenance scripts started
-[2026-05-08 08:59:42] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 08:59:42] [PROJECT]  → Not found: xxx
-[2026-05-08 08:59:42] [PROJECT]  → Using cached: memory-system
-[2026-05-08 08:59:42] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 08:59:42] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 08:59:42] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 08:59:42] === Memory Maintenance Hook ===
-[2026-05-08 08:59:42] [START] check-consistency.ps1 -Verbose (pid=19816)
-[2026-05-08 08:59:42] [START] consolidate-memory.ps1 -DryRun -Verbose (pid=2044)
-[2026-05-08 08:59:42] [DONE] Maintenance scripts started
-[2026-05-08 09:09:13] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 09:09:13] [PROJECT]  → Not found: xxx
-[2026-05-08 09:09:13] [PROJECT]  → Using cached: memory-system
-[2026-05-08 09:09:13] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 09:09:13] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 09:09:13] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 09:09:13] === Memory Maintenance Hook ===
-[2026-05-08 09:09:13] [SKIP] check-consistency.ps1 not found
-[2026-05-08 09:09:13] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 09:09:13] [DONE] Maintenance scripts started
-[2026-05-08 09:24:42] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 09:24:42] [PROJECT]  → Not found: xxx
-[2026-05-08 09:24:42] [PROJECT]  → Using cached: memory-system
-[2026-05-08 09:24:42] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 09:24:42] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 09:24:42] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 09:24:42] === Memory Maintenance Hook ===
-[2026-05-08 09:24:42] [SKIP] check-consistency.ps1 not found
-[2026-05-08 09:24:42] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 09:24:42] [DONE] Maintenance scripts started
-[2026-05-08 09:31:37] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 09:31:37] [PROJECT]  → Not found: xxx
-[2026-05-08 09:31:37] [PROJECT]  → Using cached: memory-system
-[2026-05-08 09:31:37] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 09:31:37] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 09:31:37] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 09:31:37] === Memory Maintenance Hook ===
-[2026-05-08 09:31:37] [SKIP] check-consistency.ps1 not found
-[2026-05-08 09:31:37] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 09:31:37] [DONE] Maintenance scripts started
-[2026-05-08 09:37:09] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 09:37:09] [PROJECT]  → Not found: xxx
-[2026-05-08 09:37:09] [PROJECT]  → Using cached: memory-system
-[2026-05-08 09:37:09] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 09:37:09] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 09:37:09] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 09:37:09] === Memory Maintenance Hook ===
-[2026-05-08 09:37:09] [SKIP] check-consistency.ps1 not found
-[2026-05-08 09:37:09] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 09:37:09] [DONE] Maintenance scripts started
-[2026-05-08 09:46:27] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 09:46:27] [PROJECT]  → Not found: xxx
-[2026-05-08 09:46:27] [PROJECT]  → Using cached: memory-system
-[2026-05-08 09:46:27] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 09:46:27] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 09:46:27] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 09:46:27] === Memory Maintenance Hook ===
-[2026-05-08 09:46:27] [SKIP] check-consistency.ps1 not found
-[2026-05-08 09:46:27] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 09:46:27] [DONE] Maintenance scripts started
-[2026-05-08 09:57:42] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 09:57:42] [PROJECT]  → Not found: xxx
-[2026-05-08 09:57:42] [PROJECT]  → Using cached: memory-system
-[2026-05-08 09:57:42] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 09:57:42] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 09:57:42] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 09:57:42] === Memory Maintenance Hook ===
-[2026-05-08 09:57:42] [SKIP] check-consistency.ps1 not found
-[2026-05-08 09:57:42] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 09:57:42] [DONE] Maintenance scripts started
-[2026-05-08 10:02:49] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:02:49] [PROJECT]  → Not found: xxx
-[2026-05-08 10:02:49] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:02:49] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:02:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:02:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:02:49] === Memory Maintenance Hook ===
-[2026-05-08 10:02:49] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:02:49] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:02:49] [DONE] Maintenance scripts started
-[2026-05-08 10:03:34] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:03:34] [PROJECT]  → Not found: xxx
-[2026-05-08 10:03:34] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:03:34] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:03:34] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:03:34] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:03:34] === Memory Maintenance Hook ===
-[2026-05-08 10:03:34] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:03:34] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:03:34] [DONE] Maintenance scripts started
-[2026-05-08 10:09:43] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:09:43] [PROJECT]  → Not found: xxx
-[2026-05-08 10:09:43] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:09:43] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:09:43] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:09:43] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:09:43] === Memory Maintenance Hook ===
-[2026-05-08 10:09:43] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:09:43] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:09:43] [DONE] Maintenance scripts started
-[2026-05-08 10:16:25] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:16:25] [PROJECT]  → Not found: xxx
-[2026-05-08 10:16:25] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:16:25] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:16:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:16:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:16:25] === Memory Maintenance Hook ===
-[2026-05-08 10:16:25] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:16:25] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:16:25] [DONE] Maintenance scripts started
-[2026-05-08 10:19:30] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:19:30] [PROJECT]  → Not found: xxx
-[2026-05-08 10:19:30] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:19:30] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:19:30] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:19:30] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:19:30] === Memory Maintenance Hook ===
-[2026-05-08 10:19:30] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:19:30] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:19:30] [DONE] Maintenance scripts started
-[2026-05-08 10:20:02] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:20:02] [PROJECT]  → Not found: xxx
-[2026-05-08 10:20:02] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:20:02] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:20:02] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:20:02] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:20:02] === Memory Maintenance Hook ===
-[2026-05-08 10:20:02] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:20:02] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:20:02] [DONE] Maintenance scripts started
-[2026-05-08 10:28:41] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:28:41] [PROJECT]  → Not found: xxx
-[2026-05-08 10:28:41] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:28:41] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:28:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:28:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:28:41] === Memory Maintenance Hook ===
-[2026-05-08 10:28:41] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:28:41] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:28:41] [DONE] Maintenance scripts started
-[2026-05-08 10:31:46] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:31:46] [PROJECT]  → Not found: xxx
-[2026-05-08 10:31:46] [PROJECT]  → Loaded: memory-system → memory/topics/memory-system.md
-[2026-05-08 10:31:46] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:31:46] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:31:46] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:31:46] === Memory Maintenance Hook ===
-[2026-05-08 10:31:46] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:31:46] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:31:46] [DONE] Maintenance scripts started
-[2026-05-08 10:40:41] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:40:41] [PROJECT]  → Not found: xxx
-[2026-05-08 10:40:41] [PROJECT]  → Loaded: memory-system → memory/topics/memory-system.md
-[2026-05-08 10:40:41] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:40:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:40:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:40:41] === Memory Maintenance Hook ===
-[2026-05-08 10:40:41] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:40:41] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:40:41] [DONE] Maintenance scripts started
-[2026-05-08 10:46:25] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:46:25] [PROJECT]  → Not found: xxx
-[2026-05-08 10:46:25] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:46:25] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:46:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:46:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:46:25] === Memory Maintenance Hook ===
-[2026-05-08 10:46:25] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:46:25] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:46:25] [DONE] Maintenance scripts started
-[2026-05-08 10:49:48] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:49:48] [PROJECT]  → Not found: xxx
-[2026-05-08 10:49:48] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:49:48] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:49:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:49:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:49:48] === Memory Maintenance Hook ===
-[2026-05-08 10:49:48] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:49:48] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:49:48] [DONE] Maintenance scripts started
-[2026-05-08 10:51:23] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:51:23] [PROJECT]  → Not found: xxx
-[2026-05-08 10:51:23] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:51:23] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:51:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:51:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:51:23] === Memory Maintenance Hook ===
-[2026-05-08 10:51:23] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:51:23] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:51:23] [DONE] Maintenance scripts started
-[2026-05-08 10:52:09] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 10:52:09] [PROJECT]  → Not found: xxx
-[2026-05-08 10:52:09] [PROJECT]  → Using cached: memory-system
-[2026-05-08 10:52:09] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 10:52:09] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 10:52:09] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 10:52:09] === Memory Maintenance Hook ===
-[2026-05-08 10:52:09] [SKIP] check-consistency.ps1 not found
-[2026-05-08 10:52:09] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 10:52:09] [DONE] Maintenance scripts started
-[2026-05-08 11:01:18] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 11:01:18] [PROJECT]  → Not found: xxx
-[2026-05-08 11:01:18] [PROJECT]  → Using cached: memory-system
-[2026-05-08 11:01:18] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 11:01:18] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 11:01:18] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 11:01:18] === Memory Maintenance Hook ===
-[2026-05-08 11:01:18] [SKIP] check-consistency.ps1 not found
-[2026-05-08 11:01:18] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 11:01:18] [DONE] Maintenance scripts started
-[2026-05-08 11:01:39] [PROJECT] Found @project references: xxx, memory-system
-[2026-05-08 11:01:39] [PROJECT]  → Not found: xxx
-[2026-05-08 11:01:39] [PROJECT]  → Using cached: memory-system
-[2026-05-08 11:01:39] [DREAM] NOTE: Today's session-corpus (2026-05-08.txt) not yet created.
-[2026-05-08 11:01:39] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
-[2026-05-08 11:01:39] [DREAM] The dreaming system will pick it up at the next 3 AM run.
-[2026-05-08 11:01:39] === Memory Maintenance Hook ===
-[2026-05-08 11:01:39] [SKIP] check-consistency.ps1 not found
-[2026-05-08 11:01:39] [SKIP] consolidate-memory.ps1 not found
-[2026-05-08 11:01:39] [DONE] Maintenance scripts started
+[2026-05-11 01:42:57] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 01:42:57] [PROJECT]  → Not found: xxx
+[2026-05-11 01:42:57] [PROJECT]  → Not found: memory-system
+[2026-05-11 01:42:57] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 01:42:57] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 01:42:57] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 01:42:57] === Memory Maintenance Hook ===
+[2026-05-11 01:42:57] [SKIP] check-consistency.ps1 not found
+[2026-05-11 01:42:57] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 01:42:57] [DONE] Maintenance scripts started
+[2026-05-11 03:02:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 03:02:23] [PROJECT]  → Not found: xxx
+[2026-05-11 03:02:23] [PROJECT]  → Not found: memory-system
+[2026-05-11 03:02:23] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 03:02:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 03:02:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 03:02:23] === Memory Maintenance Hook ===
+[2026-05-11 03:02:23] [SKIP] check-consistency.ps1 not found
+[2026-05-11 03:02:23] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 03:02:23] [DONE] Maintenance scripts started
+[2026-05-11 03:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 03:16:22] [PROJECT]  → Not found: xxx
+[2026-05-11 03:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 03:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 03:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 03:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 03:16:22] === Memory Maintenance Hook ===
+[2026-05-11 03:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 03:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 03:16:22] [DONE] Maintenance scripts started
+[2026-05-11 06:35:26] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 06:35:26] [PROJECT]  → Not found: xxx
+[2026-05-11 06:35:26] [PROJECT]  → Not found: memory-system
+[2026-05-11 06:35:26] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 06:35:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 06:35:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 06:35:26] === Memory Maintenance Hook ===
+[2026-05-11 06:35:26] [SKIP] check-consistency.ps1 not found
+[2026-05-11 06:35:26] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 06:35:26] [DONE] Maintenance scripts started
+[2026-05-11 06:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 06:46:22] [PROJECT]  → Not found: xxx
+[2026-05-11 06:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 06:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 06:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 06:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 06:46:22] === Memory Maintenance Hook ===
+[2026-05-11 06:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 06:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 06:46:22] [DONE] Maintenance scripts started
+[2026-05-11 06:53:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 06:53:22] [PROJECT]  → Not found: xxx
+[2026-05-11 06:53:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 06:53:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 06:53:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 06:53:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 06:53:22] === Memory Maintenance Hook ===
+[2026-05-11 06:53:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 06:53:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 06:53:22] [DONE] Maintenance scripts started
+[2026-05-11 07:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 07:16:22] [PROJECT]  → Not found: xxx
+[2026-05-11 07:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 07:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 07:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 07:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 07:16:22] === Memory Maintenance Hook ===
+[2026-05-11 07:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 07:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 07:16:22] [DONE] Maintenance scripts started
+[2026-05-11 07:47:33] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 07:47:33] [PROJECT]  → Not found: xxx
+[2026-05-11 07:47:33] [PROJECT]  → Not found: memory-system
+[2026-05-11 07:47:33] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 07:47:33] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 07:47:33] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 07:47:33] === Memory Maintenance Hook ===
+[2026-05-11 07:47:33] [SKIP] check-consistency.ps1 not found
+[2026-05-11 07:47:33] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 07:47:33] [DONE] Maintenance scripts started
+[2026-05-11 07:58:09] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 07:58:09] [PROJECT]  → Not found: xxx
+[2026-05-11 07:58:09] [PROJECT]  → Not found: memory-system
+[2026-05-11 07:58:09] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 07:58:09] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 07:58:09] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 07:58:09] === Memory Maintenance Hook ===
+[2026-05-11 07:58:09] [SKIP] check-consistency.ps1 not found
+[2026-05-11 07:58:09] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 07:58:09] [DONE] Maintenance scripts started
+[2026-05-11 08:16:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:16:23] [PROJECT]  → Not found: xxx
+[2026-05-11 08:16:23] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:16:23] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:16:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:16:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:16:23] === Memory Maintenance Hook ===
+[2026-05-11 08:16:23] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:16:23] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:16:23] [DONE] Maintenance scripts started
+[2026-05-11 08:19:17] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:19:17] [PROJECT]  → Not found: xxx
+[2026-05-11 08:19:17] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:19:17] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:19:17] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:19:17] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:19:17] === Memory Maintenance Hook ===
+[2026-05-11 08:19:17] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:19:17] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:19:17] [DONE] Maintenance scripts started
+[2026-05-11 08:25:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:25:22] [PROJECT]  → Not found: xxx
+[2026-05-11 08:25:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:25:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:25:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:25:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:25:22] === Memory Maintenance Hook ===
+[2026-05-11 08:25:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:25:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:25:22] [DONE] Maintenance scripts started
+[2026-05-11 08:37:50] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:37:50] [PROJECT]  → Not found: xxx
+[2026-05-11 08:37:50] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:37:50] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:37:50] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:37:50] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:37:50] === Memory Maintenance Hook ===
+[2026-05-11 08:37:50] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:37:50] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:37:50] [DONE] Maintenance scripts started
+[2026-05-11 08:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:46:22] [PROJECT]  → Not found: xxx
+[2026-05-11 08:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:46:22] === Memory Maintenance Hook ===
+[2026-05-11 08:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:46:22] [DONE] Maintenance scripts started
+[2026-05-11 08:49:00] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:49:00] [PROJECT]  → Not found: xxx
+[2026-05-11 08:49:00] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:49:00] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:49:00] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:49:00] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:49:00] === Memory Maintenance Hook ===
+[2026-05-11 08:49:00] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:49:00] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:49:00] [DONE] Maintenance scripts started
+[2026-05-11 08:54:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:54:24] [PROJECT]  → Not found: xxx
+[2026-05-11 08:54:24] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:54:24] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:54:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:54:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:54:24] === Memory Maintenance Hook ===
+[2026-05-11 08:54:24] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:54:24] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:54:24] [DONE] Maintenance scripts started
+[2026-05-11 08:56:42] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 08:56:42] [PROJECT]  → Not found: xxx
+[2026-05-11 08:56:42] [PROJECT]  → Not found: memory-system
+[2026-05-11 08:56:42] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 08:56:42] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 08:56:42] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 08:56:42] === Memory Maintenance Hook ===
+[2026-05-11 08:56:42] [SKIP] check-consistency.ps1 not found
+[2026-05-11 08:56:42] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 08:56:42] [DONE] Maintenance scripts started
+[2026-05-11 09:05:16] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 09:05:16] [PROJECT]  → Not found: xxx
+[2026-05-11 09:05:16] [PROJECT]  → Not found: memory-system
+[2026-05-11 09:05:16] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 09:05:16] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 09:05:16] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 09:05:16] === Memory Maintenance Hook ===
+[2026-05-11 09:05:16] [SKIP] check-consistency.ps1 not found
+[2026-05-11 09:05:16] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 09:05:16] [DONE] Maintenance scripts started
+[2026-05-11 09:16:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 09:16:23] [PROJECT]  → Not found: xxx
+[2026-05-11 09:16:23] [PROJECT]  → Not found: memory-system
+[2026-05-11 09:16:23] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 09:16:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 09:16:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 09:16:23] === Memory Maintenance Hook ===
+[2026-05-11 09:16:23] [SKIP] check-consistency.ps1 not found
+[2026-05-11 09:16:23] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 09:16:23] [DONE] Maintenance scripts started
+[2026-05-11 09:23:53] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 09:23:53] [PROJECT]  → Not found: xxx
+[2026-05-11 09:23:53] [PROJECT]  → Not found: memory-system
+[2026-05-11 09:23:53] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 09:23:53] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 09:23:53] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 09:23:53] === Memory Maintenance Hook ===
+[2026-05-11 09:23:53] [SKIP] check-consistency.ps1 not found
+[2026-05-11 09:23:53] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 09:23:53] [DONE] Maintenance scripts started
+[2026-05-11 09:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 09:46:22] [PROJECT]  → Not found: xxx
+[2026-05-11 09:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 09:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 09:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 09:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 09:46:22] === Memory Maintenance Hook ===
+[2026-05-11 09:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 09:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 09:46:22] [DONE] Maintenance scripts started
+[2026-05-11 09:53:05] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 09:53:05] [PROJECT]  → Not found: xxx
+[2026-05-11 09:53:05] [PROJECT]  → Not found: memory-system
+[2026-05-11 09:53:05] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 09:53:05] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 09:53:05] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 09:53:05] === Memory Maintenance Hook ===
+[2026-05-11 09:53:05] [SKIP] check-consistency.ps1 not found
+[2026-05-11 09:53:05] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 09:53:05] [DONE] Maintenance scripts started
+[2026-05-11 09:59:42] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 09:59:42] [PROJECT]  → Not found: xxx
+[2026-05-11 09:59:42] [PROJECT]  → Not found: memory-system
+[2026-05-11 09:59:42] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 09:59:42] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 09:59:42] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 09:59:42] === Memory Maintenance Hook ===
+[2026-05-11 09:59:42] [SKIP] check-consistency.ps1 not found
+[2026-05-11 09:59:42] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 09:59:42] [DONE] Maintenance scripts started
+[2026-05-11 10:01:12] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 10:01:12] [PROJECT]  → Not found: xxx
+[2026-05-11 10:01:12] [PROJECT]  → Not found: memory-system
+[2026-05-11 10:01:12] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 10:01:12] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 10:01:12] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 10:01:12] === Memory Maintenance Hook ===
+[2026-05-11 10:01:12] [SKIP] check-consistency.ps1 not found
+[2026-05-11 10:01:12] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 10:01:12] [DONE] Maintenance scripts started
+[2026-05-11 10:05:58] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 10:05:58] [PROJECT]  → Not found: xxx
+[2026-05-11 10:05:58] [PROJECT]  → Not found: memory-system
+[2026-05-11 10:05:58] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 10:05:58] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 10:05:58] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 10:05:58] === Memory Maintenance Hook ===
+[2026-05-11 10:05:58] [SKIP] check-consistency.ps1 not found
+[2026-05-11 10:05:58] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 10:05:58] [DONE] Maintenance scripts started
+[2026-05-11 10:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-11 10:16:22] [PROJECT]  → Not found: xxx
+[2026-05-11 10:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-11 10:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-11.txt) not yet created.
+[2026-05-11 10:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-11 10:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-11 10:16:22] === Memory Maintenance Hook ===
+[2026-05-11 10:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-11 10:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-11 10:16:22] [DONE] Maintenance scripts started
+[2026-05-12 00:58:32] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 00:58:32] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 00:58:32] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 00:58:32] === Memory Maintenance Hook ===
+[2026-05-12 00:58:32] [SKIP] check-consistency.ps1 not found
+[2026-05-12 00:58:32] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 00:58:32] [DONE] Maintenance scripts started
+[2026-05-12 00:58:37] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 00:58:37] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 00:58:37] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 00:58:37] === Memory Maintenance Hook ===
+[2026-05-12 00:58:37] [SKIP] check-consistency.ps1 not found
+[2026-05-12 00:58:37] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 00:58:37] [DONE] Maintenance scripts started
+[2026-05-12 00:58:40] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 00:58:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 00:58:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 00:58:40] === Memory Maintenance Hook ===
+[2026-05-12 00:58:40] [SKIP] check-consistency.ps1 not found
+[2026-05-12 00:58:40] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 00:58:40] [DONE] Maintenance scripts started
+[2026-05-12 01:26:42] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 01:26:42] [PROJECT]  → Not found: xxx
+[2026-05-12 01:26:42] [PROJECT]  → Not found: memory-system
+[2026-05-12 01:26:42] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 01:26:42] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 01:26:42] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 01:26:42] === Memory Maintenance Hook ===
+[2026-05-12 01:26:42] [SKIP] check-consistency.ps1 not found
+[2026-05-12 01:26:42] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 01:26:42] [DONE] Maintenance scripts started
+[2026-05-12 01:28:51] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 01:28:51] [PROJECT]  → Not found: xxx
+[2026-05-12 01:28:51] [PROJECT]  → Not found: memory-system
+[2026-05-12 01:28:51] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 01:28:51] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 01:28:51] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 01:28:51] === Memory Maintenance Hook ===
+[2026-05-12 01:28:51] [SKIP] check-consistency.ps1 not found
+[2026-05-12 01:28:51] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 01:28:51] [DONE] Maintenance scripts started
+[2026-05-12 01:34:40] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 01:34:40] [PROJECT]  → Not found: xxx
+[2026-05-12 01:34:40] [PROJECT]  → Not found: memory-system
+[2026-05-12 01:34:40] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 01:34:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 01:34:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 01:34:40] === Memory Maintenance Hook ===
+[2026-05-12 01:34:40] [SKIP] check-consistency.ps1 not found
+[2026-05-12 01:34:40] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 01:34:40] [DONE] Maintenance scripts started
+[2026-05-12 01:51:18] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 01:51:18] [PROJECT]  → Not found: xxx
+[2026-05-12 01:51:18] [PROJECT]  → Not found: memory-system
+[2026-05-12 01:51:18] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 01:51:18] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 01:51:18] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 01:51:18] === Memory Maintenance Hook ===
+[2026-05-12 01:51:18] [SKIP] check-consistency.ps1 not found
+[2026-05-12 01:51:18] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 01:51:18] [DONE] Maintenance scripts started
+[2026-05-12 02:08:10] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 02:08:10] [PROJECT]  → Not found: xxx
+[2026-05-12 02:08:10] [PROJECT]  → Not found: memory-system
+[2026-05-12 02:08:10] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 02:08:10] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 02:08:10] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 02:08:10] === Memory Maintenance Hook ===
+[2026-05-12 02:08:10] [SKIP] check-consistency.ps1 not found
+[2026-05-12 02:08:10] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 02:08:10] [DONE] Maintenance scripts started
+[2026-05-12 02:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 02:16:22] [PROJECT]  → Not found: xxx
+[2026-05-12 02:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 02:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 02:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 02:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 02:16:22] === Memory Maintenance Hook ===
+[2026-05-12 02:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 02:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 02:16:22] [DONE] Maintenance scripts started
+[2026-05-12 05:29:28] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 05:29:28] [PROJECT]  → Not found: xxx
+[2026-05-12 05:29:28] [PROJECT]  → Not found: memory-system
+[2026-05-12 05:29:28] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 05:29:28] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 05:29:28] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 05:29:28] === Memory Maintenance Hook ===
+[2026-05-12 05:29:28] [SKIP] check-consistency.ps1 not found
+[2026-05-12 05:29:28] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 05:29:28] [DONE] Maintenance scripts started
+[2026-05-12 05:46:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 05:46:23] [PROJECT]  → Not found: xxx
+[2026-05-12 05:46:23] [PROJECT]  → Not found: memory-system
+[2026-05-12 05:46:23] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 05:46:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 05:46:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 05:46:23] === Memory Maintenance Hook ===
+[2026-05-12 05:46:23] [SKIP] check-consistency.ps1 not found
+[2026-05-12 05:46:23] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 05:46:23] [DONE] Maintenance scripts started
+[2026-05-12 05:49:28] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 05:49:28] [PROJECT]  → Not found: xxx
+[2026-05-12 05:49:28] [PROJECT]  → Not found: memory-system
+[2026-05-12 05:49:28] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 05:49:28] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 05:49:28] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 05:49:28] === Memory Maintenance Hook ===
+[2026-05-12 05:49:28] [SKIP] check-consistency.ps1 not found
+[2026-05-12 05:49:28] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 05:49:28] [DONE] Maintenance scripts started
+[2026-05-12 06:00:27] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:00:27] [PROJECT]  → Not found: xxx
+[2026-05-12 06:00:27] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:00:27] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:00:27] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:00:27] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:00:27] === Memory Maintenance Hook ===
+[2026-05-12 06:00:27] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:00:27] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:00:27] [DONE] Maintenance scripts started
+[2026-05-12 06:01:36] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:01:36] [PROJECT]  → Not found: xxx
+[2026-05-12 06:01:36] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:01:36] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:01:36] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:01:36] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:01:36] === Memory Maintenance Hook ===
+[2026-05-12 06:01:36] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:01:36] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:01:36] [DONE] Maintenance scripts started
+[2026-05-12 06:11:37] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:11:37] [PROJECT]  → Not found: xxx
+[2026-05-12 06:11:37] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:11:37] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:11:37] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:11:37] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:11:37] === Memory Maintenance Hook ===
+[2026-05-12 06:11:37] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:11:37] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:11:37] [DONE] Maintenance scripts started
+[2026-05-12 06:18:11] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:18:11] [PROJECT]  → Not found: xxx
+[2026-05-12 06:18:11] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:18:11] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:18:11] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:18:11] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:18:11] === Memory Maintenance Hook ===
+[2026-05-12 06:18:11] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:18:11] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:18:11] [DONE] Maintenance scripts started
+[2026-05-12 06:22:06] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:22:06] [PROJECT]  → Not found: xxx
+[2026-05-12 06:22:06] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:22:06] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:22:06] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:22:06] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:22:06] === Memory Maintenance Hook ===
+[2026-05-12 06:22:06] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:22:06] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:22:06] [DONE] Maintenance scripts started
+[2026-05-12 06:30:12] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:30:12] [PROJECT]  → Not found: xxx
+[2026-05-12 06:30:12] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:30:12] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:30:12] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:30:12] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:30:12] === Memory Maintenance Hook ===
+[2026-05-12 06:30:12] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:30:12] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:30:12] [DONE] Maintenance scripts started
+[2026-05-12 06:42:47] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:42:47] [PROJECT]  → Not found: xxx
+[2026-05-12 06:42:47] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:42:47] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:42:47] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:42:47] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:42:47] === Memory Maintenance Hook ===
+[2026-05-12 06:42:47] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:42:47] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:42:47] [DONE] Maintenance scripts started
+[2026-05-12 06:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 06:46:22] [PROJECT]  → Not found: xxx
+[2026-05-12 06:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 06:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 06:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 06:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 06:46:22] === Memory Maintenance Hook ===
+[2026-05-12 06:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 06:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 06:46:22] [DONE] Maintenance scripts started
+[2026-05-12 07:17:53] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 07:17:53] [PROJECT]  → Not found: xxx
+[2026-05-12 07:17:53] [PROJECT]  → Not found: memory-system
+[2026-05-12 07:17:53] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 07:17:53] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 07:17:53] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 07:17:53] === Memory Maintenance Hook ===
+[2026-05-12 07:17:53] [SKIP] check-consistency.ps1 not found
+[2026-05-12 07:17:53] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 07:17:53] [DONE] Maintenance scripts started
+[2026-05-12 07:33:18] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 07:33:18] [PROJECT]  → Not found: xxx
+[2026-05-12 07:33:18] [PROJECT]  → Not found: memory-system
+[2026-05-12 07:33:18] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 07:33:18] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 07:33:18] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 07:33:18] === Memory Maintenance Hook ===
+[2026-05-12 07:33:18] [SKIP] check-consistency.ps1 not found
+[2026-05-12 07:33:18] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 07:33:18] [DONE] Maintenance scripts started
+[2026-05-12 07:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 07:46:22] [PROJECT]  → Not found: xxx
+[2026-05-12 07:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 07:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 07:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 07:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 07:46:22] === Memory Maintenance Hook ===
+[2026-05-12 07:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 07:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 07:46:22] [DONE] Maintenance scripts started
+[2026-05-12 07:52:15] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 07:52:15] [PROJECT]  → Not found: xxx
+[2026-05-12 07:52:15] [PROJECT]  → Not found: memory-system
+[2026-05-12 07:52:15] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 07:52:15] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 07:52:15] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 07:52:15] === Memory Maintenance Hook ===
+[2026-05-12 07:52:15] [SKIP] check-consistency.ps1 not found
+[2026-05-12 07:52:15] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 07:52:15] [DONE] Maintenance scripts started
+[2026-05-12 08:04:38] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:04:38] [PROJECT]  → Not found: xxx
+[2026-05-12 08:04:38] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:04:38] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:04:38] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:04:38] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:04:38] === Memory Maintenance Hook ===
+[2026-05-12 08:04:38] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:04:38] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:04:38] [DONE] Maintenance scripts started
+[2026-05-12 08:13:09] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:13:09] [PROJECT]  → Not found: xxx
+[2026-05-12 08:13:09] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:13:09] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:13:09] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:13:09] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:13:09] === Memory Maintenance Hook ===
+[2026-05-12 08:13:09] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:13:09] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:13:09] [DONE] Maintenance scripts started
+[2026-05-12 08:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:16:22] [PROJECT]  → Not found: xxx
+[2026-05-12 08:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:16:22] === Memory Maintenance Hook ===
+[2026-05-12 08:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:16:22] [DONE] Maintenance scripts started
+[2026-05-12 08:17:05] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:17:05] [PROJECT]  → Not found: xxx
+[2026-05-12 08:17:05] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:17:05] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:17:05] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:17:05] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:17:05] === Memory Maintenance Hook ===
+[2026-05-12 08:17:05] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:17:05] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:17:05] [DONE] Maintenance scripts started
+[2026-05-12 08:34:20] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:34:20] [PROJECT]  → Not found: xxx
+[2026-05-12 08:34:20] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:34:20] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:34:20] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:34:20] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:34:20] === Memory Maintenance Hook ===
+[2026-05-12 08:34:20] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:34:20] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:34:20] [DONE] Maintenance scripts started
+[2026-05-12 08:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:46:22] [PROJECT]  → Not found: xxx
+[2026-05-12 08:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:46:22] === Memory Maintenance Hook ===
+[2026-05-12 08:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:46:22] [DONE] Maintenance scripts started
+[2026-05-12 08:59:55] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 08:59:55] [PROJECT]  → Not found: xxx
+[2026-05-12 08:59:55] [PROJECT]  → Not found: memory-system
+[2026-05-12 08:59:55] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 08:59:55] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 08:59:55] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 08:59:55] === Memory Maintenance Hook ===
+[2026-05-12 08:59:55] [SKIP] check-consistency.ps1 not found
+[2026-05-12 08:59:55] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 08:59:55] [DONE] Maintenance scripts started
+[2026-05-12 09:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 09:16:22] [PROJECT]  → Not found: xxx
+[2026-05-12 09:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 09:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 09:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 09:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 09:16:22] === Memory Maintenance Hook ===
+[2026-05-12 09:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 09:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 09:16:22] [DONE] Maintenance scripts started
+[2026-05-12 09:42:15] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 09:42:15] [PROJECT]  → Not found: xxx
+[2026-05-12 09:42:15] [PROJECT]  → Not found: memory-system
+[2026-05-12 09:42:15] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 09:42:15] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 09:42:15] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 09:42:15] === Memory Maintenance Hook ===
+[2026-05-12 09:42:15] [SKIP] check-consistency.ps1 not found
+[2026-05-12 09:42:15] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 09:42:15] [DONE] Maintenance scripts started
+[2026-05-12 09:50:14] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 09:50:14] [PROJECT]  → Not found: xxx
+[2026-05-12 09:50:14] [PROJECT]  → Not found: memory-system
+[2026-05-12 09:50:14] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 09:50:14] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 09:50:14] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 09:50:14] === Memory Maintenance Hook ===
+[2026-05-12 09:50:14] [SKIP] check-consistency.ps1 not found
+[2026-05-12 09:50:14] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 09:50:14] [DONE] Maintenance scripts started
+[2026-05-12 10:03:13] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:03:13] [PROJECT]  → Not found: xxx
+[2026-05-12 10:03:13] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:03:13] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:03:13] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:03:13] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:03:13] === Memory Maintenance Hook ===
+[2026-05-12 10:03:13] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:03:13] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:03:13] [DONE] Maintenance scripts started
+[2026-05-12 10:14:57] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:14:57] [PROJECT]  → Not found: xxx
+[2026-05-12 10:14:57] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:14:57] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:14:57] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:14:57] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:14:57] === Memory Maintenance Hook ===
+[2026-05-12 10:14:57] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:14:57] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:14:57] [DONE] Maintenance scripts started
+[2026-05-12 10:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:16:22] [PROJECT]  → Not found: xxx
+[2026-05-12 10:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:16:22] === Memory Maintenance Hook ===
+[2026-05-12 10:16:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:16:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:16:22] [DONE] Maintenance scripts started
+[2026-05-12 10:19:58] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:19:58] [PROJECT]  → Not found: xxx
+[2026-05-12 10:19:58] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:19:58] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:19:58] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:19:58] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:19:58] === Memory Maintenance Hook ===
+[2026-05-12 10:19:58] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:19:58] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:19:58] [DONE] Maintenance scripts started
+[2026-05-12 10:21:07] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:21:07] [PROJECT]  → Not found: xxx
+[2026-05-12 10:21:07] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:21:07] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:21:07] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:21:07] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:21:07] === Memory Maintenance Hook ===
+[2026-05-12 10:21:07] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:21:07] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:21:07] [DONE] Maintenance scripts started
+[2026-05-12 10:22:35] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:22:35] [PROJECT]  → Not found: xxx
+[2026-05-12 10:22:35] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:22:35] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:22:35] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:22:35] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:22:35] === Memory Maintenance Hook ===
+[2026-05-12 10:22:35] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:22:35] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:22:35] [DONE] Maintenance scripts started
+[2026-05-12 10:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-12 10:46:22] [PROJECT]  → Not found: xxx
+[2026-05-12 10:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-12 10:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-12.txt) not yet created.
+[2026-05-12 10:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-12 10:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-12 10:46:22] === Memory Maintenance Hook ===
+[2026-05-12 10:46:22] [SKIP] check-consistency.ps1 not found
+[2026-05-12 10:46:22] [SKIP] consolidate-memory.ps1 not found
+[2026-05-12 10:46:22] [DONE] Maintenance scripts started
+[2026-05-13 00:53:37] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 00:53:37] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 00:53:37] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 00:53:37] === Memory Maintenance Hook ===
+[2026-05-13 00:53:37] [START] node memory.js health --verbose (pid=21192)
+[2026-05-13 00:53:37] [DONE] Maintenance scripts started
+[2026-05-13 00:53:48] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 00:53:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 00:53:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 00:53:48] === Memory Maintenance Hook ===
+[2026-05-13 00:53:48] [START] node memory.js health --verbose (pid=18332)
+[2026-05-13 00:53:48] [DONE] Maintenance scripts started
+[2026-05-13 00:53:52] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 00:53:52] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 00:53:52] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 00:53:52] === Memory Maintenance Hook ===
+[2026-05-13 00:53:52] [START] node memory.js health --verbose (pid=21060)
+[2026-05-13 00:53:52] [DONE] Maintenance scripts started
+[2026-05-13 01:08:33] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 01:08:33] [PROJECT]  → Not found: xxx
+[2026-05-13 01:08:33] [PROJECT]  → Not found: memory-system
+[2026-05-13 01:08:33] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 01:08:33] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 01:08:33] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 01:08:33] === Memory Maintenance Hook ===
+[2026-05-13 01:08:33] [START] node memory.js health --verbose (pid=21852)
+[2026-05-13 01:08:33] [DONE] Maintenance scripts started
+[2026-05-13 01:16:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 01:16:24] [PROJECT]  → Not found: xxx
+[2026-05-13 01:16:24] [PROJECT]  → Not found: memory-system
+[2026-05-13 01:16:24] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 01:16:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 01:16:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 01:16:24] === Memory Maintenance Hook ===
+[2026-05-13 01:16:24] [START] node memory.js health --verbose (pid=16476)
+[2026-05-13 01:16:24] [DONE] Maintenance scripts started
+[2026-05-13 01:16:58] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 01:16:58] [PROJECT]  → Not found: xxx
+[2026-05-13 01:16:58] [PROJECT]  → Not found: memory-system
+[2026-05-13 01:16:58] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 01:16:58] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 01:16:58] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 01:16:58] === Memory Maintenance Hook ===
+[2026-05-13 01:16:58] [START] node memory.js health --verbose (pid=19748)
+[2026-05-13 01:16:58] [DONE] Maintenance scripts started
+[2026-05-13 02:08:07] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 02:08:07] [PROJECT]  → Not found: xxx
+[2026-05-13 02:08:07] [PROJECT]  → Not found: memory-system
+[2026-05-13 02:08:07] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 02:08:07] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 02:08:07] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 02:08:07] === Memory Maintenance Hook ===
+[2026-05-13 02:08:07] [START] node memory.js health --verbose (pid=20868)
+[2026-05-13 02:08:07] [DONE] Maintenance scripts started
+[2026-05-13 02:15:06] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 02:15:06] [PROJECT]  → Not found: xxx
+[2026-05-13 02:15:06] [PROJECT]  → Not found: memory-system
+[2026-05-13 02:15:06] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 02:15:06] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 02:15:06] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 02:15:06] === Memory Maintenance Hook ===
+[2026-05-13 02:15:06] [START] node memory.js health --verbose (pid=22152)
+[2026-05-13 02:15:06] [DONE] Maintenance scripts started
+[ 2 0 2 6 - 0 5 - 1 3   1 0 : 1 4 ]   u p d a t e - i m p o r t a n c e :   1   a t o m   u p d a t e d  
+ [2026-05-13 02:17:00] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 02:17:00] [PROJECT]  → Not found: xxx
+[2026-05-13 02:17:00] [PROJECT]  → Not found: memory-system
+[2026-05-13 02:17:00] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 02:17:00] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 02:17:00] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 02:17:00] === Memory Maintenance Hook ===
+[2026-05-13 02:17:00] [START] node memory.js health --verbose (pid=15304)
+[2026-05-13 02:17:00] [DONE] Maintenance scripts started
+[2026-05-13 02:19:49] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 02:19:49] [PROJECT]  → Not found: xxx
+[2026-05-13 02:19:49] [PROJECT]  → Not found: memory-system
+[2026-05-13 02:19:49] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 02:19:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 02:19:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 02:19:49] === Memory Maintenance Hook ===
+[2026-05-13 02:19:49] [START] node memory.js health --verbose (pid=15424)
+[2026-05-13 02:19:49] [DONE] Maintenance scripts started
+[2026-05-13 03:38:47] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 03:38:47] [PROJECT]  → Not found: xxx
+[2026-05-13 03:38:47] [PROJECT]  → Not found: memory-system
+[2026-05-13 03:38:47] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 03:38:47] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 03:38:47] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 03:38:47] === Memory Maintenance Hook ===
+[2026-05-13 03:38:47] [START] node memory.js health --verbose (pid=2964)
+[2026-05-13 03:38:47] [DONE] Maintenance scripts started
+[2026-05-13 03:42:09] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 03:42:09] [PROJECT]  → Not found: xxx
+[2026-05-13 03:42:09] [PROJECT]  → Not found: memory-system
+[2026-05-13 03:42:09] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 03:42:09] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 03:42:09] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 03:42:09] === Memory Maintenance Hook ===
+[2026-05-13 03:42:09] [START] node memory.js health --verbose (pid=23720)
+[2026-05-13 03:42:09] [DONE] Maintenance scripts started
+[2026-05-13 04:02:04] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 04:02:04] [PROJECT]  → Not found: xxx
+[2026-05-13 04:02:04] [PROJECT]  → Not found: memory-system
+[2026-05-13 04:02:04] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 04:02:04] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 04:02:04] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 04:02:04] === Memory Maintenance Hook ===
+[2026-05-13 04:02:04] [START] node memory.js health --verbose (pid=6944)
+[2026-05-13 04:02:04] [DONE] Maintenance scripts started
+[2026-05-13 04:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 04:46:22] [PROJECT]  → Not found: xxx
+[2026-05-13 04:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-13 04:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 04:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 04:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 04:46:22] === Memory Maintenance Hook ===
+[2026-05-13 04:46:22] [START] node memory.js health --verbose (pid=19976)
+[2026-05-13 04:46:22] [DONE] Maintenance scripts started
+[2026-05-13 05:35:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 05:35:24] [PROJECT]  → Not found: xxx
+[2026-05-13 05:35:24] [PROJECT]  → Not found: memory-system
+[2026-05-13 05:35:24] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 05:35:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 05:35:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 05:35:24] === Memory Maintenance Hook ===
+[2026-05-13 05:35:25] [START] node memory.js health --verbose (pid=8272)
+[2026-05-13 05:35:25] [DONE] Maintenance scripts started
+[2026-05-13 05:49:25] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 05:49:25] [PROJECT]  → Not found: xxx
+[2026-05-13 05:49:25] [PROJECT]  → Not found: memory-system
+[2026-05-13 05:49:25] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 05:49:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 05:49:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 05:49:25] === Memory Maintenance Hook ===
+[2026-05-13 05:49:25] [START] node memory.js health --verbose (pid=19020)
+[2026-05-13 05:49:25] [DONE] Maintenance scripts started
+[2026-05-13 06:20:27] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 06:20:27] [PROJECT]  → Not found: xxx
+[2026-05-13 06:20:27] [PROJECT]  → Not found: memory-system
+[2026-05-13 06:20:27] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 06:20:27] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 06:20:27] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 06:20:27] === Memory Maintenance Hook ===
+[2026-05-13 06:20:27] [START] node memory.js health --verbose (pid=23088)
+[2026-05-13 06:20:27] [DONE] Maintenance scripts started
+[2026-05-13 06:38:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 06:38:22] [PROJECT]  → Not found: xxx
+[2026-05-13 06:38:22] [PROJECT]  → Not found: memory-system
+[2026-05-13 06:38:22] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 06:38:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 06:38:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 06:38:22] === Memory Maintenance Hook ===
+[2026-05-13 06:38:22] [START] node memory.js health --verbose (pid=3916)
+[2026-05-13 06:38:22] [DONE] Maintenance scripts started
+[2026-05-13 06:47:17] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 06:47:17] [PROJECT]  → Not found: xxx
+[2026-05-13 06:47:17] [PROJECT]  → Not found: memory-system
+[2026-05-13 06:47:17] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 06:47:17] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 06:47:17] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 06:47:17] === Memory Maintenance Hook ===
+[2026-05-13 06:47:17] [START] node memory.js health --verbose (pid=8240)
+[2026-05-13 06:47:17] [DONE] Maintenance scripts started
+[2026-05-13 06:55:19] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 06:55:19] [PROJECT]  → Not found: xxx
+[2026-05-13 06:55:19] [PROJECT]  → Not found: memory-system
+[2026-05-13 06:55:19] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 06:55:19] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 06:55:19] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 06:55:19] === Memory Maintenance Hook ===
+[2026-05-13 06:55:19] [START] node memory.js health --verbose (pid=2432)
+[2026-05-13 06:55:19] [DONE] Maintenance scripts started
+[2026-05-13 07:00:04] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:00:04] [PROJECT]  → Not found: xxx
+[2026-05-13 07:00:04] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:00:04] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:00:04] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:00:04] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:00:04] === Memory Maintenance Hook ===
+[2026-05-13 07:00:04] [START] node memory.js health --verbose (pid=19676)
+[2026-05-13 07:00:04] [DONE] Maintenance scripts started
+[2026-05-13 07:13:14] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:13:14] [PROJECT]  → Not found: xxx
+[2026-05-13 07:13:14] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:13:14] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:13:14] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:13:14] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:13:14] === Memory Maintenance Hook ===
+[2026-05-13 07:13:14] [START] node memory.js health --verbose (pid=9104)
+[2026-05-13 07:13:14] [DONE] Maintenance scripts started
+[2026-05-13 07:23:10] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:23:10] [PROJECT]  → Not found: xxx
+[2026-05-13 07:23:10] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:23:10] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:23:10] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:23:10] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:23:10] === Memory Maintenance Hook ===
+[2026-05-13 07:23:10] [START] node memory.js health --verbose (pid=25224)
+[2026-05-13 07:23:10] [DONE] Maintenance scripts started
+[2026-05-13 07:36:08] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:36:08] [PROJECT]  → Not found: xxx
+[2026-05-13 07:36:08] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:36:08] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:36:08] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:36:08] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:36:08] === Memory Maintenance Hook ===
+[2026-05-13 07:36:08] [START] node memory.js health --verbose (pid=14024)
+[2026-05-13 07:36:08] [DONE] Maintenance scripts started
+[2026-05-13 07:41:21] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:41:21] [PROJECT]  → Not found: xxx
+[2026-05-13 07:41:21] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:41:21] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:41:21] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:41:21] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:41:21] === Memory Maintenance Hook ===
+[2026-05-13 07:41:21] [START] node memory.js health --verbose (pid=21524)
+[2026-05-13 07:41:21] [DONE] Maintenance scripts started
+[2026-05-13 07:48:02] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:48:02] [PROJECT]  → Not found: xxx
+[2026-05-13 07:48:02] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:48:02] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:48:02] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:48:02] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:48:02] === Memory Maintenance Hook ===
+[2026-05-13 07:48:02] [START] node memory.js health --verbose (pid=9132)
+[2026-05-13 07:48:02] [DONE] Maintenance scripts started
+[2026-05-13 07:50:26] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:50:26] [PROJECT]  → Not found: xxx
+[2026-05-13 07:50:26] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:50:26] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:50:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:50:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:50:26] === Memory Maintenance Hook ===
+[2026-05-13 07:50:26] [START] node memory.js health --verbose (pid=14132)
+[2026-05-13 07:50:26] [DONE] Maintenance scripts started
+[2026-05-13 07:58:36] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 07:58:36] [PROJECT]  → Not found: xxx
+[2026-05-13 07:58:36] [PROJECT]  → Not found: memory-system
+[2026-05-13 07:58:36] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 07:58:36] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 07:58:36] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 07:58:36] === Memory Maintenance Hook ===
+[2026-05-13 07:58:36] [START] node memory.js health --verbose (pid=21296)
+[2026-05-13 07:58:36] [DONE] Maintenance scripts started
+[2026-05-13 08:01:53] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 08:01:53] [PROJECT]  → Not found: xxx
+[2026-05-13 08:01:53] [PROJECT]  → Not found: memory-system
+[2026-05-13 08:01:53] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 08:01:53] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 08:01:53] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 08:01:53] === Memory Maintenance Hook ===
+[2026-05-13 08:01:53] [START] node memory.js health --verbose (pid=25864)
+[2026-05-13 08:01:53] [DONE] Maintenance scripts started
+[2026-05-13 08:15:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 08:15:22] [PROJECT]  → Not found: xxx
+[2026-05-13 08:15:22] [PROJECT]  → Not found: memory-system
+[2026-05-13 08:15:22] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 08:15:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 08:15:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 08:15:22] === Memory Maintenance Hook ===
+[2026-05-13 08:15:22] [START] node memory.js health --verbose (pid=19204)
+[2026-05-13 08:15:22] [DONE] Maintenance scripts started
+[2026-05-13 08:41:56] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 08:41:56] [PROJECT]  → Not found: xxx
+[2026-05-13 08:41:56] [PROJECT]  → Not found: memory-system
+[2026-05-13 08:41:56] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 08:41:56] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 08:41:56] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 08:41:56] === Memory Maintenance Hook ===
+[2026-05-13 08:41:56] [START] node memory.js health --verbose (pid=21864)
+[2026-05-13 08:41:56] [DONE] Maintenance scripts started
+[2026-05-13 08:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 08:46:22] [PROJECT]  → Not found: xxx
+[2026-05-13 08:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-13 08:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 08:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 08:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 08:46:22] === Memory Maintenance Hook ===
+[2026-05-13 08:46:23] [START] node memory.js health --verbose (pid=24184)
+[2026-05-13 08:46:23] [DONE] Maintenance scripts started
+[2026-05-13 09:23:40] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 09:23:40] [PROJECT]  → Not found: xxx
+[2026-05-13 09:23:40] [PROJECT]  → Not found: memory-system
+[2026-05-13 09:23:40] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 09:23:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 09:23:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 09:23:40] === Memory Maintenance Hook ===
+[2026-05-13 09:23:41] [START] node memory.js health --verbose (pid=20512)
+[2026-05-13 09:23:41] [DONE] Maintenance scripts started
+[2026-05-13 09:24:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 09:24:22] [PROJECT]  → Not found: xxx
+[2026-05-13 09:24:22] [PROJECT]  → Not found: memory-system
+[2026-05-13 09:24:22] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 09:24:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 09:24:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 09:24:22] === Memory Maintenance Hook ===
+[2026-05-13 09:24:22] [START] node memory.js health --verbose (pid=20180)
+[2026-05-13 09:24:22] [DONE] Maintenance scripts started
+[2026-05-13 09:43:34] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 09:43:34] [PROJECT]  → Not found: xxx
+[2026-05-13 09:43:34] [PROJECT]  → Not found: memory-system
+[2026-05-13 09:43:34] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 09:43:34] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 09:43:34] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 09:43:34] === Memory Maintenance Hook ===
+[2026-05-13 09:43:34] [START] node memory.js health --verbose (pid=6812)
+[2026-05-13 09:43:34] [DONE] Maintenance scripts started
+[2026-05-13 09:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 09:46:22] [PROJECT]  → Not found: xxx
+[2026-05-13 09:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-13 09:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 09:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 09:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 09:46:22] === Memory Maintenance Hook ===
+[2026-05-13 09:46:22] [START] node memory.js health --verbose (pid=21820)
+[2026-05-13 09:46:22] [DONE] Maintenance scripts started
+[2026-05-13 09:55:05] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 09:55:05] [PROJECT]  → Not found: xxx
+[2026-05-13 09:55:05] [PROJECT]  → Not found: memory-system
+[2026-05-13 09:55:05] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 09:55:05] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 09:55:05] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 09:55:05] === Memory Maintenance Hook ===
+[2026-05-13 09:55:05] [START] node memory.js health --verbose (pid=24540)
+[2026-05-13 09:55:05] [DONE] Maintenance scripts started
+[2026-05-13 10:10:43] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 10:10:43] [PROJECT]  → Not found: xxx
+[2026-05-13 10:10:43] [PROJECT]  → Not found: memory-system
+[2026-05-13 10:10:43] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 10:10:43] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 10:10:43] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 10:10:43] === Memory Maintenance Hook ===
+[2026-05-13 10:10:43] [START] node memory.js health --verbose (pid=7976)
+[2026-05-13 10:10:43] [DONE] Maintenance scripts started
+[2026-05-13 10:21:56] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-13 10:21:56] [PROJECT]  → Not found: xxx
+[2026-05-13 10:21:56] [PROJECT]  → Not found: memory-system
+[2026-05-13 10:21:56] [DREAM] NOTE: Today's session-corpus (2026-05-13.txt) not yet created.
+[2026-05-13 10:21:56] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-13 10:21:56] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-13 10:21:56] === Memory Maintenance Hook ===
+[2026-05-13 10:21:56] [START] node memory.js health --verbose (pid=13952)
+[2026-05-13 10:21:56] [DONE] Maintenance scripts started
+[2026-05-14 01:39:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 01:39:24] [PROJECT]  → Not found: xxx
+[2026-05-14 01:39:24] [PROJECT]  → Not found: memory-system
+[2026-05-14 01:39:24] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 01:39:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 01:39:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 01:39:24] === Memory Maintenance Hook ===
+[2026-05-14 01:39:24] [START] node memory.js health --verbose (pid=5584)
+[2026-05-14 01:39:24] [DONE] Maintenance scripts started
+[2026-05-14 01:39:34] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 01:39:34] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 01:39:34] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 01:39:34] === Memory Maintenance Hook ===
+[2026-05-14 01:39:34] [START] node memory.js health --verbose (pid=20844)
+[2026-05-14 01:39:34] [DONE] Maintenance scripts started
+[2026-05-14 01:40:37] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 01:40:37] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 01:40:37] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 01:40:37] === Memory Maintenance Hook ===
+[2026-05-14 01:40:37] [START] node memory.js health --verbose (pid=20364)
+[2026-05-14 01:40:37] [DONE] Maintenance scripts started
+[2026-05-14 01:40:41] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 01:40:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 01:40:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 01:40:41] === Memory Maintenance Hook ===
+[2026-05-14 01:40:41] [START] node memory.js health --verbose (pid=22700)
+[2026-05-14 01:40:41] [DONE] Maintenance scripts started
+[2026-05-14 01:41:04] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 01:41:04] [PROJECT]  → Not found: xxx
+[2026-05-14 01:41:04] [PROJECT]  → Not found: memory-system
+[2026-05-14 01:41:04] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 01:41:04] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 01:41:04] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 01:41:04] === Memory Maintenance Hook ===
+[2026-05-14 01:41:04] [START] node memory.js health --verbose (pid=22664)
+[2026-05-14 01:41:04] [DONE] Maintenance scripts started
+[2026-05-14 01:45:41] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 01:45:41] [PROJECT]  → Not found: xxx
+[2026-05-14 01:45:41] [PROJECT]  → Not found: memory-system
+[2026-05-14 01:45:41] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 01:45:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 01:45:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 01:45:41] === Memory Maintenance Hook ===
+[2026-05-14 01:45:41] [START] node memory.js health --verbose (pid=9420)
+[2026-05-14 01:45:41] [DONE] Maintenance scripts started
+[2026-05-14 02:11:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 02:11:23] [PROJECT]  → Not found: xxx
+[2026-05-14 02:11:23] [PROJECT]  → Not found: memory-system
+[2026-05-14 02:11:23] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 02:11:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 02:11:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 02:11:23] === Memory Maintenance Hook ===
+[2026-05-14 02:11:23] [START] node memory.js health --verbose (pid=19672)
+[2026-05-14 02:11:23] [DONE] Maintenance scripts started
+[2026-05-14 02:16:07] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 02:16:07] [PROJECT]  → Not found: xxx
+[2026-05-14 02:16:07] [PROJECT]  → Not found: memory-system
+[2026-05-14 02:16:07] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 02:16:07] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 02:16:07] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 02:16:07] === Memory Maintenance Hook ===
+[2026-05-14 02:16:07] [START] node memory.js health --verbose (pid=24020)
+[2026-05-14 02:16:07] [DONE] Maintenance scripts started
+[2026-05-14 02:44:41] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 02:44:41] [PROJECT]  → Not found: xxx
+[2026-05-14 02:44:41] [PROJECT]  → Not found: memory-system
+[2026-05-14 02:44:41] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 02:44:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 02:44:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 02:44:41] === Memory Maintenance Hook ===
+[2026-05-14 02:44:42] [START] node memory.js health --verbose (pid=23124)
+[2026-05-14 02:44:42] [DONE] Maintenance scripts started
+[2026-05-14 02:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 02:46:22] [PROJECT]  → Not found: xxx
+[2026-05-14 02:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-14 02:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 02:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 02:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 02:46:22] === Memory Maintenance Hook ===
+[2026-05-14 02:46:22] [START] node memory.js health --verbose (pid=24596)
+[2026-05-14 02:46:22] [DONE] Maintenance scripts started
+[2026-05-14 02:55:21] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 02:55:21] [PROJECT]  → Not found: xxx
+[2026-05-14 02:55:21] [PROJECT]  → Not found: memory-system
+[2026-05-14 02:55:21] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 02:55:21] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 02:55:21] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 02:55:21] === Memory Maintenance Hook ===
+[2026-05-14 02:55:22] [START] node memory.js health --verbose (pid=20824)
+[2026-05-14 02:55:22] [DONE] Maintenance scripts started
+[2026-05-14 03:46:52] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 03:46:52] [PROJECT]  → Not found: xxx
+[2026-05-14 03:46:52] [PROJECT]  → Not found: memory-system
+[2026-05-14 03:46:52] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 03:46:52] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 03:46:52] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 03:46:52] === Memory Maintenance Hook ===
+[2026-05-14 03:46:52] [START] node memory.js health --verbose (pid=22480)
+[2026-05-14 03:46:52] [DONE] Maintenance scripts started
+[2026-05-14 03:48:13] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 03:48:13] [PROJECT]  → Not found: xxx
+[2026-05-14 03:48:13] [PROJECT]  → Not found: memory-system
+[2026-05-14 03:48:13] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 03:48:13] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 03:48:13] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 03:48:13] === Memory Maintenance Hook ===
+[2026-05-14 03:48:13] [START] node memory.js health --verbose (pid=23580)
+[2026-05-14 03:48:13] [DONE] Maintenance scripts started
+[2026-05-14 05:29:15] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 05:29:15] [PROJECT]  → Not found: xxx
+[2026-05-14 05:29:15] [PROJECT]  → Not found: memory-system
+[2026-05-14 05:29:15] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 05:29:15] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 05:29:15] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 05:29:15] === Memory Maintenance Hook ===
+[2026-05-14 05:29:15] [START] node memory.js health --verbose (pid=24400)
+[2026-05-14 05:29:15] [DONE] Maintenance scripts started
+[2026-05-14 05:46:40] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 05:46:40] [PROJECT]  → Not found: xxx
+[2026-05-14 05:46:40] [PROJECT]  → Not found: memory-system
+[2026-05-14 05:46:40] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 05:46:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 05:46:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 05:46:40] === Memory Maintenance Hook ===
+[2026-05-14 05:46:40] [START] node memory.js health --verbose (pid=12776)
+[2026-05-14 05:46:40] [DONE] Maintenance scripts started
+[2026-05-14 05:58:37] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 05:58:37] [PROJECT]  → Not found: xxx
+[2026-05-14 05:58:37] [PROJECT]  → Not found: memory-system
+[2026-05-14 05:58:37] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 05:58:37] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 05:58:37] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 05:58:37] === Memory Maintenance Hook ===
+[2026-05-14 05:58:37] [START] node memory.js health --verbose (pid=7436)
+[2026-05-14 05:58:37] [DONE] Maintenance scripts started
+[2026-05-14 06:16:41] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 06:16:41] [PROJECT]  → Not found: xxx
+[2026-05-14 06:16:41] [PROJECT]  → Not found: memory-system
+[2026-05-14 06:16:41] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 06:16:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 06:16:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 06:16:41] === Memory Maintenance Hook ===
+[2026-05-14 06:16:41] [START] node memory.js health --verbose (pid=21748)
+[2026-05-14 06:16:41] [DONE] Maintenance scripts started
+[2026-05-14 06:20:44] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 06:20:44] [PROJECT]  → Not found: xxx
+[2026-05-14 06:20:44] [PROJECT]  → Not found: memory-system
+[2026-05-14 06:20:44] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 06:20:44] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 06:20:44] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 06:20:44] === Memory Maintenance Hook ===
+[2026-05-14 06:20:44] [START] node memory.js health --verbose (pid=23348)
+[2026-05-14 06:20:44] [DONE] Maintenance scripts started
+[2026-05-14 06:22:55] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 06:22:55] [PROJECT]  → Not found: xxx
+[2026-05-14 06:22:55] [PROJECT]  → Not found: memory-system
+[2026-05-14 06:22:55] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 06:22:55] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 06:22:55] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 06:22:55] === Memory Maintenance Hook ===
+[2026-05-14 06:22:55] [START] node memory.js health --verbose (pid=12796)
+[2026-05-14 06:22:55] [DONE] Maintenance scripts started
+[2026-05-14 06:47:06] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 06:47:06] [PROJECT]  → Not found: xxx
+[2026-05-14 06:47:06] [PROJECT]  → Not found: memory-system
+[2026-05-14 06:47:06] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 06:47:06] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 06:47:06] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 06:47:06] === Memory Maintenance Hook ===
+[2026-05-14 06:47:06] [START] node memory.js health --verbose (pid=2288)
+[2026-05-14 06:47:06] [DONE] Maintenance scripts started
+[2026-05-14 06:55:47] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 06:55:47] [PROJECT]  → Not found: xxx
+[2026-05-14 06:55:47] [PROJECT]  → Not found: memory-system
+[2026-05-14 06:55:47] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 06:55:47] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 06:55:47] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 06:55:47] === Memory Maintenance Hook ===
+[2026-05-14 06:55:48] [START] node memory.js health --verbose (pid=17780)
+[2026-05-14 06:55:48] [DONE] Maintenance scripts started
+[2026-05-14 07:13:49] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 07:13:49] [PROJECT]  → Not found: xxx
+[2026-05-14 07:13:49] [PROJECT]  → Not found: memory-system
+[2026-05-14 07:13:49] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 07:13:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 07:13:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 07:13:49] === Memory Maintenance Hook ===
+[2026-05-14 07:13:49] [START] node memory.js health --verbose (pid=11780)
+[2026-05-14 07:13:49] [DONE] Maintenance scripts started
+[2026-05-14 07:37:03] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 07:37:03] [PROJECT]  → Not found: xxx
+[2026-05-14 07:37:03] [PROJECT]  → Not found: memory-system
+[2026-05-14 07:37:03] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 07:37:03] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 07:37:03] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 07:37:03] === Memory Maintenance Hook ===
+[2026-05-14 07:37:03] [START] node memory.js health --verbose (pid=10656)
+[2026-05-14 07:37:03] [DONE] Maintenance scripts started
+[2026-05-14 07:42:17] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 07:42:17] [PROJECT]  → Not found: xxx
+[2026-05-14 07:42:17] [PROJECT]  → Not found: memory-system
+[2026-05-14 07:42:17] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 07:42:17] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 07:42:17] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 07:42:17] === Memory Maintenance Hook ===
+[2026-05-14 07:42:17] [START] node memory.js health --verbose (pid=5716)
+[2026-05-14 07:42:17] [DONE] Maintenance scripts started
+[2026-05-14 07:46:41] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 07:46:41] [PROJECT]  → Not found: xxx
+[2026-05-14 07:46:41] [PROJECT]  → Not found: memory-system
+[2026-05-14 07:46:41] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 07:46:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 07:46:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 07:46:41] === Memory Maintenance Hook ===
+[2026-05-14 07:46:41] [START] node memory.js health --verbose (pid=12480)
+[2026-05-14 07:46:41] [DONE] Maintenance scripts started
+[2026-05-14 08:06:33] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 08:06:33] [PROJECT]  → Not found: xxx
+[2026-05-14 08:06:33] [PROJECT]  → Not found: memory-system
+[2026-05-14 08:06:33] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 08:06:33] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 08:06:33] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 08:06:33] === Memory Maintenance Hook ===
+[2026-05-14 08:06:33] [START] node memory.js health --verbose (pid=20180)
+[2026-05-14 08:06:33] [DONE] Maintenance scripts started
+[2026-05-14 08:16:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 08:16:24] [PROJECT]  → Not found: xxx
+[2026-05-14 08:16:24] [PROJECT]  → Not found: memory-system
+[2026-05-14 08:16:24] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 08:16:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 08:16:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 08:16:24] === Memory Maintenance Hook ===
+[2026-05-14 08:16:24] [START] node memory.js health --verbose (pid=11644)
+[2026-05-14 08:16:24] [DONE] Maintenance scripts started
+[2026-05-14 08:38:57] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 08:38:57] [PROJECT]  → Not found: xxx
+[2026-05-14 08:38:57] [PROJECT]  → Not found: memory-system
+[2026-05-14 08:38:57] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 08:38:57] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 08:38:57] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 08:38:57] === Memory Maintenance Hook ===
+[2026-05-14 08:38:57] [START] node memory.js health --verbose (pid=6192)
+[2026-05-14 08:38:57] [DONE] Maintenance scripts started
+[2026-05-14 08:41:53] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 08:41:53] [PROJECT]  → Not found: xxx
+[2026-05-14 08:41:53] [PROJECT]  → Not found: memory-system
+[2026-05-14 08:41:53] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 08:41:53] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 08:41:53] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 08:41:53] === Memory Maintenance Hook ===
+[2026-05-14 08:41:53] [START] node memory.js health --verbose (pid=14744)
+[2026-05-14 08:41:53] [DONE] Maintenance scripts started
+[2026-05-14 08:59:52] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 08:59:52] [PROJECT]  → Not found: xxx
+[2026-05-14 08:59:52] [PROJECT]  → Not found: memory-system
+[2026-05-14 08:59:52] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 08:59:52] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 08:59:52] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 08:59:52] === Memory Maintenance Hook ===
+[2026-05-14 08:59:52] [START] node memory.js health --verbose (pid=8328)
+[2026-05-14 08:59:52] [DONE] Maintenance scripts started
+[2026-05-14 09:08:55] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 09:08:55] [PROJECT]  → Not found: xxx
+[2026-05-14 09:08:55] [PROJECT]  → Not found: memory-system
+[2026-05-14 09:08:55] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 09:08:55] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 09:08:55] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 09:08:55] === Memory Maintenance Hook ===
+[2026-05-14 09:08:55] [START] node memory.js health --verbose (pid=14044)
+[2026-05-14 09:08:55] [DONE] Maintenance scripts started
+[2026-05-14 09:11:12] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 09:11:12] [PROJECT]  → Not found: xxx
+[2026-05-14 09:11:12] [PROJECT]  → Not found: memory-system
+[2026-05-14 09:11:12] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 09:11:12] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 09:11:12] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 09:11:12] === Memory Maintenance Hook ===
+[2026-05-14 09:11:12] [START] node memory.js health --verbose (pid=4816)
+[2026-05-14 09:11:12] [DONE] Maintenance scripts started
+[2026-05-14 09:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 09:16:22] [PROJECT]  → Not found: xxx
+[2026-05-14 09:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-14 09:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 09:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 09:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 09:16:22] === Memory Maintenance Hook ===
+[2026-05-14 09:16:22] [START] node memory.js health --verbose (pid=22524)
+[2026-05-14 09:16:22] [DONE] Maintenance scripts started
+[2026-05-14 09:47:52] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 09:47:52] [PROJECT]  → Not found: xxx
+[2026-05-14 09:47:52] [PROJECT]  → Not found: memory-system
+[2026-05-14 09:47:52] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 09:47:52] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 09:47:52] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 09:47:52] === Memory Maintenance Hook ===
+[2026-05-14 09:47:52] [START] node memory.js health --verbose (pid=25016)
+[2026-05-14 09:47:52] [DONE] Maintenance scripts started
+[2026-05-14 09:55:15] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 09:55:15] [PROJECT]  → Not found: xxx
+[2026-05-14 09:55:15] [PROJECT]  → Not found: memory-system
+[2026-05-14 09:55:15] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 09:55:15] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 09:55:15] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 09:55:15] === Memory Maintenance Hook ===
+[2026-05-14 09:55:15] [START] node memory.js health --verbose (pid=17764)
+[2026-05-14 09:55:15] [DONE] Maintenance scripts started
+[2026-05-14 10:00:25] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:00:25] [PROJECT]  → Not found: xxx
+[2026-05-14 10:00:25] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:00:25] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:00:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:00:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:00:25] === Memory Maintenance Hook ===
+[2026-05-14 10:00:25] [START] node memory.js health --verbose (pid=3884)
+[2026-05-14 10:00:25] [DONE] Maintenance scripts started
+[2026-05-14 10:06:46] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:06:46] [PROJECT]  → Not found: xxx
+[2026-05-14 10:06:46] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:06:46] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:06:46] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:06:46] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:06:46] === Memory Maintenance Hook ===
+[2026-05-14 10:06:46] [START] node memory.js health --verbose (pid=20592)
+[2026-05-14 10:06:46] [DONE] Maintenance scripts started
+[2026-05-14 10:14:49] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:14:49] [PROJECT]  → Not found: xxx
+[2026-05-14 10:14:49] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:14:49] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:14:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:14:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:14:49] === Memory Maintenance Hook ===
+[2026-05-14 10:14:49] [START] node memory.js health --verbose (pid=22236)
+[2026-05-14 10:14:49] [DONE] Maintenance scripts started
+[2026-05-14 10:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:16:22] [PROJECT]  → Not found: xxx
+[2026-05-14 10:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:16:22] === Memory Maintenance Hook ===
+[2026-05-14 10:16:22] [START] node memory.js health --verbose (pid=23976)
+[2026-05-14 10:16:22] [DONE] Maintenance scripts started
+[2026-05-14 10:21:48] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:21:48] [PROJECT]  → Not found: xxx
+[2026-05-14 10:21:48] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:21:48] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:21:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:21:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:21:48] === Memory Maintenance Hook ===
+[2026-05-14 10:21:48] [START] node memory.js health --verbose (pid=16452)
+[2026-05-14 10:21:48] [DONE] Maintenance scripts started
+[2026-05-14 10:22:50] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:22:50] [PROJECT]  → Not found: xxx
+[2026-05-14 10:22:50] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:22:50] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:22:50] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:22:50] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:22:50] === Memory Maintenance Hook ===
+[2026-05-14 10:22:51] [START] node memory.js health --verbose (pid=24288)
+[2026-05-14 10:22:51] [DONE] Maintenance scripts started
+[2026-05-14 10:30:05] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-14 10:30:05] [PROJECT]  → Not found: xxx
+[2026-05-14 10:30:05] [PROJECT]  → Not found: memory-system
+[2026-05-14 10:30:05] [DREAM] NOTE: Today's session-corpus (2026-05-14.txt) not yet created.
+[2026-05-14 10:30:05] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-14 10:30:05] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-14 10:30:05] === Memory Maintenance Hook ===
+[2026-05-14 10:30:05] [START] node memory.js health --verbose (pid=4456)
+[2026-05-14 10:30:05] [DONE] Maintenance scripts started
+[2026-05-15 01:06:52] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:06:52] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:06:52] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:06:52] === Memory Maintenance Hook ===
+[2026-05-15 01:06:52] [START] node memory.js health --verbose (pid=16364)
+[2026-05-15 01:06:52] [DONE] Maintenance scripts started
+[2026-05-15 01:06:57] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:06:57] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:06:57] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:06:57] === Memory Maintenance Hook ===
+[2026-05-15 01:06:57] [START] node memory.js health --verbose (pid=21104)
+[2026-05-15 01:06:57] [DONE] Maintenance scripts started
+[2026-05-15 01:07:01] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:07:01] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:07:01] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:07:01] === Memory Maintenance Hook ===
+[2026-05-15 01:07:01] [START] node memory.js health --verbose (pid=21036)
+[2026-05-15 01:07:01] [DONE] Maintenance scripts started
+[2026-05-15 01:07:19] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 01:07:19] [PROJECT]  → Not found: xxx
+[2026-05-15 01:07:19] [PROJECT]  → Not found: memory-system
+[2026-05-15 01:07:19] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:07:19] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:07:19] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:07:19] === Memory Maintenance Hook ===
+[2026-05-15 01:07:19] [START] node memory.js health --verbose (pid=5216)
+[2026-05-15 01:07:19] [DONE] Maintenance scripts started
+2026-05-15 09:07:34 | Memory Planet importance ÿ�ո��� | atoms update-importance | 73 �� atom �Ѹ���
+[2026-05-15 01:16:39] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 01:16:39] [PROJECT]  → Not found: xxx
+[2026-05-15 01:16:39] [PROJECT]  → Not found: memory-system
+[2026-05-15 01:16:39] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:16:39] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:16:39] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:16:39] === Memory Maintenance Hook ===
+[2026-05-15 01:16:39] [START] node memory.js health --verbose (pid=20760)
+[2026-05-15 01:16:39] [DONE] Maintenance scripts started
+[2026-05-15 01:29:27] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 01:29:27] [PROJECT]  → Not found: xxx
+[2026-05-15 01:29:27] [PROJECT]  → Not found: memory-system
+[2026-05-15 01:29:27] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:29:27] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:29:27] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:29:27] === Memory Maintenance Hook ===
+[2026-05-15 01:29:28] [START] node memory.js health --verbose (pid=23548)
+[2026-05-15 01:29:28] [DONE] Maintenance scripts started
+[2026-05-15 01:32:44] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 01:32:44] [PROJECT]  → Not found: xxx
+[2026-05-15 01:32:44] [PROJECT]  → Not found: memory-system
+[2026-05-15 01:32:44] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 01:32:44] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 01:32:44] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 01:32:44] === Memory Maintenance Hook ===
+[2026-05-15 01:32:44] [START] node memory.js health --verbose (pid=23624)
+[2026-05-15 01:32:44] [DONE] Maintenance scripts started
+[2026-05-15 02:09:43] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 02:09:43] [PROJECT]  → Not found: xxx
+[2026-05-15 02:09:43] [PROJECT]  → Not found: memory-system
+[2026-05-15 02:09:43] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 02:09:43] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 02:09:43] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 02:09:43] === Memory Maintenance Hook ===
+[2026-05-15 02:09:44] [START] node memory.js health --verbose (pid=4160)
+[2026-05-15 02:09:44] [DONE] Maintenance scripts started
+[2026-05-15 02:10:12] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 02:10:12] [PROJECT]  → Not found: xxx
+[2026-05-15 02:10:12] [PROJECT]  → Not found: memory-system
+[2026-05-15 02:10:12] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 02:10:12] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 02:10:12] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 02:10:12] === Memory Maintenance Hook ===
+[2026-05-15 02:10:13] [START] node memory.js health --verbose (pid=7580)
+[2026-05-15 02:10:13] [DONE] Maintenance scripts started
+[2026-05-15 02:16:51] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 02:16:51] [PROJECT]  → Not found: xxx
+[2026-05-15 02:16:51] [PROJECT]  → Not found: memory-system
+[2026-05-15 02:16:51] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 02:16:51] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 02:16:51] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 02:16:51] === Memory Maintenance Hook ===
+[2026-05-15 02:16:51] [START] node memory.js health --verbose (pid=18224)
+[2026-05-15 02:16:51] [DONE] Maintenance scripts started
+[2026-05-15 02:39:56] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 02:39:56] [PROJECT]  → Not found: xxx
+[2026-05-15 02:39:56] [PROJECT]  → Not found: memory-system
+[2026-05-15 02:39:56] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 02:39:56] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 02:39:56] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 02:39:56] === Memory Maintenance Hook ===
+[2026-05-15 02:39:57] [START] node memory.js health --verbose (pid=18316)
+[2026-05-15 02:39:57] [DONE] Maintenance scripts started
+[2026-05-15 03:22:11] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 03:22:11] [PROJECT]  → Not found: xxx
+[2026-05-15 03:22:11] [PROJECT]  → Not found: memory-system
+[2026-05-15 03:22:11] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 03:22:11] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 03:22:11] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 03:22:11] === Memory Maintenance Hook ===
+[2026-05-15 03:22:11] [START] node memory.js health --verbose (pid=19516)
+[2026-05-15 03:22:11] [DONE] Maintenance scripts started
+[2026-05-15 03:28:54] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 03:28:54] [PROJECT]  → Not found: xxx
+[2026-05-15 03:28:54] [PROJECT]  → Not found: memory-system
+[2026-05-15 03:28:54] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 03:28:54] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 03:28:54] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 03:28:54] === Memory Maintenance Hook ===
+[2026-05-15 03:28:54] [START] node memory.js health --verbose (pid=22096)
+[2026-05-15 03:28:54] [DONE] Maintenance scripts started
+[2026-05-15 03:35:15] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 03:35:15] [PROJECT]  → Not found: xxx
+[2026-05-15 03:35:15] [PROJECT]  → Not found: memory-system
+[2026-05-15 03:35:15] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 03:35:15] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 03:35:15] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 03:35:15] === Memory Maintenance Hook ===
+[2026-05-15 03:35:15] [START] node memory.js health --verbose (pid=15364)
+[2026-05-15 03:35:15] [DONE] Maintenance scripts started
+[2026-05-15 04:04:55] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 04:04:55] [PROJECT]  → Not found: xxx
+[2026-05-15 04:04:55] [PROJECT]  → Not found: memory-system
+[2026-05-15 04:04:55] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 04:04:55] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 04:04:55] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 04:04:55] === Memory Maintenance Hook ===
+[2026-05-15 04:04:55] [START] node memory.js health --verbose (pid=19876)
+[2026-05-15 04:04:55] [DONE] Maintenance scripts started
+[2026-05-15 05:52:40] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 05:52:40] [PROJECT]  → Not found: xxx
+[2026-05-15 05:52:40] [PROJECT]  → Not found: memory-system
+[2026-05-15 05:52:40] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 05:52:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 05:52:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 05:52:40] === Memory Maintenance Hook ===
+[2026-05-15 05:52:40] [START] node memory.js health --verbose (pid=2528)
+[2026-05-15 05:52:40] [DONE] Maintenance scripts started
+[2026-05-15 05:57:38] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 05:57:38] [PROJECT]  → Not found: xxx
+[2026-05-15 05:57:38] [PROJECT]  → Not found: memory-system
+[2026-05-15 05:57:38] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 05:57:38] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 05:57:38] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 05:57:38] === Memory Maintenance Hook ===
+[2026-05-15 05:57:38] [START] node memory.js health --verbose (pid=20260)
+[2026-05-15 05:57:38] [DONE] Maintenance scripts started
+[2026-05-15 06:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 06:16:22] [PROJECT]  → Not found: xxx
+[2026-05-15 06:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-15 06:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 06:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 06:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 06:16:22] === Memory Maintenance Hook ===
+[2026-05-15 06:16:22] [START] node memory.js health --verbose (pid=23884)
+[2026-05-15 06:16:22] [DONE] Maintenance scripts started
+[2026-05-15 06:20:49] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 06:20:49] [PROJECT]  → Not found: xxx
+[2026-05-15 06:20:49] [PROJECT]  → Not found: memory-system
+[2026-05-15 06:20:49] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 06:20:49] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 06:20:49] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 06:20:49] === Memory Maintenance Hook ===
+[2026-05-15 06:20:49] [START] node memory.js health --verbose (pid=15080)
+[2026-05-15 06:20:49] [DONE] Maintenance scripts started
+[2026-05-15 06:26:25] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 06:26:25] [PROJECT]  → Not found: xxx
+[2026-05-15 06:26:25] [PROJECT]  → Not found: memory-system
+[2026-05-15 06:26:25] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 06:26:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 06:26:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 06:26:25] === Memory Maintenance Hook ===
+[2026-05-15 06:26:25] [START] node memory.js health --verbose (pid=5936)
+[2026-05-15 06:26:25] [DONE] Maintenance scripts started
+[2026-05-15 06:27:06] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 06:27:06] [PROJECT]  → Not found: xxx
+[2026-05-15 06:27:06] [PROJECT]  → Not found: memory-system
+[2026-05-15 06:27:06] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 06:27:06] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 06:27:06] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 06:27:06] === Memory Maintenance Hook ===
+[2026-05-15 06:27:06] [START] node memory.js health --verbose (pid=24396)
+[2026-05-15 06:27:06] [DONE] Maintenance scripts started
+[2026-05-15 07:25:11] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 07:25:11] [PROJECT]  → Not found: xxx
+[2026-05-15 07:25:11] [PROJECT]  → Not found: memory-system
+[2026-05-15 07:25:11] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 07:25:11] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 07:25:11] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 07:25:11] === Memory Maintenance Hook ===
+[2026-05-15 07:25:11] [START] node memory.js health --verbose (pid=18456)
+[2026-05-15 07:25:11] [DONE] Maintenance scripts started
+[2026-05-15 07:27:38] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 07:27:38] [PROJECT]  → Not found: xxx
+[2026-05-15 07:27:38] [PROJECT]  → Not found: memory-system
+[2026-05-15 07:27:38] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 07:27:38] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 07:27:38] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 07:27:38] === Memory Maintenance Hook ===
+[2026-05-15 07:27:38] [START] node memory.js health --verbose (pid=23524)
+[2026-05-15 07:27:38] [DONE] Maintenance scripts started
+[2026-05-15 07:40:10] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 07:40:10] [PROJECT]  → Not found: xxx
+[2026-05-15 07:40:10] [PROJECT]  → Not found: memory-system
+[2026-05-15 07:40:10] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 07:40:10] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 07:40:10] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 07:40:10] === Memory Maintenance Hook ===
+[2026-05-15 07:40:10] [START] node memory.js health --verbose (pid=19572)
+[2026-05-15 07:40:10] [DONE] Maintenance scripts started
+[2026-05-15 07:46:08] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 07:46:08] [PROJECT]  → Not found: xxx
+[2026-05-15 07:46:08] [PROJECT]  → Not found: memory-system
+[2026-05-15 07:46:08] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 07:46:08] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 07:46:08] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 07:46:08] === Memory Maintenance Hook ===
+[2026-05-15 07:46:08] [START] node memory.js health --verbose (pid=24012)
+[2026-05-15 07:46:08] [DONE] Maintenance scripts started
+[2026-05-15 07:51:57] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 07:51:57] [PROJECT]  → Not found: xxx
+[2026-05-15 07:51:57] [PROJECT]  → Not found: memory-system
+[2026-05-15 07:51:57] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 07:51:57] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 07:51:57] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 07:51:57] === Memory Maintenance Hook ===
+[2026-05-15 07:51:57] [START] node memory.js health --verbose (pid=18644)
+[2026-05-15 07:51:57] [DONE] Maintenance scripts started
+[2026-05-15 08:16:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 08:16:23] [PROJECT]  → Not found: xxx
+[2026-05-15 08:16:23] [PROJECT]  → Not found: memory-system
+[2026-05-15 08:16:23] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 08:16:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 08:16:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 08:16:23] === Memory Maintenance Hook ===
+[2026-05-15 08:16:23] [START] node memory.js health --verbose (pid=2396)
+[2026-05-15 08:16:23] [DONE] Maintenance scripts started
+[2026-05-15 09:05:23] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 09:05:23] [PROJECT]  → Not found: xxx
+[2026-05-15 09:05:23] [PROJECT]  → Not found: memory-system
+[2026-05-15 09:05:23] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 09:05:23] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 09:05:23] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 09:05:23] === Memory Maintenance Hook ===
+[2026-05-15 09:05:23] [START] node memory.js health --verbose (pid=13228)
+[2026-05-15 09:05:23] [DONE] Maintenance scripts started
+[2026-05-15 09:06:00] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 09:06:00] [PROJECT]  → Not found: xxx
+[2026-05-15 09:06:00] [PROJECT]  → Not found: memory-system
+[2026-05-15 09:06:00] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 09:06:00] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 09:06:00] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 09:06:00] === Memory Maintenance Hook ===
+[2026-05-15 09:06:00] [START] node memory.js health --verbose (pid=22560)
+[2026-05-15 09:06:00] [DONE] Maintenance scripts started
+[2026-05-15 09:08:46] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 09:08:46] [PROJECT]  → Not found: xxx
+[2026-05-15 09:08:46] [PROJECT]  → Not found: memory-system
+[2026-05-15 09:08:46] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 09:08:46] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 09:08:46] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 09:08:46] === Memory Maintenance Hook ===
+[2026-05-15 09:08:46] [START] node memory.js health --verbose (pid=22536)
+[2026-05-15 09:08:46] [DONE] Maintenance scripts started
+[2026-05-15 09:09:47] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 09:09:47] [PROJECT]  → Not found: xxx
+[2026-05-15 09:09:47] [PROJECT]  → Not found: memory-system
+[2026-05-15 09:09:47] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 09:09:47] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 09:09:47] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 09:09:47] === Memory Maintenance Hook ===
+[2026-05-15 09:09:47] [START] node memory.js health --verbose (pid=19476)
+[2026-05-15 09:09:47] [DONE] Maintenance scripts started
+[2026-05-15 09:55:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 09:55:22] [PROJECT]  → Not found: xxx
+[2026-05-15 09:55:22] [PROJECT]  → Not found: memory-system
+[2026-05-15 09:55:22] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 09:55:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 09:55:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 09:55:22] === Memory Maintenance Hook ===
+[2026-05-15 09:55:22] [START] node memory.js health --verbose (pid=20976)
+[2026-05-15 09:55:22] [DONE] Maintenance scripts started
+[2026-05-15 09:57:26] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 09:57:26] [PROJECT]  → Not found: xxx
+[2026-05-15 09:57:26] [PROJECT]  → Not found: memory-system
+[2026-05-15 09:57:26] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 09:57:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 09:57:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 09:57:26] === Memory Maintenance Hook ===
+[2026-05-15 09:57:26] [START] node memory.js health --verbose (pid=23504)
+[2026-05-15 09:57:26] [DONE] Maintenance scripts started
+[2026-05-15 10:00:03] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 10:00:03] [PROJECT]  → Not found: xxx
+[2026-05-15 10:00:03] [PROJECT]  → Not found: memory-system
+[2026-05-15 10:00:03] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 10:00:03] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 10:00:03] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 10:00:03] === Memory Maintenance Hook ===
+[2026-05-15 10:00:03] [START] node memory.js health --verbose (pid=19440)
+[2026-05-15 10:00:03] [DONE] Maintenance scripts started
+[2026-05-15 10:10:40] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 10:10:40] [PROJECT]  → Not found: xxx
+[2026-05-15 10:10:40] [PROJECT]  → Not found: memory-system
+[2026-05-15 10:10:40] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 10:10:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 10:10:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 10:10:40] === Memory Maintenance Hook ===
+[2026-05-15 10:10:40] [START] node memory.js health --verbose (pid=9416)
+[2026-05-15 10:10:40] [DONE] Maintenance scripts started
+[2026-05-15 10:14:12] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 10:14:12] [PROJECT]  → Not found: xxx
+[2026-05-15 10:14:12] [PROJECT]  → Not found: memory-system
+[2026-05-15 10:14:12] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 10:14:12] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 10:14:12] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 10:14:12] === Memory Maintenance Hook ===
+[2026-05-15 10:14:12] [START] node memory.js health --verbose (pid=21868)
+[2026-05-15 10:14:12] [DONE] Maintenance scripts started
+[2026-05-15 10:26:48] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-15 10:26:48] [PROJECT]  → Not found: xxx
+[2026-05-15 10:26:48] [PROJECT]  → Not found: memory-system
+[2026-05-15 10:26:48] [DREAM] NOTE: Today's session-corpus (2026-05-15.txt) not yet created.
+[2026-05-15 10:26:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-15 10:26:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-15 10:26:48] === Memory Maintenance Hook ===
+[2026-05-15 10:26:48] [START] node memory.js health --verbose (pid=23012)
+[2026-05-15 10:26:48] [DONE] Maintenance scripts started
+[2026-05-16 00:46:47] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 00:46:47] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 00:46:47] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 00:46:47] === Memory Maintenance Hook ===
+[2026-05-16 00:46:47] [START] node memory.js health --verbose (pid=5340)
+[2026-05-16 00:46:47] [DONE] Maintenance scripts started
+[2026-05-16 00:46:53] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 00:46:53] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 00:46:53] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 00:46:53] === Memory Maintenance Hook ===
+[2026-05-16 00:46:53] [START] node memory.js health --verbose (pid=2840)
+[2026-05-16 00:46:53] [DONE] Maintenance scripts started
+[2026-05-16 00:46:59] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 00:46:59] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 00:46:59] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 00:46:59] === Memory Maintenance Hook ===
+[2026-05-16 00:46:59] [START] node memory.js health --verbose (pid=20168)
+[2026-05-16 00:46:59] [DONE] Maintenance scripts started
+[2026-05-16 00:47:18] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 00:47:18] [PROJECT]  → Not found: xxx
+[2026-05-16 00:47:18] [PROJECT]  → Not found: memory-system
+[2026-05-16 00:47:18] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 00:47:18] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 00:47:18] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 00:47:18] === Memory Maintenance Hook ===
+[2026-05-16 00:47:18] [START] node memory.js health --verbose (pid=19112)
+[2026-05-16 00:47:18] [DONE] Maintenance scripts started
+[2026-05-16 00:52:39] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 00:52:39] [PROJECT]  → Not found: xxx
+[2026-05-16 00:52:39] [PROJECT]  → Not found: memory-system
+[2026-05-16 00:52:39] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 00:52:39] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 00:52:39] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 00:52:39] === Memory Maintenance Hook ===
+[2026-05-16 00:52:39] [START] node memory.js health --verbose (pid=5348)
+[2026-05-16 00:52:39] [DONE] Maintenance scripts started
+[2026-05-16 01:00:07] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:00:07] [PROJECT]  → Not found: xxx
+[2026-05-16 01:00:07] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:00:07] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:00:07] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:00:07] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:00:07] === Memory Maintenance Hook ===
+[2026-05-16 01:00:07] [START] node memory.js health --verbose (pid=20112)
+[2026-05-16 01:00:07] [DONE] Maintenance scripts started
+[2026-05-16 01:05:25] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:05:25] [PROJECT]  → Not found: xxx
+[2026-05-16 01:05:25] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:05:25] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:05:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:05:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:05:25] === Memory Maintenance Hook ===
+[2026-05-16 01:05:25] [START] node memory.js health --verbose (pid=22020)
+[2026-05-16 01:05:25] [DONE] Maintenance scripts started
+[2026-05-16 01:06:52] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:06:52] [PROJECT]  → Not found: xxx
+[2026-05-16 01:06:52] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:06:52] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:06:52] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:06:52] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:06:52] === Memory Maintenance Hook ===
+[2026-05-16 01:06:52] [START] node memory.js health --verbose (pid=19620)
+[2026-05-16 01:06:52] [DONE] Maintenance scripts started
+[2026-05-16 01:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:16:22] [PROJECT]  → Not found: xxx
+[2026-05-16 01:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:16:22] === Memory Maintenance Hook ===
+[2026-05-16 01:16:22] [START] node memory.js health --verbose (pid=16908)
+[2026-05-16 01:16:22] [DONE] Maintenance scripts started
+[2026-05-16 01:19:48] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:19:48] [PROJECT]  → Not found: xxx
+[2026-05-16 01:19:48] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:19:48] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:19:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:19:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:19:48] === Memory Maintenance Hook ===
+[2026-05-16 01:19:48] [START] node memory.js health --verbose (pid=21020)
+[2026-05-16 01:19:48] [DONE] Maintenance scripts started
+[2026-05-16 01:37:01] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:37:01] [PROJECT]  → Not found: xxx
+[2026-05-16 01:37:01] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:37:01] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:37:01] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:37:01] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:37:01] === Memory Maintenance Hook ===
+[2026-05-16 01:37:01] [START] node memory.js health --verbose (pid=15724)
+[2026-05-16 01:37:01] [DONE] Maintenance scripts started
+[2026-05-16 01:39:40] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:39:40] [PROJECT]  → Not found: xxx
+[2026-05-16 01:39:40] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:39:40] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:39:40] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:39:40] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:39:40] === Memory Maintenance Hook ===
+[2026-05-16 01:39:40] [START] node memory.js health --verbose (pid=22620)
+[2026-05-16 01:39:40] [DONE] Maintenance scripts started
+[2026-05-16 01:45:12] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 01:45:12] [PROJECT]  → Not found: xxx
+[2026-05-16 01:45:12] [PROJECT]  → Not found: memory-system
+[2026-05-16 01:45:12] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 01:45:12] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 01:45:12] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 01:45:12] === Memory Maintenance Hook ===
+[2026-05-16 01:45:12] [START] node memory.js health --verbose (pid=16692)
+[2026-05-16 01:45:12] [DONE] Maintenance scripts started
+[2026-05-16 02:00:41] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 02:00:41] [PROJECT]  → Not found: xxx
+[2026-05-16 02:00:41] [PROJECT]  → Not found: memory-system
+[2026-05-16 02:00:41] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 02:00:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 02:00:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 02:00:41] === Memory Maintenance Hook ===
+[2026-05-16 02:00:41] [START] node memory.js health --verbose (pid=22340)
+[2026-05-16 02:00:41] [DONE] Maintenance scripts started
+[2026-05-16 02:18:10] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 02:18:10] [PROJECT]  → Not found: xxx
+[2026-05-16 02:18:10] [PROJECT]  → Not found: memory-system
+[2026-05-16 02:18:10] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 02:18:10] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 02:18:10] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 02:18:10] === Memory Maintenance Hook ===
+[2026-05-16 02:18:10] [START] node memory.js health --verbose (pid=14552)
+[2026-05-16 02:18:10] [DONE] Maintenance scripts started
+[2026-05-16 02:24:55] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 02:24:55] [PROJECT]  → Not found: xxx
+[2026-05-16 02:24:55] [PROJECT]  → Not found: memory-system
+[2026-05-16 02:24:55] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 02:24:55] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 02:24:55] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 02:24:55] === Memory Maintenance Hook ===
+[2026-05-16 02:24:55] [START] node memory.js health --verbose (pid=22972)
+[2026-05-16 02:24:55] [DONE] Maintenance scripts started
+[2026-05-16 02:27:30] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 02:27:30] [PROJECT]  → Not found: xxx
+[2026-05-16 02:27:30] [PROJECT]  → Not found: memory-system
+[2026-05-16 02:27:30] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 02:27:30] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 02:27:30] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 02:27:30] === Memory Maintenance Hook ===
+[2026-05-16 02:27:30] [START] node memory.js health --verbose (pid=25508)
+[2026-05-16 02:27:30] [DONE] Maintenance scripts started
+[2026-05-16 02:27:56] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 02:27:56] [PROJECT]  → Not found: xxx
+[2026-05-16 02:27:56] [PROJECT]  → Not found: memory-system
+[2026-05-16 02:27:56] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 02:27:56] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 02:27:56] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 02:27:56] === Memory Maintenance Hook ===
+[2026-05-16 02:27:57] [START] node memory.js health --verbose (pid=25500)
+[2026-05-16 02:27:57] [DONE] Maintenance scripts started
+[2026-05-16 02:46:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 02:46:22] [PROJECT]  → Not found: xxx
+[2026-05-16 02:46:22] [PROJECT]  → Not found: memory-system
+[2026-05-16 02:46:22] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 02:46:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 02:46:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 02:46:22] === Memory Maintenance Hook ===
+[2026-05-16 02:46:22] [START] node memory.js health --verbose (pid=21460)
+[2026-05-16 02:46:22] [DONE] Maintenance scripts started
+[2026-05-16 07:34:10] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 07:34:10] [PROJECT]  → Not found: xxx
+[2026-05-16 07:34:10] [PROJECT]  → Not found: memory-system
+[2026-05-16 07:34:10] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 07:34:10] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 07:34:10] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 07:34:10] === Memory Maintenance Hook ===
+[2026-05-16 07:34:10] [START] node memory.js health --verbose (pid=9332)
+[2026-05-16 07:34:10] [DONE] Maintenance scripts started
+[2026-05-16 07:46:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 07:46:24] [PROJECT]  → Not found: xxx
+[2026-05-16 07:46:24] [PROJECT]  → Not found: memory-system
+[2026-05-16 07:46:24] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 07:46:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 07:46:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 07:46:24] === Memory Maintenance Hook ===
+[2026-05-16 07:46:24] [START] node memory.js health --verbose (pid=23356)
+[2026-05-16 07:46:24] [DONE] Maintenance scripts started
+[2026-05-16 08:03:04] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 08:03:04] [PROJECT]  → Not found: xxx
+[2026-05-16 08:03:04] [PROJECT]  → Not found: memory-system
+[2026-05-16 08:03:04] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 08:03:04] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 08:03:04] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 08:03:04] === Memory Maintenance Hook ===
+[2026-05-16 08:03:04] [START] node memory.js health --verbose (pid=26084)
+[2026-05-16 08:03:04] [DONE] Maintenance scripts started
+[2026-05-16 08:16:22] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 08:16:22] [PROJECT]  → Not found: xxx
+[2026-05-16 08:16:22] [PROJECT]  → Not found: memory-system
+[2026-05-16 08:16:22] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 08:16:22] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 08:16:22] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 08:16:22] === Memory Maintenance Hook ===
+[2026-05-16 08:16:22] [START] node memory.js health --verbose (pid=26260)
+[2026-05-16 08:16:22] [DONE] Maintenance scripts started
+[2026-05-16 08:38:13] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 08:38:13] [PROJECT]  → Not found: xxx
+[2026-05-16 08:38:13] [PROJECT]  → Not found: memory-system
+[2026-05-16 08:38:13] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 08:38:13] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 08:38:13] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 08:38:13] === Memory Maintenance Hook ===
+[2026-05-16 08:38:13] [START] node memory.js health --verbose (pid=16076)
+[2026-05-16 08:38:13] [DONE] Maintenance scripts started
+[2026-05-16 08:46:41] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 08:46:41] [PROJECT]  → Not found: xxx
+[2026-05-16 08:46:41] [PROJECT]  → Not found: memory-system
+[2026-05-16 08:46:41] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 08:46:41] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 08:46:41] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 08:46:41] === Memory Maintenance Hook ===
+[2026-05-16 08:46:41] [START] node memory.js health --verbose (pid=22464)
+[2026-05-16 08:46:41] [DONE] Maintenance scripts started
+[2026-05-16 08:59:11] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 08:59:11] [PROJECT]  → Not found: xxx
+[2026-05-16 08:59:11] [PROJECT]  → Not found: memory-system
+[2026-05-16 08:59:11] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 08:59:11] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 08:59:11] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 08:59:11] === Memory Maintenance Hook ===
+[2026-05-16 08:59:11] [START] node memory.js health --verbose (pid=24148)
+[2026-05-16 08:59:11] [DONE] Maintenance scripts started
+[2026-05-16 09:04:26] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 09:04:26] [PROJECT]  → Not found: xxx
+[2026-05-16 09:04:26] [PROJECT]  → Not found: memory-system
+[2026-05-16 09:04:26] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 09:04:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 09:04:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 09:04:26] === Memory Maintenance Hook ===
+[2026-05-16 09:04:26] [START] node memory.js health --verbose (pid=21288)
+[2026-05-16 09:04:26] [DONE] Maintenance scripts started
+[2026-05-16 09:11:30] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 09:11:30] [PROJECT]  → Not found: xxx
+[2026-05-16 09:11:30] [PROJECT]  → Not found: memory-system
+[2026-05-16 09:11:30] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 09:11:30] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 09:11:30] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 09:11:30] === Memory Maintenance Hook ===
+[2026-05-16 09:11:30] [START] node memory.js health --verbose (pid=20696)
+[2026-05-16 09:11:30] [DONE] Maintenance scripts started
+[2026-05-16 09:25:50] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 09:25:50] [PROJECT]  → Not found: xxx
+[2026-05-16 09:25:50] [PROJECT]  → Not found: memory-system
+[2026-05-16 09:25:50] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 09:25:50] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 09:25:50] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 09:25:50] === Memory Maintenance Hook ===
+[2026-05-16 09:25:50] [START] node memory.js health --verbose (pid=23012)
+[2026-05-16 09:25:50] [DONE] Maintenance scripts started
+[2026-05-16 09:26:34] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 09:26:34] [PROJECT]  → Not found: xxx
+[2026-05-16 09:26:34] [PROJECT]  → Not found: memory-system
+[2026-05-16 09:26:34] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 09:26:34] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 09:26:34] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 09:26:34] === Memory Maintenance Hook ===
+[2026-05-16 09:26:34] [START] node memory.js health --verbose (pid=20920)
+[2026-05-16 09:26:34] [DONE] Maintenance scripts started
+[2026-05-16 09:46:54] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 09:46:54] [PROJECT]  → Not found: xxx
+[2026-05-16 09:46:54] [PROJECT]  → Not found: memory-system
+[2026-05-16 09:46:54] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 09:46:54] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 09:46:54] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 09:46:54] === Memory Maintenance Hook ===
+[2026-05-16 09:46:54] [START] node memory.js health --verbose (pid=23092)
+[2026-05-16 09:46:54] [DONE] Maintenance scripts started
+[2026-05-16 10:06:25] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:06:25] [PROJECT]  → Not found: xxx
+[2026-05-16 10:06:25] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:06:25] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:06:25] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:06:25] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:06:25] === Memory Maintenance Hook ===
+[2026-05-16 10:06:25] [START] node memory.js health --verbose (pid=22660)
+[2026-05-16 10:06:25] [DONE] Maintenance scripts started
+[2026-05-16 10:16:03] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:16:03] [PROJECT]  → Not found: xxx
+[2026-05-16 10:16:03] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:16:03] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:16:03] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:16:03] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:16:03] === Memory Maintenance Hook ===
+[2026-05-16 10:16:03] [START] node memory.js health --verbose (pid=23624)
+[2026-05-16 10:16:03] [DONE] Maintenance scripts started
+[2026-05-16 10:20:31] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:20:31] [PROJECT]  → Not found: xxx
+[2026-05-16 10:20:31] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:20:31] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:20:31] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:20:31] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:20:31] === Memory Maintenance Hook ===
+[2026-05-16 10:20:31] [START] node memory.js health --verbose (pid=16000)
+[2026-05-16 10:20:31] [DONE] Maintenance scripts started
+[2026-05-16 10:23:24] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:23:24] [PROJECT]  → Not found: xxx
+[2026-05-16 10:23:24] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:23:24] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:23:24] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:23:24] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:23:24] === Memory Maintenance Hook ===
+[2026-05-16 10:23:24] [START] node memory.js health --verbose (pid=24772)
+[2026-05-16 10:23:24] [DONE] Maintenance scripts started
+[2026-05-16 10:25:48] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:25:48] [PROJECT]  → Not found: xxx
+[2026-05-16 10:25:48] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:25:48] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:25:48] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:25:48] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:25:48] === Memory Maintenance Hook ===
+[2026-05-16 10:25:48] [START] node memory.js health --verbose (pid=3900)
+[2026-05-16 10:25:48] [DONE] Maintenance scripts started
+[2026-05-16 10:28:26] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:28:26] [PROJECT]  → Not found: xxx
+[2026-05-16 10:28:26] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:28:26] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:28:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:28:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:28:26] === Memory Maintenance Hook ===
+[2026-05-16 10:28:26] [START] node memory.js health --verbose (pid=25628)
+[2026-05-16 10:28:26] [DONE] Maintenance scripts started
+[2026-05-16 10:30:13] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:30:13] [PROJECT]  → Not found: xxx
+[2026-05-16 10:30:13] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:30:13] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:30:13] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:30:13] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:30:13] === Memory Maintenance Hook ===
+[2026-05-16 10:30:13] [START] node memory.js health --verbose (pid=24584)
+[2026-05-16 10:30:13] [DONE] Maintenance scripts started
+[2026-05-16 10:32:29] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:32:29] [PROJECT]  → Not found: xxx
+[2026-05-16 10:32:29] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:32:29] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:32:29] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:32:29] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:32:29] === Memory Maintenance Hook ===
+[2026-05-16 10:32:29] [START] node memory.js health --verbose (pid=21576)
+[2026-05-16 10:32:29] [DONE] Maintenance scripts started
+[2026-05-16 10:34:05] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:34:05] [PROJECT]  → Not found: xxx
+[2026-05-16 10:34:05] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:34:05] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:34:05] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:34:05] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:34:05] === Memory Maintenance Hook ===
+[2026-05-16 10:34:05] [START] node memory.js health --verbose (pid=22088)
+[2026-05-16 10:34:05] [DONE] Maintenance scripts started
+[2026-05-16 10:35:26] [PROJECT] Found @project references: xxx, memory-system
+[2026-05-16 10:35:26] [PROJECT]  → Not found: xxx
+[2026-05-16 10:35:26] [PROJECT]  → Not found: memory-system
+[2026-05-16 10:35:26] [DREAM] NOTE: Today's session-corpus (2026-05-16.txt) not yet created.
+[2026-05-16 10:35:26] [DREAM] NOTE: Run /new or end the current session to trigger ingestion.
+[2026-05-16 10:35:26] [DREAM] The dreaming system will pick it up at the next 3 AM run.
+[2026-05-16 10:35:26] === Memory Maintenance Hook ===
+[2026-05-16 10:35:26] [START] node memory.js health --verbose (pid=20524)
+[2026-05-16 10:35:26] [DONE] Maintenance scripts started

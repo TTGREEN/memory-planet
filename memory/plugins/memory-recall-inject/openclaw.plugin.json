@@ -1,0 +1,39 @@
+{
+  "id": "memory-recall-inject",
+  "activation": {
+    "onStartup": true
+  },
+  "name": "Memory Recall Inject",
+  "version": "0.1.0",
+  "description": "Inject relevant memories from atoms.db into prompt via before_prompt_build hook (M0.5 recall injection)",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "topAtoms": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10,
+        "default": 3
+      },
+      "minScore": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "default": 0.5
+      },
+      "maxChars": {
+        "type": "integer",
+        "minimum": 50,
+        "maximum": 2000,
+        "default": 500
+      },
+      "timeoutMs": {
+        "type": "integer",
+        "minimum": 1000,
+        "maximum": 30000,
+        "default": 15000
+      }
+    }
+  }
+}

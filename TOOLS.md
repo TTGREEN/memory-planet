@@ -41,6 +41,22 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 ---
 
+## Session 调试参考
+
+（参考 mavis-doctor 双 ID 模式）
+
+OpenClaw session 结构：
+- `main session` = 仕泽的主对话入口，长期存在
+- `sub-session` = 临时分叉，用于后台任务或并行工作
+- `session key` = UUID 格式，用于 sessions 系列工具定位
+
+调试命令：
+- `sessions_list` → 列出所有可见 session（含 label、最后消息预览）
+- `sessions_history sessionKey --limit 5` → 看某个 session 的尾端，判断在跑什么
+- `sessions_send sessionKey "message"` → 往目标 session 发消息，让它执行
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.
 
 ## Related

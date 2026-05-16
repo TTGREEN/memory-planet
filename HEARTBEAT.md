@@ -1,20 +1,44 @@
-# HEARTBEAT.md - Proactive Checklist
+# HEARTBEAT.md - Heartbeat Tasks
 
-_Keep this small to limit token burn. Edit freely._
+tasks:
+  - name: memory-recall
+    interval: 30m
+    prompt: |
+      Run: node memory/scripts/memory.js atoms recall "最近对话主题" --top 5
+      Read memory/.dreams/recall-latest.md (if exists) to get previous results.
+      Log comparison to memory/.dreams/recall-feedback.log:
+      Format: [HH:mm] query=<query> added=<ids> dropped=<ids> scores=<top3>
+      If results changed significantly, overwrite recall-latest.md with new output.
+      If nothing needs attention, reply HEARTBEAT_OK.
 
-## Active Checks (rotate through)
+  - name: memory-maintenance
+    interval: 6h
+    prompt: |
+      1. Read memory/daily-logs/YYYY-MM-DD.md (today + yesterday) for recent context
+      2. Check MEMORY.md line count: if >180 lines, run memory/scripts/memory.js compact
+      3. Check memory/archive/ for files >30d unused, move to archive if found
+      4. Update MEMORY.md if there are important new context entries from today
+      If nothing needs attention, reply HEARTBEAT_OK.
 
-**基础检查（每次心跳轮转）：**
-- [ ] Memory maintenance — read recent memory/YYYY-MM-DD.md, update MEMORY.md if needed
-- [ ] System health — OpenClaw version, disk space, running processes
-- [ ] Project status — git status in workspace, any pending commits
-- [ ] Check if OpenClaw update available (npm vs installed)
+  - name: system-health
+    interval: 2h
+    prompt: |
+      1. Run: openclaw --version (check OpenClaw version)
+      2. Check disk space: (Get-PSDrive C).Free / Used * 100 > 20%
+      3. Run: openclaw gateway status (check Gateway is stable, no respawn loop)
+      4. Run: git status --porcelain in workspace (check pending changes)
+      If anything broke or unexpected error, reply with diagnostic summary.
+      If disk < 20%, alert immediately.
+      If nothing needs attention, reply HEARTBEAT_OK.
 
-**主动检查（每 4 周期一次）：**
-- [ ] OpenClaw Gateway 进程是否稳定（无 respawn 循环）
-- [ ] 检查 heartbeat-state.json 的 lastChecks 时间戳是否有异常
-- [ ] MEMORY.md 是否接近 200 行上限（超过 180 行则压缩）
-- [ ] memory/archive/ 是否有超过 30 天未访问的文件（需归档）
+  - name: verifier-check
+    interval: 12h
+    prompt: |
+      1. 检查 memory/plugins/ 和 ~/.openclaw/hooks/ 目录下的新文件
+      2. 验证者心态：不是来确认没问题，是来尝试找出问题
+      3. 重点查：语法错误、null 检查缺失、文件不存在 edge case
+      4. 如果有问题，给出具体文件位置 + 修复建议
+      如果无新文件或未发现问题，reply HEARTBEAT_OK.
 
 ## When to Reach Out
 
@@ -25,13 +49,7 @@ _Keep this small to limit token burn. Edit freely._
 
 ## When to Stay Quiet
 
-- Late night (23:00-08:00)
+- Late night (23:00-08:00) unless urgent
 - Human is clearly busy
 - Nothing new since last check
 - Just checked <30 minutes ago
-
-## Notes
-
-- Heartbeat runs every 30 minutes
-- Check heartbeat-state.json for last run timestamps
-- Archive old memory entries to memory/archive/ when they get too old
