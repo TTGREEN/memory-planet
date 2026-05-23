@@ -1,0 +1,11 @@
+const db = require('better-sqlite3')('C:/Users/Administrator/.openclaw/workspace/storage/atoms.db');
+const tables = db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all().map(r => r.name);
+const ma = db.prepare('PRAGMA table_info(memory_atom)').all().map(c => c.name);
+const cl = db.prepare('PRAGMA table_info(claims)').all().map(c => c.name);
+const rh = db.prepare('PRAGMA table_info(recall_history)').all().map(c => c.name);
+console.log('Tables count:', tables.length);
+console.log('Tables:', tables.slice(0,10).join(', '), '...');
+console.log('memory_atom cols:', ma.join(', '));
+console.log('claims cols:', cl.join(', '));
+console.log('recall_history cols:', rh.join(', '));
+db.close();

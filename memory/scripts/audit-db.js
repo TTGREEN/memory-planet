@@ -1,0 +1,11 @@
+const Database = require('./node_modules/better-sqlite3');
+const db = new Database('storage/atoms.db');
+const tables = db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all();
+console.log('TABLES:', JSON.stringify(tables, null, 2));
+const mi = db.prepare('PRAGMA table_info(memory_atom)').all();
+console.log('memory_atom cols:', JSON.stringify(mi.map(c => c.name), null, 2));
+const ci = db.prepare('PRAGMA table_info(claims)').all();
+console.log('claims cols:', JSON.stringify(ci.map(c => c.name), null, 2));
+const ri = db.prepare('PRAGMA table_info(relations)').all();
+console.log('relations cols:', JSON.stringify(ri.map(c => c.name), null, 2));
+db.close();

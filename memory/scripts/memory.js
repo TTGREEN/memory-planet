@@ -658,6 +658,27 @@ async function cmdAtoms(args) {
   }
 }
 
+// ─── Governance Plane CLI ─────────────────────────────────────────────────────
+
+async function cmdGovernance(args) {
+  const { spawn } = require('child_process');
+  const gpPath = path.join(__dirname, 'governance-plane.js');
+  const gpArgs = args.length > 0 ? args : ['--help'];
+
+  return new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [gpPath, ...gpArgs], { cwd: __dirname });
+    let out = '', err = '';
+    child.stdout.on('data', d => out += d);
+    child.stderr.on('data', d => err += d);
+    child.on('close', code => {
+      if (out) process.stdout.write(out);
+      if (err) process.stderr.write(err);
+      process.exit(code || 0);
+    });
+    child.on('error', reject);
+  });
+}
+
 // ─── CLI Entry Point ──────────────────────────────────────────────────────────
 
 const [, , cmd, ...cmdArgs] = process.argv;
@@ -670,6 +691,7 @@ const COMMANDS = {
   project:     { fn: cmdProject,    desc: 'Scan and update project state' },
   compact:     { fn: cmdCompact,    desc: 'Enforce MEMORY.md 200-line hard limit' },
   atoms:       { fn: cmdAtoms,       desc: 'List/update atoms.db atoms (M0)' },
+  governance:  { fn: cmdGovernance,  desc: 'RFC governance workflow (delegates to governance-plane.js)' },
 };
 
 function showHelp() {

@@ -1,0 +1,11 @@
+process.chdir('C:/Users/Administrator/.openclaw/workspace/memory/scripts');
+const db = require('./node_modules/better-sqlite3')('../storage/atoms.db');
+const tables = db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all().map(r => r.name);
+console.log('Tables:', JSON.stringify(tables));
+const maCols = db.prepare('PRAGMA table_info(memory_atom)').all().map(c => c.name);
+console.log('memory_atom cols:', JSON.stringify(maCols));
+const claimsCols = db.prepare('PRAGMA table_info(claims)').all().map(c => c.name);
+console.log('claims cols:', JSON.stringify(claimsCols));
+const relCols = db.prepare('PRAGMA table_info(relations)').all().map(c => c.name);
+console.log('relations cols:', JSON.stringify(relCols));
+db.close();
