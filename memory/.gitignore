@@ -1,7 +1,0 @@
-node_modules/
-*.db
-*.db-shm
-*.db-wal
-storage/
-.DS_Store
-*.log
