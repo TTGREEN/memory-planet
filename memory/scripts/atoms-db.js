@@ -416,6 +416,51 @@ function runMigrations(db) {
   }
   // Migration marker
   db.exec('CREATE TABLE IF NOT EXISTS _migrations (id INTEGER)');
+
+    // ── user_profile table (P0: MINDBASE — 永久置顶画像) ───────────────────────
+    _db.exec(`
+CREATE TABLE IF NOT EXISTS user_profile (
+  id          TEXT PRIMARY KEY,
+  tag         TEXT NOT NULL,
+  content     TEXT NOT NULL,
+  importance  REAL NOT NULL DEFAULT 0.9,
+  namespace   TEXT NOT NULL DEFAULT 'user',
+  active      INTEGER NOT NULL DEFAULT 1,
+  created_at  TEXT NOT NULL,
+  updated_at  TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_up_active ON user_profile(active);
+    `);
+
+    // ── wiki_blocks table (P0: L1 — 夜间 Shadow Compiler 产物) ──────────────
+    _db.exec(`
+CREATE TABLE IF NOT EXISTS wiki_blocks (
+  id              TEXT PRIMARY KEY,
+  content         TEXT NOT NULL,
+  source_ids      TEXT,
+  topic           TEXT,
+  importance      REAL NOT NULL DEFAULT 0.6,
+  confidence      REAL NOT NULL DEFAULT 0.7,
+  embedding       TEXT,
+  human_pin       INTEGER NOT NULL DEFAULT 0,
+  namespace       TEXT NOT NULL DEFAULT 'default',
+  version         INTEGER NOT NULL DEFAULT 1,
+  status          TEXT NOT NULL DEFAULT 'active',
+  created_at      TEXT NOT NULL,
+  updated_at      TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_wb_topic     ON wiki_blocks(topic);
+CREATE INDEX IF NOT EXISTS idx_wb_status   ON wiki_blocks(status);
+CREATE INDEX IF NOT EXISTS idx_wb_importance ON wiki_blocks(importance);
+    `);
+
+    // ── Mark legacy raw atoms (no embedding) as tier='raw' ─────────────────
+    try {
+      const rawCheck = db.prepare("SELECT COUNT(*) as cnt FROM memory_atom WHERE tier='raw'").get();
+      if (rawCheck.cnt === 0) {
+        db.prepare("UPDATE memory_atom SET tier='raw' WHERE embedding IS NULL AND tier='L2'").run();
+      }
+    } catch(e) { /* non-fatal */ }
 }
 
 // ─── Staleness ────────────────────────────────────────────────────────────────
@@ -1491,6 +1536,197 @@ function demoteToDeprecated(atomId, reason) {
 }
 
 
+// ─── P0: Tiered Session Injection ───────────────────────────────────────────────
+//
+// Tiered Timeline Retrieval for new Session:
+//   Layer 1 (user_profile): 全量注入，System Prompt 最顶部
+//   Layer 2 (raw_atoms L0):  24-48h 时间窗口，Top-K 相似度
+//   Layer 3 (wiki_blocks L1): 全局向量召回，Top-K 语义匹配
+//
+// 返回组装好的 System Prompt 片段。
+
+/**
+ * 获取所有活跃的 user_profile 标签（全量注入）
+ * @returns {Array} [{ id, tag, content, importance }]
+ */
+function getUserProfileTags() {
+  const db = getDb();
+  return db.prepare(`
+    SELECT id, tag, content, importance, namespace
+    FROM user_profile
+    WHERE active = 1
+    ORDER BY importance DESC
+  `).all();
+}
+
+/**
+ * 添加或更新 user_profile 标签
+ * @param {Object} opts { tag, content, importance, namespace }
+ * @returns {Object} { id, tag, content }
+ */
+function upsertUserProfileTag(opts = {}) {
+  if (!opts.tag || !opts.content) throw new Error('[user_profile] tag and content required');
+  const db = getDb();
+  const id = opts.id || uuid();
+  const ts = now();
+  const namespace = opts.namespace || 'user';
+  const importance = opts.importance ?? 0.9;
+
+  const existing = db.prepare('SELECT id FROM user_profile WHERE tag = ?').get(opts.tag);
+  if (existing) {
+    db.prepare(`
+      UPDATE user_profile SET content=?, importance=?, namespace=?, updated_at=?
+      WHERE tag = ?
+    `).run(opts.content, importance, namespace, ts, opts.tag);
+    return { id: existing.id, tag: opts.tag, content: opts.content, importance };
+  }
+  db.prepare(`
+    INSERT INTO user_profile (id, tag, content, importance, namespace, active, created_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, 1, ?, ?)
+  `).run(id, opts.tag, opts.content, importance, namespace, ts, ts);
+  return { id, tag: opts.tag, content: opts.content, importance };
+}
+
+/**
+ * 获取最近 24-48 小时的 raw atoms（L0）
+ * @param {number} windowHours 默认 48
+ * @param {number} topK 默认 5
+ * @returns {Array} atom rows
+ */
+function getRecentRawAtoms(windowHours = 48, topK = 5) {
+  const db = getDb();
+  const cutoff = new Date(Date.now() - windowHours * 3600 * 1000).toISOString();
+  return db.prepare(`
+    SELECT id, content, confidence, importance, namespace, created_at,
+           human_pin, tier
+    FROM memory_atom
+    WHERE created_at >= ?
+    ORDER BY importance DESC
+    LIMIT ?
+  `).all(cutoff, topK);
+}
+
+/**
+ * 获取 wiki_blocks（L1）全局向量召回
+ * @param {string} query 检索词
+ * @param {number} topK 默认 5
+ * @returns {Promise<Array>} wiki_blocks rows
+ */
+async function getWikiBlocksForSession(query, topK = 5) {
+  // 如果有 embedding 就用向量搜索，否则用重要性排序兜底
+  const db = getDb();
+  const rows = db.prepare(`
+    SELECT id, content, topic, importance, namespace, source_ids, created_at
+    FROM wiki_blocks
+    WHERE status = 'active'
+    ORDER BY importance DESC
+    LIMIT ?
+  `).all(topK * 3); // 先多取一些，后面 filter
+
+  if (rows.length === 0) return [];
+
+  // 向量相似度（如果 query embedding 可用）
+  let queryEmb = null;
+  try {
+    const embs = await ollamaEmbed(query);
+    queryEmb = embs[0];
+  } catch(e) {
+    // Ollama 不可用，降级为重要性排序
+  }
+
+  let scored = rows;
+  if (queryEmb) {
+    scored = rows.map(row => {
+      if (!row.embedding) return { ...row, cos_sim: 0 };
+      try {
+        const atomEmb = JSON.parse(row.embedding);
+        return { ...row, cos_sim: cosineSim(queryEmb, atomEmb) };
+      } catch { return { ...row, cos_sim: 0 }; }
+    }).sort((a, b) => b.cos_sim - a.cos_sim);
+  }
+
+  return scored.slice(0, topK);
+}
+
+/**
+ * Tiered Session Injection — 组装 System Prompt 片段
+ *
+ * @param {string} query 用户第一句话
+ * @param {Object} opts { rawWindowHours, rawTopK, wikiTopK, includeProfile }
+ * @returns {Promise<Object>} { profile, raw_atoms, wiki_blocks, assembled_prompt }
+ */
+async function sessionInject(query, opts = {}) {
+  const {
+    rawWindowHours = 48,
+    rawTopK = 5,
+    wikiTopK = 5,
+    includeProfile = true,
+  } = opts;
+
+  const profile = includeProfile ? getUserProfileTags() : [];
+  const rawAtoms = getRecentRawAtoms(rawWindowHours, rawTopK);
+  const wikiBlocks = await getWikiBlocksForSession(query, wikiTopK);
+
+  // 组装 System Prompt 片段
+  const parts = [];
+
+  if (profile.length > 0) {
+    const profileLines = profile.map(p =>
+      `- [${p.tag}] ${p.content}`
+    ).join('\n');
+    parts.push(`[最高指令：用户画像与协作偏好 (User Profile)]\n${profileLines}`);
+  }
+
+  if (rawAtoms.length > 0) {
+    const rawLines = rawAtoms.map(a =>
+      `- ${a.content} ${a.namespace !== 'default' ? `((${a.namespace}))` : ''}`
+    ).join('\n');
+    parts.push(`[📌 近期上下文 (过去 ${rawWindowHours}h 的未归档碎片)]\n${rawLines}`);
+  }
+
+  if (wikiBlocks.length > 0) {
+    const wikiLines = wikiBlocks.map(b =>
+      `- ${b.content}${b.topic ? ` [主题: ${b.topic}]` : ''}`
+    ).join('\n');
+    parts.push(`[📚 底层知识库 (已验证的过往经验)]\n${wikiLines}`);
+  }
+
+  const assembled_prompt = parts.length > 0
+    ? '[系统提示：为了更好地回答本次问题，系统提取了以下历史记忆]\n\n' + parts.join('\n\n')
+    : '';
+
+  return {
+    profile,
+    raw_atoms: rawAtoms,
+    wiki_blocks: wikiBlocks,
+    assembled_prompt,
+  };
+}
+
+/**
+ * 将对话摘要写入 raw_atoms（L0）
+ * 用于对话结束时的 summarizer
+ *
+ * @param {string} summary 对话摘要文本
+ * @param {Object} opts { namespace, confidence, tags }
+ * @returns {Object} 新增的 atom
+ */
+function writeDialogSummary(summary, opts = {}) {
+  if (!summary || summary.trim().length < 5) return null;
+  const namespace = opts.namespace || 'dialog';
+  const tags = opts.tags || [];
+  const content = tags.length > 0
+    ? `[${tags.join(', ')}] ${summary}`
+    : summary;
+  return ingestAtom({
+    content,
+    namespace,
+    confidence: opts.confidence ?? 0.6,
+    human_pin: 0,
+    atom_type: 'dialog-summary',
+  });
+}
+
 // ─── Export ───────────────────────────────────────────────────────────────────
 
 module.exports = {
@@ -1548,4 +1784,11 @@ module.exports = {
   compileDraftToCanary,
   promoteCanaryToVerified,
   demoteToDeprecated,
+  // P0: Tiered Session Injection
+  getUserProfileTags,
+  upsertUserProfileTag,
+  getRecentRawAtoms,
+  getWikiBlocksForSession,
+  sessionInject,
+  writeDialogSummary,
 };

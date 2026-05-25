@@ -679,19 +679,164 @@ async function cmdGovernance(args) {
   });
 }
 
+// ─── P0: Session Inject CLI ─────────────────────────────────────────────────
+// node memory.js session-inject "用户第一句话" [--raw-window 48] [--raw-topk 5] [--wiki-topk 5]
+
+async function cmdSessionInject(args) {
+  const query = args[0];
+  if (!query) {
+    console.error('Usage: node memory.js session-inject "<query>" [options]');
+    console.error('  --raw-window  24-48h 时间窗口（小时），默认 48');
+    console.error('  --raw-topk    raw atoms 返回数量，默认 5');
+    console.error('  --wiki-topk  wiki blocks 返回数量，默认 5');
+    console.error('  --no-profile  跳过 user_profile 注入');
+    process.exit(1);
+  }
+
+  const rawWindowIdx = args.indexOf('--raw-window');
+  const rawTopkIdx   = args.indexOf('--raw-topk');
+  const wikiTopkIdx  = args.indexOf('--wiki-topk');
+  const noProfile    = args.includes('--no-profile');
+
+  const rawWindow = rawWindowIdx >= 0 ? parseInt(args[rawWindowIdx + 1], 10) : 48;
+  const rawTopk   = rawTopkIdx   >= 0 ? parseInt(args[rawTopkIdx + 1], 10)   : 5;
+  const wikiTopk  = wikiTopkIdx  >= 0 ? parseInt(args[wikiTopkIdx + 1], 10)  : 5;
+
+  log(`session-inject: query="${query}" rawWindow=${rawWindow}h rawTopk=${rawTopk} wikiTopk=${wikiTopk}`);
+
+  const result = await atomsDb.sessionInject(query, {
+    rawWindowHours: rawWindow,
+    rawTopK: rawTopk,
+    wikiTopK: wikiTopk,
+    includeProfile: !noProfile,
+  });
+
+  console.log('\n=== USER PROFILE (全量注入) ===');
+  if (result.profile.length === 0) {
+    console.log('(无活跃标签)');
+  } else {
+    for (const p of result.profile) {
+      console.log(`  [${p.tag}] ${p.content} (importance=${p.importance})`);
+    }
+  }
+
+  console.log('\n=== RAW ATOMS L0 (最近 ' + rawWindow + 'h) ===');
+  if (result.raw_atoms.length === 0) {
+    console.log('(无近期碎片)');
+  } else {
+    for (const a of result.raw_atoms) {
+      console.log(`  - ${a.content.slice(0, 80)}${a.content.length > 80 ? '...' : ''} [${a.namespace}] imp=${a.importance.toFixed(2)}`);
+    }
+  }
+
+  console.log('\n=== WIKI BLOCKS L1 (全局知识) ===');
+  if (result.wiki_blocks.length === 0) {
+    console.log('(无 wiki blocks，夜间 Shadow Compiler 未生成)');
+  } else {
+    for (const b of result.wiki_blocks) {
+      console.log(`  - ${b.content.slice(0, 80)}${b.content.length > 80 ? '...' : ''} [${b.topic || 'general'}]`);
+    }
+  }
+
+  console.log('\n=== ASSEMBLED SYSTEM PROMPT ===');
+  console.log(result.assembled_prompt || '(空)');
+}
+
+// ─── P0: User Profile CLI ─────────────────────────────────────────────────────
+// node memory.js profile list|add|remove
+
+async function cmdProfile(args) {
+  const action = args[0] || 'list';
+
+  if (action === 'list') {
+    const tags = atomsDb.getUserProfileTags();
+    console.log(`\n=== User Profile Tags (${tags.length}) ===`);
+    if (tags.length === 0) {
+      console.log('(空，请用 profile add <tag> <content> 添加)');
+    } else {
+      for (const t of tags) {
+        console.log(`  [${t.tag}] ${t.content} (imp=${t.importance})`);
+      }
+    }
+    return;
+  }
+
+  if (action === 'add') {
+    const tag = args[1];
+    const content = args.slice(2).join(' ');
+    if (!tag || !content) {
+      console.error('Usage: profile add <tag> <content>');
+      process.exit(1);
+    }
+    const result = atomsDb.upsertUserProfileTag({ tag, content });
+    console.log(`[OK] 添加/更新标签: ${result.tag}`);
+    return;
+  }
+
+  if (action === 'remove') {
+    const tag = args[1];
+    if (!tag) { console.error('Usage: profile remove <tag>'); process.exit(1); }
+    const db = atomsDb.getDb();
+    const row = db.prepare('SELECT id FROM user_profile WHERE tag = ?').get(tag);
+    if (!row) { console.log(`标签 [${tag}] 不存在`); return; }
+    db.prepare('UPDATE user_profile SET active=0 WHERE tag=?').run(tag);
+    console.log(`[OK] 软删除标签: ${tag}`);
+    return;
+  }
+
+  console.error('Unknown action:', action, '(list|add|remove)');
+  process.exit(1);
+}
+
+// ─── P0: Summarize CLI ────────────────────────────────────────────────────────
+// echo "对话内容..." | node memory.js summarize [--tags tag1,tag2]
+
+async function cmdSummarize(args) {
+  // 从 stdin 读取对话内容
+  let dialogContent = '';
+  if (!process.stdin.isTTY) {
+    process.stdin.setEncoding('utf8');
+    for await (const chunk of process.stdin) { dialogContent += chunk; }
+  }
+
+  const tagsIdx = args.indexOf('--tags');
+  const tags = tagsIdx >= 0 ? args[tagsIdx + 1].split(',').map(t => t.trim()) : [];
+
+  if (!dialogContent.trim()) {
+    console.error('Usage: echo "对话内容" | node memory.js summarize [--tags tag1,tag2]');
+    process.exit(1);
+  }
+
+  // 简单启发式摘要（未来可替换为 LLM API 调用）
+  const sentences = dialogContent.split(/[。！？.!?\n]+/).filter(s => s.trim().length > 10);
+  const summary = sentences.slice(0, 3).join('。').trim();
+  const finalSummary = summary.length > 0 ? summary + '。' : dialogContent.slice(0, 200);
+
+  const atom = atomsDb.writeDialogSummary(finalSummary, { tags });
+  if (atom) {
+    console.log(`[OK] 写入 raw_atom: ${atom.id.slice(0, 8)}...`);
+    console.log(`  内容: ${atom.content.slice(0, 100)}...`);
+  } else {
+    console.log('[SKIP] 内容太短，未写入');
+  }
+}
+
 // ─── CLI Entry Point ──────────────────────────────────────────────────────────
 
 const [, , cmd, ...cmdArgs] = process.argv;
 
 const COMMANDS = {
-  flush:       { fn: cmdFlush,       desc: 'Session-end checkpoint (writes daily logs)' },
-  health:      { fn: cmdHealth,      desc: 'Index drift + MEMORY.md cap check' },
-  consolidate: { fn: cmdConsolidate, desc: 'Pattern detection from daily logs (3x rule)' },
-  search:      { fn: cmdSearch,      desc: 'FTS5 full-text search over daily logs' },
-  project:     { fn: cmdProject,    desc: 'Scan and update project state' },
-  compact:     { fn: cmdCompact,    desc: 'Enforce MEMORY.md 200-line hard limit' },
-  atoms:       { fn: cmdAtoms,       desc: 'List/update atoms.db atoms (M0)' },
-  governance:  { fn: cmdGovernance,  desc: 'RFC governance workflow (delegates to governance-plane.js)' },
+  flush:          { fn: cmdFlush,          desc: 'Session-end checkpoint (writes daily logs)' },
+  health:         { fn: cmdHealth,         desc: 'Index drift + MEMORY.md cap check' },
+  consolidate:    { fn: cmdConsolidate,    desc: 'Pattern detection from daily logs (3x rule)' },
+  search:         { fn: cmdSearch,         desc: 'FTS5 full-text search over daily logs' },
+  project:        { fn: cmdProject,        desc: 'Scan and update project state' },
+  compact:        { fn: cmdCompact,       desc: 'Enforce MEMORY.md 200-line hard limit' },
+  atoms:          { fn: cmdAtoms,          desc: 'List/update atoms.db atoms (M0)' },
+  governance:     { fn: cmdGovernance,     desc: 'RFC governance workflow (delegates to governance-plane.js)' },
+  'session-inject': { fn: cmdSessionInject, desc: 'P0: Tiered session injection (L0/L1/user_profile)' },
+  profile:          { fn: cmdProfile,        desc: 'P0: User profile tag management (list/add/remove)' },
+  summarize:        { fn: cmdSummarize,      desc: 'P0: Write dialog summary to raw_atoms L0' },
 };
 
 function showHelp() {
