@@ -18,7 +18,7 @@ const Database = require(path.join(__dirname, 'node_modules', 'better-sqlite3'))
 );
 Database.pragma('journal_mode = WAL');
 
-const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || 'sk-cp-VjrH6zIK0Y8fSXrnuT5yy4nJAJj7V-VSZ3RLRW4m_WXX0L9cLiVsCevIee-XUlxCqXKSPaf-1EAVDFLF-Ot0kgk9_v70vR5MsuVMB70glAADoF6aXBjmz24';
+const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || '$MINIMAX_API_KEY';
 
 function callMiniMax(opts) {
   return new Promise((resolve, reject) => {
@@ -101,8 +101,8 @@ CAUSE | PREDICATE | EFFECT
 PREDICATE must be one of: CAUSES / MITIGATES / PREVENTS / ENHANCES / FOLLOWS / PRECEDES
 
 Examples:
-延迟初始化 | CAUSES | 内存占用过高
-try-catch缺失 | PREVENTS | 错误被吞掉
+延迟初始�?| CAUSES | 内存占用过高
+try-catch缺失 | PREVENTS | 错误被吞�?
 Ollama离线 | CAUSES | 向量检索退化为纯关键词
 过度设计 | CAUSES | 开发速度下降
 
