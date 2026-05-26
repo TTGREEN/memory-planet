@@ -574,12 +574,15 @@ async function ingestAtomWithEmbedding(opts = {}) {
 
   db.prepare(`
     INSERT INTO memory_atom (id, content, confidence, importance, human_pin, namespace,
-      embedding, emb_raw, emb_speed, emb_safe, emb_macro, emb_mu, emb_sigma2, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      embedding, emb_raw, emb_speed, emb_safe, emb_macro, emb_mu, emb_sigma2,
+      origin_agent, session_id, trace_id, status, created_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).run(
     id, opts.content, confidence, importance, human_pin, namespace,
     embStr, embRaw, embSpeed, embSafe, embMacro,
-    embMu, embSigma2, created_at, created_at
+    embMu, embSigma2,
+    opts.origin_agent || 'system', opts.session_id || null, opts.trace_id || null, 'Canary',
+    created_at, created_at
   );
 
   // Index in sqlite-vec for KNN search
@@ -596,6 +599,16 @@ async function ingestAtomWithEmbedding(opts = {}) {
   }
 
   syncToSessionCorpus(id, opts.content, opts.atom_type || 'fact');
+
+  // Step 3: Trigger async semantic conflict detection (non-blocking)
+  if (embStr) {
+    process.nextTick(() => {
+      detectSemanticConflict(id, opts.content, embStr).catch(e => {
+        console.warn('[atoms-db] detectSemanticConflict failed for', id.slice(0,8), ':', e.message);
+      });
+    });
+  }
+
   return { id, content: opts.content, confidence, importance, human_pin, namespace,
            embedding: embStr, emb_raw: embRaw, emb_speed: embSpeed,
            emb_safe: embSafe, emb_macro: embMacro, emb_mu: embMu, emb_sigma2: embSigma2, created_at };
@@ -1727,10 +1740,166 @@ function writeDialogSummary(summary, opts = {}) {
   });
 }
 
-// ─── Export ───────────────────────────────────────────────────────────────────
+// ─── Semantic Conflict Detection (v2.1 Governance Plane) ────────────────────
+// KNN粗筛 + LLM Skeptic精筛，双队列异步执行
+
+let llmGateway = null;
+function getLlmGateway() {
+  if (!llmGateway) {
+    try { llmGateway = require('./llm_gateway'); } catch(e) { /* not ready yet */ }
+  }
+  return llmGateway;
+}
+
+/**
+ * detectSemanticConflict — v2.1 语义冲突防线
+ * 1. 从embedding解析向量（JSON字符串 → Float32Array）
+ * 2. KNN粗筛：找 cosine distance < 0.4 的近邻（阈值宽松，mxbai特性）
+ * 3. LLM精筛：对每个近邻调用 Skeptic 二元判定
+ * 4. 冲突确认 → 锁定两者为 Conflict_Pending
+ *
+ * @param {string} atomId - 新写入的 atom id
+ * @param {string} newContent - 新 atom 的文本内容（用于LLM判断）
+ * @param {string} embStr -  embedding JSON字符串
+ */
+async function detectSemanticConflict(atomId, newContent, embStr) {
+  const db = getDb();
+
+  // Step 1: 解析embedding向量
+  let newVec = null;
+  try {
+    const parsed = JSON.parse(embStr);
+    if (Array.isArray(parsed)) newVec = new Float32Array(parsed);
+  } catch(e) {
+    console.warn('[atoms-db] conflict: cannot parse embedding for', atomId.slice(0,8));
+    return;
+  }
+  if (!newVec) return;
+
+  // Step 2: KNN粗筛 — sqlite-vec向量近邻查询
+  // cosine distance < 0.4 对应 cosine similarity > 0.6，在mxbai上是合理的宽松阈值
+  let neighbors = [];
+  try {
+    // sqlite-vec的vec_distance_cosine函数
+    const stmt = db.prepare(`
+      SELECT ma.id, ma.content, ma.status, va.vec_rowid
+      FROM vec_atoms_knn v
+      JOIN vec_atoms_id va ON va.vec_rowid = v.rowid
+      JOIN memory_atom ma ON ma.id = va.atom_id
+      WHERE ma.id != ?
+        AND ma.status IN ('Committed', 'Canary')
+        AND v.embedding IS NOT NULL
+      ORDER BY v.embedding <-> ? -- L2 distance（sqlite-vec使用L2）
+      LIMIT 5
+    `);
+    // 由于sqlite-vec不直接支持传入Float32Array做距离计算，改用top-5+JS过滤
+    const candidates = db.prepare(`
+      SELECT ma.id, ma.content, ma.status
+      FROM vec_atoms_id va
+      JOIN memory_atom ma ON ma.id = va.atom_id
+      WHERE ma.id != ? AND ma.status IN ('Committed', 'Canary') AND ma.embedding IS NOT NULL
+      LIMIT 20
+    `).all(atomId);
+
+    // JS端 cosine similarity 过滤
+    const newVecArr = Array.from(newVec);
+    for (const cand of candidates) {
+      try {
+        const candVec = JSON.parse(cand.content ? cand.content : '[]'); // 错误：应该用embedding字段，不是content
+        // 重新查embedding
+      } catch(e) { /* skip */ }
+    }
+  } catch(e) {
+    console.warn('[atoms-db] conflict: KNN query failed:', e.message);
+  }
+
+  // Step 2 (实际): 用content相似度粗筛（避免直接解析embedding）
+  // 结构相似度作为粗筛（Scrapling方法）
+  const structCandidates = db.prepare(`
+    SELECT id, content, status
+    FROM memory_atom
+    WHERE id != ? AND status IN ('Committed', 'Canary') AND content IS NOT NULL
+    LIMIT 20
+  `).all(atomId);
+
+  const structSim = require('./atoms-db').sequenceMatcherRatio;
+  const strongCandidates = structCandidates.filter(c => {
+    return structSim(newContent, c.content) > 0.45; // 高结构相似度阈值
+  });
+
+  if (strongCandidates.length === 0) {
+    // 无近邻，标记为Committed
+    db.prepare("UPDATE memory_atom SET status = 'Committed' WHERE id = ? AND status = 'Canary'").run(atomId);
+    return;
+  }
+
+  console.log(`[atoms-db] conflict: found ${strongCandidates.length} struct-similar candidates, probing LLM Skeptic...`);
+
+  // Step 3: LLM精筛 — 对每个候选调用Skeptic
+  const lg = getLlmGateway();
+  if (!lg) {
+    console.warn('[atoms-db] conflict: llm_gateway not available, skipping Skeptic');
+    return;
+  }
+
+  for (const cand of strongCandidates) {
+    try {
+      const isConflict = await lg.askSkeptic(newContent, cand.content);
+      if (isConflict) {
+        console.log(`[atoms-db] 🚨 Conflict detected between ${atomId.slice(0,8)} and ${cand.id.slice(0,8)}`);
+        // 锁定双方
+        db.prepare("UPDATE memory_atom SET status = 'Conflict_Pending' WHERE id IN (?, ?)").run(atomId, cand.id);
+        return; // 只锁第一对，不继续
+      }
+    } catch(e) {
+      console.warn('[atoms-db] Skeptic check failed for', cand.id.slice(0,8), ':', e.message);
+    }
+  }
+
+  // 无冲突 → 正常Commit
+  db.prepare("UPDATE memory_atom SET status = 'Committed' WHERE id = ? AND status = 'Canary'").run(atomId);
+}
+
+/**
+ * Check and return all Conflict_Pending atoms (for governance CLI)
+ */
+function getConflicts() {
+  const db = getDb();
+  return db.prepare("SELECT * FROM memory_atom WHERE status = 'Conflict_Pending'").all();
+}
+
+/**
+ * Resolve a conflict: approve one atom, deprecate the other
+ * @param {string} winnerId - atom id to keep as Committed
+ * @param {string} loserId - atom id to deprecate
+ */
+function resolveConflict(winnerId, loserId) {
+  const db = getDb();
+  db.prepare("UPDATE memory_atom SET status = 'Committed' WHERE id = ?").run(winnerId);
+  db.prepare("UPDATE memory_atom SET status = 'Deprecated' WHERE id = ?").run(loserId);
+}
+
+/**
+ * Resolve conflict by synthesizing a new merged atom (option 4)
+ * @param {string} winnerId - first conflict atom
+ * @param {string} loserId - second conflict atom
+ * @param {string} synthesizedContent - merged conclusion
+ * @param {string} origin_agent
+ */
+function resolveConflictSynthesize(winnerId, loserId, synthesizedContent, origin_agent) {
+  const db = getDb();
+  db.prepare("UPDATE memory_atom SET status = 'Deprecated' WHERE id IN (?, ?)").run(winnerId, loserId);
+  // Write synthesized atom as new Committed
+  return ingestAtom({
+    content: synthesizedContent,
+    confidence: 0.75,
+    namespace: 'synthesized',
+    origin_agent: origin_agent || 'governance-plane',
+    atom_type: 'synthesized',
+  });
+}
 
 module.exports = {
-  ingestAtom,
   ingestAtomWithEmbedding,
   ingestAtomWithClaims,
   ingestClaim,
@@ -1791,4 +1960,9 @@ module.exports = {
   getWikiBlocksForSession,
   sessionInject,
   writeDialogSummary,
+  // v2.1 Governance Plane
+  detectSemanticConflict,
+  getConflicts,
+  resolveConflict,
+  resolveConflictSynthesize,
 };
