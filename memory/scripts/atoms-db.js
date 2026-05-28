@@ -268,6 +268,37 @@ CREATE INDEX IF NOT EXISTS idx_atom_created   ON memory_atom(created_at);
 CREATE INDEX IF NOT EXISTS idx_atom_namespace ON memory_atom(namespace);
     `);
 
+    // ── Memory Claims (SPO triplets — causal topology) ───────────────────
+    _db.exec(`
+CREATE TABLE IF NOT EXISTS claims (
+  id                 TEXT PRIMARY KEY,
+  atom_id            TEXT NOT NULL,
+  subject            TEXT NOT NULL,
+  predicate          TEXT NOT NULL,
+  object             TEXT NOT NULL,
+  conceptual_depth   INTEGER DEFAULT 1,
+  contextual_weight  REAL    DEFAULT 1.0,
+  created_at         TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_claim_atom   ON claims(atom_id);
+CREATE INDEX IF NOT EXISTS idx_claim_subject ON claims(subject);
+    `);
+
+    // ── Memory Relations (atom-to-atom graph) ─────────────────────────────
+    _db.exec(`
+CREATE TABLE IF NOT EXISTS relations (
+  id            TEXT PRIMARY KEY,
+  source_id     TEXT NOT NULL,
+  target_id     TEXT NOT NULL,
+  relation_type TEXT NOT NULL,
+  weight        REAL    DEFAULT 1.0,
+  created_at    TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_rel_source ON relations(source_id);
+CREATE INDEX IF NOT EXISTS idx_rel_target ON relations(target_id);
+CREATE INDEX IF NOT EXISTS idx_rel_type  ON relations(relation_type);
+    `);
+
     // ── Ephemeral Pages (L0.5 Scratchpad) ───────────────────────────────
     _db.exec(`
 CREATE TABLE IF NOT EXISTS ephemeral_pages (
@@ -318,8 +349,40 @@ CREATE TABLE IF NOT EXISTS deprecated_lessons (
 CREATE INDEX IF NOT EXISTS idx_dl_atom ON deprecated_lessons(atom_id);
     `);
 
+    // ── Task Queue (Background Job Management) ──────────────────────────
+    _db.exec(`
+CREATE TABLE IF NOT EXISTS task_queue (
+  id             TEXT PRIMARY KEY,
+  task_type      TEXT NOT NULL,
+  status         TEXT NOT NULL DEFAULT 'PENDING',
+  payload        TEXT NOT NULL,
+  priority       INTEGER NOT NULL DEFAULT 5,
+  max_retries    INTEGER NOT NULL DEFAULT 3,
+  retry_count    INTEGER NOT NULL DEFAULT 0,
+  scheduled_at   TEXT,
+  started_at     TEXT,
+  completed_at   TEXT,
+  error          TEXT,
+  created_at     TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_tq_status ON task_queue(status);
+CREATE INDEX IF NOT EXISTS idx_tq_priority ON task_queue(priority);
+CREATE INDEX IF NOT EXISTS idx_tq_scheduled ON task_queue(scheduled_at);
+
+CREATE TABLE IF NOT EXISTS dead_letter_queue (
+  id            TEXT PRIMARY KEY,
+  task_id       TEXT NOT NULL,
+  task_type     TEXT NOT NULL,
+  payload       TEXT NOT NULL,
+  error         TEXT NOT NULL,
+  failed_at     TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_dl_task ON dead_letter_queue(task_id);
+    `);
+
     // Migration
     runMigrations(_db);
+    ensureTaskQueueTables(_db);
 
     // sqlite-vec vec0 exact KNN (1024-dim, mxbai-embed-large actual output)
     // vec1 HNSW not available in sqlite-vec v0.1.9; vec0 is fast for <1000 atoms
@@ -344,6 +407,41 @@ CREATE VIRTUAL TABLE IF NOT EXISTS vec_atoms_knn USING vec0(embedding float[1024
 
 function uuid() { return crypto.randomUUID(); }
 function now()  { return new Date().toISOString(); }
+
+// ─── Task Queue Schema Migration ────────────────────────────────────────────
+function ensureTaskQueueTables(db) {
+  try {
+    db.exec(`
+CREATE TABLE IF NOT EXISTS task_queue (
+  id             TEXT PRIMARY KEY,
+  task_type      TEXT NOT NULL,
+  status         TEXT NOT NULL DEFAULT 'PENDING',
+  payload        TEXT NOT NULL,
+  priority       INTEGER NOT NULL DEFAULT 5,
+  max_retries    INTEGER NOT NULL DEFAULT 3,
+  retry_count    INTEGER NOT NULL DEFAULT 0,
+  scheduled_at   TEXT,
+  started_at     TEXT,
+  completed_at   TEXT,
+  error          TEXT,
+  created_at     TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_tq_status ON task_queue(status);
+CREATE INDEX IF NOT EXISTS idx_tq_priority ON task_queue(priority);
+CREATE INDEX IF NOT EXISTS idx_tq_scheduled ON task_queue(scheduled_at);
+
+CREATE TABLE IF NOT EXISTS dead_letter_queue (
+  id            TEXT PRIMARY KEY,
+  task_id       TEXT NOT NULL,
+  task_type     TEXT NOT NULL,
+  payload       TEXT NOT NULL,
+  error         TEXT NOT NULL,
+  failed_at     TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_dl_task ON dead_letter_queue(task_id);
+    `);
+  } catch(e) { console.warn('[atoms-db] task_queue migration skipped:', e.message); }
+}
 
 // ─── Schema Migrations ──────────────────────────────────────────────────────
 
@@ -497,9 +595,9 @@ function ingestAtom(opts = {}) {
   const importance = computeFinalImportance(m0Imp, confidence);
 
   db.prepare(`
-    INSERT INTO memory_atom (id, content, confidence, importance, human_pin, namespace, embedding, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(id, opts.content, confidence, importance, human_pin, namespace, null, created_at, created_at);
+    INSERT INTO memory_atom (id, content, confidence, importance, human_pin, namespace, embedding, created_at, updated_at, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Committed')
+  `).run(id, content, confidence, importance, human_pin, namespace, null, created_at, created_at);
 
   syncToSessionCorpus(id, opts.content, opts.atom_type || 'fact');
   return { id, content: opts.content, confidence, importance, human_pin, namespace, created_at };
@@ -589,9 +687,8 @@ async function ingestAtomWithEmbedding(opts = {}) {
   if (embStr) {
     try {
       // vec0 uses rowid as primary key; INSERT into vec_atoms_knn and capture rowid
-      const insertSql = 'INSERT INTO vec_atoms_knn (embedding) VALUES (?)';
-      const info = db.prepare('SELECT last_insert_rowid() as rid').get();
-      const rid = info.rid;
+      const info = db.prepare('INSERT INTO vec_atoms_knn (embedding) VALUES (?)').run(embStr);
+      const rid = info.lastInsertRowid;
 
       // Store mapping
       db.prepare('INSERT OR REPLACE INTO vec_atoms_id (atom_id, vec_rowid) VALUES (?, ?)').run(id, rid);
@@ -727,7 +824,7 @@ async function hybridRecall(query, topK = 5, opts = {}) {
     ).all(...(opts.namespace ? [opts.namespace] : []));
     if (rows.length === 0) return [];
 
-  const isChinese = /[\u4e00-\ufdff]/.test(query);
+    const isChinese = /[\u4e00-\ufdff]/.test(query);
 
   // ── Keyword pipeline (skip for pure Chinese queries — expansion noise) ─────
   let kwAll = [];
@@ -776,9 +873,27 @@ async function hybridRecall(query, topK = 5, opts = {}) {
     return result;
   }
 
+  // ── Vector pre-filter: use sqlite-vec to get candidates before Ollama embed ──
+  // This reduces embed calls from ALL atoms to topK*3 candidates (e.g. 15 instead of 120+)
+  let candidateIds = null;
+  try {
+    const vecResults = await vecSearch(query, topK * 3);
+    if (vecResults.length > 0) {
+      candidateIds = new Set(vecResults.map(r => r.id));
+      console.log(`[hybridRecall] vecSearch pre-filter: ${vecResults.length} candidates (from ${rowsWithEmb.length} total)`);
+    }
+  } catch(e) {
+    console.warn('[hybridRecall] vecSearch pre-filter failed, falling back to full embed:', e.message);
+  }
+
+  // Only embed atoms that are in the vecSearch candidate set (or all if vecSearch failed)
+  const rowsToEmbed = candidateIds
+    ? rowsWithEmb.filter(r => candidateIds.has(r.id))
+    : rowsWithEmb;
+
   let atomEmbeds;
   try {
-    atomEmbeds = await ollamaEmbed(rowsWithEmb.map(r => r.content));
+    atomEmbeds = await ollamaEmbed(rowsToEmbed.map(r => r.content));
   } catch(e) {
     const result = mmrDiversify(kwAll, topK, MMR_LAMBDA).slice(0, topK).map((item, idx) => ({
       ...item, phase: 'keyword', rank: idx + 1, rrf_score: item.kw_rrf
@@ -788,7 +903,7 @@ async function hybridRecall(query, topK = 5, opts = {}) {
 
   // Compute embedding scores and RRF
   const embItemMap = {};
-  rowsWithEmb.forEach((row, idx) => {
+  rowsToEmbed.forEach((row, idx) => {
     const cos = cosineSim(queryEmb, atomEmbeds[idx]);
     const recency = stalenessDecay(row.created_at);
     // CLEANUP: replaced magic 0.12 with PIN_BOOST_EMB constant
@@ -815,7 +930,7 @@ async function hybridRecall(query, topK = 5, opts = {}) {
     embItemMap[row.id] = { ...row, emb_score, cos_sim: perturbedCos, rawCos: cos, recency };
   });
 
-  const embSorted = rowsWithEmb.map(r => embItemMap[r.id]).sort((a, b) => b.emb_score - a.emb_score);
+  const embSorted = rowsToEmbed.map(r => embItemMap[r.id]).sort((a, b) => b.emb_score - a.emb_score);
   const embRRFMap = new Map();
   embSorted.forEach((item, rank) => {
     if (!embRRFMap.has(item.id)) embRRFMap.set(item.id, { ...item, emb_rrf: 0 });
@@ -861,9 +976,9 @@ async function hybridRecall(query, topK = 5, opts = {}) {
   });
 
   const sorted = fused.sort((a, b) => b.hybrid_rrf - a.hybrid_rrf);
-  return sorted.slice(0, topK).map((item, idx) => ({
-    ...item, phase: 'hybrid', rank: idx + 1, rrf_score: item.hybrid_rrf
-  }));
+    return sorted.slice(0, topK).map((item, idx) => ({
+      ...item, phase: 'hybrid', rank: idx + 1, rrf_score: item.hybrid_rrf
+    }));
   } finally {
     db.close();
   }
@@ -951,8 +1066,12 @@ function updateAllImportance() {
 // ─── Pin ──────────────────────────────────────────────────────────────────────
 
 function pinAtom(atomId, pinValue = 1) {
-  getDb().prepare('UPDATE memory_atom SET human_pin = ?, updated_at = ? WHERE id = ?')
+  const db = getDb();
+  const atom = db.prepare('SELECT id FROM memory_atom WHERE id = ?').get(atomId);
+  if (!atom) return { success: false, error: 'atom not found' };
+  db.prepare('UPDATE memory_atom SET human_pin = ?, updated_at = ? WHERE id = ?')
     .run(pinValue, now(), atomId);
+  return { success: true };
 }
 
 // ─── Query ─────────────────────────────────────────────────────────────────────
@@ -970,14 +1089,14 @@ function listAtoms(limit = 50) {
 
 // ─── Claims & Relations (M1.5 GraphRAG) ─────────────────────────────────
 
-function ingestClaim({ atom_id, subject, predicate, object, conceptual_depth = 1 }) {
+function ingestClaim({ atom_id, subject, predicate, object, conceptual_depth = 1, contextual_weight = 1.0 }) {
   const db = getDb();
   const id = uuid();
   const created_at = now();
   db.prepare(`
-    INSERT INTO claims (id, atom_id, subject, predicate, object, conceptual_depth, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `).run(id, atom_id, subject, predicate, object, conceptual_depth, created_at);
+    INSERT INTO claims (id, atom_id, subject, predicate, object, conceptual_depth, contextual_weight, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(id, atom_id, subject, predicate, object, conceptual_depth, contextual_weight, created_at);
   return { id, atom_id, subject, predicate, object };
 }
 
@@ -987,12 +1106,13 @@ function getClaimsForAtom(atomId) {
 
 function ingestRelation({ source_id, target_id, relation_type, weight = 1.0 }) {
   const db = getDb();
+  const id = uuid();
   const created_at = now();
   db.prepare(`
-    INSERT OR IGNORE INTO relations (source_id, target_id, relation_type, weight, created_at)
-    VALUES (?, ?, ?, ?, ?)
-  `).run(source_id, target_id, relation_type, weight, created_at);
-  return { source_id, target_id, relation_type, weight };
+    INSERT OR IGNORE INTO relations (id, source_id, target_id, relation_type, weight, created_at)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `).run(id, source_id, target_id, relation_type, weight, created_at);
+  return { id, source_id, target_id, relation_type, weight };
 }
 
 function getRelationsForAtom(atomId) {
@@ -1020,8 +1140,8 @@ async function ingestAtomWithClaims({ content, namespace = 'default', confidence
 
   // 2. Insert atom
   db.prepare(`
-    INSERT INTO memory_atom (id, content, confidence, importance, human_pin, namespace, embedding, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO memory_atom (id, content, confidence, importance, human_pin, namespace, embedding, created_at, updated_at, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Committed')
   `).run(id, content, confidence, importance, human_pin, namespace, null, created_at, created_at);
 
   // 3. LLM extract claims
@@ -1029,19 +1149,24 @@ async function ingestAtomWithClaims({ content, namespace = 'default', confidence
   const causalTriplets = await extractCausalTriplets(content, { maxClaims: 2 });
 
   const ingestedClaims = [];
+  const ingestedRelations = [];
   for (const c of claims) {
     const claim = ingestClaim({ atom_id: id, subject: c.subject, predicate: c.predicate, object: c.object });
     ingestedClaims.push(claim);
     // Also link the atom to its own claims via a SELF relation
-    ingestRelation({ source_id: id, target_id: id, relation_type: 'SELF_' + c.predicate, weight: 0.9 });
+    const rel = ingestRelation({ source_id: id, target_id: id, relation_type: 'SELF_' + c.predicate, weight: 0.9 });
+    ingestedRelations.push(rel);
   }
 
   for (const t of causalTriplets) {
     const claim = ingestClaim({ atom_id: id, subject: t.subject, predicate: t.predicate, object: t.object, conceptual_depth: 2 });
     ingestedClaims.push(claim);
+    // Ingest causal triplet as atom-to-atom relation
+    const rel = ingestRelation({ source_id: id, target_id: id, relation_type: t.relation_type || 'CAUSAL', weight: 1.0 });
+    ingestedRelations.push(rel);
   }
 
-  return { id, content, claims: ingestedClaims, namespace, confidence, importance, created_at };
+  return { id, content, claims: ingestedClaims, relations: ingestedRelations, namespace, confidence, importance, created_at };
 }
 
 // ─── Fractal Drill-Down (Node 2) ───────────────────────────────────────────
@@ -1519,7 +1644,78 @@ function promoteCanaryToVerified(canaryId) {
     WHERE id = ? AND status = 'CANARY'
   `).run(canaryId);
 
-  return db.prepare('SELECT * FROM draft_atoms WHERE id = ?').get(canaryId);
+
+  // Read the VERIFIED atom from draft_atoms
+  const atom = db.prepare('SELECT * FROM draft_atoms WHERE id = ?').get(canaryId);
+  if (!atom) return null;
+
+  // ── Check if already in memory_atom (avoid duplicate) ─────────────────────
+  const existing = db.prepare('SELECT id FROM memory_atom WHERE id = ?').get(canaryId);
+
+  if (!existing) {
+    // ── Insert into memory_atom (the real permanent store) ───────────────────
+    const staleness = stalenessDecay(atom.created_at || ts);
+    const m0Imp = computeM0Importance(0 /* human_pin */, staleness);
+    const importance = atom.importance || computeFinalImportance(m0Imp, atom.confidence || 0.7);
+    db.prepare(`
+      INSERT INTO memory_atom (id, content, confidence, importance, human_pin, namespace, embedding, created_at, updated_at, status)
+      VALUES (?, ?, ?, ?, 0, ?, NULL, ?, ?, 'Committed')
+    `).run(canaryId, atom.content, atom.confidence || 0.7, importance, atom.namespace, atom.created_at || ts, ts);
+
+    // ── Trigger async embedding generation (non-blocking) ─────────────────
+    process.nextTick(() => {
+      _embedAtomAsync(canaryId, atom.content).catch(e => {
+        console.warn('[atoms-db] _embedAtomAsync failed for', canaryId.slice(0,8), ':', e.message);
+      });
+    });
+  }
+
+  return atom;
+}
+
+/**
+ * Internal: generate and store embedding for an atom (non-blocking)
+ * Called after promoteCanaryToVerified creates a new atom.
+ */
+async function _embedAtomAsync(atomId, content) {
+  const Database = require('better-sqlite3');
+  const sqliteVec = require('sqlite-vec');
+
+  const variants = generateUniverseVariants(content);
+  let vectors = [];
+
+  try {
+    const embs = await ollamaEmbed(variants);
+    if (embs && embs.length > 0) {
+      for (const emb of embs) {
+        if (emb && emb.length > 0) vectors.push(emb);
+      }
+    }
+  } catch(e) {
+    console.warn('[_embedAtomAsync] embed failed for', atomId.slice(0,8), e.message);
+    return;
+  }
+
+  if (vectors.length === 0) return;
+
+  const gp = computeGaussianParams(vectors);
+  const embStr = gp.mu ? vecToBase64(gp.mu) : vecToBase64(vectors[0]);
+
+  // Open a new connection to update
+  const db2 = new Database(ATOMS_DB_PATH);
+  sqliteVec.load(db2, sqliteVec.getLoadablePath());
+  try {
+    db2.prepare('UPDATE memory_atom SET embedding=? WHERE id=? AND embedding IS NULL').run(embStr, atomId);
+    // Index in vec_atoms_knn
+    try {
+      const info = db2.prepare('INSERT INTO vec_atoms_knn (embedding) VALUES (?)').run(embStr);
+      db2.prepare('INSERT OR REPLACE INTO vec_atoms_id (atom_id, vec_rowid) VALUES (?, ?)').run(atomId, info.lastInsertRowid);
+    } catch(e) {
+      console.warn('[_embedAtomAsync] vec indexing failed:', e.message);
+    }
+  } finally {
+    db2.close();
+  }
 }
 
 /**
@@ -1776,73 +1972,61 @@ async function detectSemanticConflict(atomId, newContent, embStr) {
   }
   if (!newVec) return;
 
-  // Step 2: KNN粗筛 — sqlite-vec向量近邻查询
-  // cosine distance < 0.4 对应 cosine similarity > 0.6，在mxbai上是合理的宽松阈值
+  // Step 2: KNN粗筛 — sqlite-vec vec_distance_cosine（已修复：不需要native extension加载，sqlite-vec.load在getDb()时已执行）
   let neighbors = [];
   try {
-    // sqlite-vec的vec_distance_cosine函数
     const stmt = db.prepare(`
-      SELECT ma.id, ma.content, ma.status, va.vec_rowid
+      SELECT ma.id, ma.content, ma.status,
+             vec_distance_cosine(v.embedding, ?) as dist
       FROM vec_atoms_knn v
       JOIN vec_atoms_id va ON va.vec_rowid = v.rowid
       JOIN memory_atom ma ON ma.id = va.atom_id
       WHERE ma.id != ?
         AND ma.status IN ('Committed', 'Canary')
-        AND v.embedding IS NOT NULL
-      ORDER BY v.embedding <-> ? -- L2 distance（sqlite-vec使用L2）
-      LIMIT 5
+      ORDER BY dist ASC
+      LIMIT 10
     `);
-    // 由于sqlite-vec不直接支持传入Float32Array做距离计算，改用top-5+JS过滤
-    const candidates = db.prepare(`
-      SELECT ma.id, ma.content, ma.status
-      FROM vec_atoms_id va
-      JOIN memory_atom ma ON ma.id = va.atom_id
-      WHERE ma.id != ? AND ma.status IN ('Committed', 'Canary') AND ma.embedding IS NOT NULL
-      LIMIT 20
-    `).all(atomId);
-
-    // JS端 cosine similarity 过滤
-    const newVecArr = Array.from(newVec);
-    for (const cand of candidates) {
-      try {
-        const candVec = JSON.parse(cand.content ? cand.content : '[]'); // 错误：应该用embedding字段，不是content
-        // 重新查embedding
-      } catch(e) { /* skip */ }
-    }
+    neighbors = stmt.all(embStr, atomId);
   } catch(e) {
     console.warn('[atoms-db] conflict: KNN query failed:', e.message);
   }
 
-  // Step 2 (实际): 用content相似度粗筛（避免直接解析embedding）
-  // 结构相似度作为粗筛（Scrapling方法）
-  const structCandidates = db.prepare(`
-    SELECT id, content, status
-    FROM memory_atom
-    WHERE id != ? AND status IN ('Committed', 'Canary') AND content IS NOT NULL
-    LIMIT 20
-  `).all(atomId);
+  // 如果vec0无结果，降级到JS cosine similarity（从memory_atom.embedding列读）
+  if (neighbors.length === 0) {
+    const candidates = db.prepare(`
+      SELECT id, content, embedding, status
+      FROM memory_atom
+      WHERE id != ? AND status IN ('Committed', 'Canary') AND embedding IS NOT NULL
+      LIMIT 20
+    `).all(atomId);
 
-  const structSim = require('./atoms-db').sequenceMatcherRatio;
-  const strongCandidates = structCandidates.filter(c => {
-    return structSim(newContent, c.content) > 0.45; // 高结构相似度阈值
-  });
+    const newVecArr = Array.from(newVec);
+    const scored = candidates.map(c => {
+      try {
+        const candVec = JSON.parse(c.embedding);
+        const sim = cosineSim(newVecArr, candVec);
+        return { ...c, dist: 1 - sim };
+      } catch(e) { return null; }
+    }).filter(Boolean).sort((a, b) => a.dist - b.dist);
+    neighbors = scored.slice(0, 5);
+  }
 
-  if (strongCandidates.length === 0) {
+  if (neighbors.length === 0) {
     // 无近邻，标记为Committed
     db.prepare("UPDATE memory_atom SET status = 'Committed' WHERE id = ? AND status = 'Canary'").run(atomId);
     return;
   }
 
-  console.log(`[atoms-db] conflict: found ${strongCandidates.length} struct-similar candidates, probing LLM Skeptic...`);
+  console.log(`[atoms-db] conflict: found ${neighbors.length} neighbors (vec), probing LLM Skeptic...`);
 
-  // Step 3: LLM精筛 — 对每个候选调用Skeptic
+  // Step 3: LLM精筛 — 对每个近邻调用Skeptic二元判定
   const lg = getLlmGateway();
   if (!lg) {
     console.warn('[atoms-db] conflict: llm_gateway not available, skipping Skeptic');
     return;
   }
 
-  for (const cand of strongCandidates) {
+  for (const cand of neighbors) {
     try {
       const isConflict = await lg.askSkeptic(newContent, cand.content);
       if (isConflict) {
@@ -1875,8 +2059,13 @@ function getConflicts() {
  */
 function resolveConflict(winnerId, loserId) {
   const db = getDb();
+  const winner = db.prepare('SELECT id, content FROM memory_atom WHERE id = ?').get(winnerId);
+  const loser  = db.prepare('SELECT id, content FROM memory_atom WHERE id = ?').get(loserId);
+  if (!winner) return { success: false, error: 'winner atom not found: ' + winnerId };
+  if (!loser)  return { success: false, error: 'loser atom not found: '  + loserId };
   db.prepare("UPDATE memory_atom SET status = 'Committed' WHERE id = ?").run(winnerId);
   db.prepare("UPDATE memory_atom SET status = 'Deprecated' WHERE id = ?").run(loserId);
+  return { success: true, winner: { id: winnerId, content: winner.content }, loser: { id: loserId, content: loser.content } };
 }
 
 /**
@@ -1965,4 +2154,353 @@ module.exports = {
   getConflicts,
   resolveConflict,
   resolveConflictSynthesize,
+  // Shadow Compiler (wiki_blocks synthesis)
+  shadowCompile,
+  listWikiBlocks,
+  getWikiBlockCount,
+  // Task Queue
+  enqueueTask,
+  fetchTask,
+  completeTask,
+  failTask,
+  getDeadLetters,
+  retryDeadLetter,
 };
+
+// ─── Task Queue API ────────────────────────────────────────────────────────
+
+/**
+ * Enqueue a task for async processing.
+ * @param {string} taskType - e.g. 'embed_atom', 'extract_claims'
+ * @param {Object} payload  - JSON-serializable task data
+ * @param {Object} opts     - { priority?, maxRetries?, scheduledAt? }
+ * @returns {Object} created task record
+ */
+function enqueueTask(taskType, payload, opts = {}) {
+  const db = getDb();
+  const id = uuid();
+  const ts = now();
+  db.prepare(`
+    INSERT INTO task_queue (id, task_type, status, payload, priority, max_retries, retry_count, scheduled_at, created_at)
+    VALUES (?, ?, 'PENDING', ?, ?, ?, 0, ?, ?)
+  `).run(id, taskType, JSON.stringify(payload), opts.priority ?? 5, opts.maxRetries ?? 3, opts.scheduledAt || null, ts);
+  return { id, task_type: taskType, status: 'PENDING', created_at: ts };
+}
+
+/**
+ * Fetch the next ready task (highest priority + not scheduled in future + under retry limit).
+ * Returns null if queue is empty. Also resets stale RUNNING tasks (crash orphan recovery).
+ * @returns {Object|null}
+ */
+function fetchTask() {
+  const db = getDb();
+  const ts = now();
+
+  // Orphan recovery: reset stale RUNNING tasks from crashed workers
+  db.prepare("UPDATE task_queue SET status='PENDING', started_at=NULL WHERE status='RUNNING' AND started_at < datetime(?, '-5 minutes')").run(ts);
+
+  const task = db.prepare(`
+    SELECT id, task_type, payload, priority, retry_count, max_retries, scheduled_at
+    FROM task_queue
+    WHERE status = 'PENDING'
+      AND (scheduled_at IS NULL OR scheduled_at <= ?)
+      AND retry_count < max_retries
+    ORDER BY priority ASC, created_at ASC
+    LIMIT 1
+  `).get(ts);
+
+  if (!task) return null;
+
+  db.prepare("UPDATE task_queue SET status='RUNNING', started_at=? WHERE id=? AND status='PENDING'")
+    .run(ts, task.id);
+
+  return { ...task, payload: JSON.parse(task.payload) };
+}
+
+/**
+ * Mark a task as completed successfully.
+ * @param {string} taskId
+ */
+function completeTask(taskId) {
+  const db = getDb();
+  db.prepare("UPDATE task_queue SET status='COMPLETED', completed_at=? WHERE id=?").run(now(), taskId);
+}
+
+/**
+ * Mark a task as failed. Increments retry_count; if exhausted moves to dead_letter_queue.
+ * @param {string} taskId
+ * @param {string} errorMsg
+ */
+function failTask(taskId, errorMsg) {
+  const db = getDb();
+  const ts = now();
+  const task = db.prepare("SELECT id, task_type, payload, retry_count, max_retries FROM task_queue WHERE id=?").get(taskId);
+  if (!task) return;
+  if (task.retry_count + 1 >= task.max_retries) {
+    db.prepare(`INSERT INTO dead_letter_queue (id, task_id, task_type, payload, error, failed_at) VALUES (?, ?, ?, ?, ?, ?)`)
+      .run(uuid(), taskId, task.task_type, task.payload, errorMsg, ts);
+    db.prepare("UPDATE task_queue SET status='FAILED', error=? WHERE id=?").run(errorMsg, taskId);
+  } else {
+    db.prepare(`UPDATE task_queue SET status='PENDING', retry_count=retry_count+1, error=?, scheduled_at=datetime(?,'+30 seconds') WHERE id=?`)
+      .run(errorMsg, ts, taskId);
+  }
+}
+
+/**
+ * Get dead letter queue entries.
+ * @param {number} limit
+ * @returns {Array}
+ */
+function getDeadLetters(limit = 50) {
+  const db = getDb();
+  return db.prepare("SELECT * FROM dead_letter_queue ORDER BY failed_at DESC LIMIT ?").all(limit);
+}
+
+/**
+ * Retry a dead letter: re-enqueue and remove from DLQ.
+ * @param {string} dlId - dead letter record id
+ * @returns {Object} new task
+ */
+function retryDeadLetter(dlId) {
+  const db = getDb();
+  const dl = db.prepare("SELECT * FROM dead_letter_queue WHERE id=?").get(dlId);
+  if (!dl) return null;
+  db.prepare("DELETE FROM dead_letter_queue WHERE id=?").run(dlId);
+  return enqueueTask(dl.task_type, JSON.parse(dl.payload), { maxRetries: 3 });
+}
+
+// ─── Topic Normalization (Shadow Compiler) ───────────────────────────────────
+// Maps atom content → short topic label. Used by clusterAtomsByTopic.
+
+const TOPIC_MAP = {
+  // OpenClaw
+  'bootstrap': 'openclaw-bootstrap', 'heartbeat': 'openclaw-heartbeat',
+  'agents': 'openclaw-agents', 'hook': 'openclaw-hooks',
+  'gateway': 'openclaw-gateway', 'session': 'openclaw-session',
+  'channel': 'openclaw-channel', 'openclaw': 'openclaw-core',
+  'memory-': 'openclaw-memory', 'memory/': 'openclaw-memory',
+  // Memory Planet
+  'memory planet': 'memory-planet', 'atoms-db': 'memory-planet',
+  'star soul': 'starsoul-core', 'task worker': 'starsoul-core',
+  'claim': 'graphrag', 'relation': 'graphrag',
+  // User
+  '仕泽': 'user-shize', 'shize': 'user-shize', '偏好': 'user-shize',
+  '沟通': 'user-shize', '赛博朋克': 'user-shize', 'cyberpunk': 'user-shize',
+  // Identity
+  '小虾': 'identity-xiaoxia', 'identity': 'identity-xiaoxia',
+  // Memory mechanism
+  'importance': 'memory-importance', 'staleness': 'memory-importance',
+  '半衰期': 'memory-importance', 'recall': 'memory-recall',
+  // Workflow
+  'workflow': 'workflow', '工作流': 'workflow',
+  // Architecture
+  '三层': 'arch-three-layer', '架构': 'arch-three-layer',
+  // Tech
+  'ollama': 'tech-ollama', 'sqlite': 'tech-sqlite',
+};
+
+function normalizeTopic(content, fallback) {
+  const lower = (content + ' ' + (fallback || '')).toLowerCase();
+  for (const [key, label] of Object.entries(TOPIC_MAP)) {
+    if (lower.includes(key)) return label;
+  }
+  // Fallback: first 2 significant words
+  const words = lower.match(/[一-﷿]|[a-z]{4,}/g) || [];
+  if (words.length >= 2) return words.slice(0, 2).join('-').slice(0, 30);
+  return 'general';
+}
+
+// ─── Shadow Compiler: Synthesize wiki blocks from high-importance atoms ───────
+
+/**
+ * Simple rules-based synthesis �?no LLM needed.
+ * Strategy:
+ * 1. Cluster atoms by namespace
+ * 2. Within each namespace cluster, find structural duplicates (sim > 0.5)
+ * 3. Merge duplicate atoms: pick the more general/formal wording
+ * 4. Detect cross-namespace duplicates (same content different namespace)
+ * 5. Emit one wiki block per synthesized cluster
+ *
+ * Generalization rules:
+ * - Prefer formal third-person over informal/first-person
+ * - Prefer concise over verbose
+ * - Prefer absolute statements over hedged ("always" > "sometimes")
+ */
+
+function generalizeAtomContent(atoms) {
+  if (atoms.length === 1) return atoms[0].content;
+  const candidates = atoms.map(a => a.content);
+  // Prefer content without first-person pronouns
+  const thirdPerson = candidates.filter(c => !/^我[是愿]|我的|我用/.test(c));
+  const use = thirdPerson.length > 0 ? thirdPerson : candidates;
+  // Pick shortest that is not just keywords
+  return use.sort((a, b) => a.length - b.length)[0];
+}
+
+/**
+ * Cluster atoms by rough topic using keyword extraction.
+ * Returns: Map<topicKey, { topic, atoms }>
+ */
+function clusterAtomsByTopic(atoms) {
+  const clusters = new Map();
+  const stopwords = /^(是|的|了|在|有|和|与|也|但|就|等|要|能|很|了)$/;
+  for (const atom of atoms) {
+    const words = atom.content
+      .toLowerCase()
+      .split(/[\s,.，、]+/)
+      .filter(w => w.length > 2 && !stopwords.test(w));
+    // Top 3 most "specific" words (longest that aren't common stopwords)
+    const topWords = words
+      .filter(w => w.length > 2)
+      .sort((a, b) => b.length - a.length)
+      .slice(0, 3)
+      .join(' ');
+    const key = topWords || 'general';
+
+    // Derive a short topic label from the content using normalizeTopic
+    const topicLabel = normalizeTopic(atom.content, key);
+
+    if (!clusters.has(key)) clusters.set(key, { topic: topicLabel, atoms: [] });
+    clusters.get(key).atoms.push(atom);
+  }
+  return clusters;
+}
+
+/**
+ * Synthesize: find duplicate/similar atoms within a group, merge into one.
+ * Returns: Array of { synthesizedContent, sourceAtoms }
+ */
+function synthesizeGroup(atoms) {
+  if (atoms.length === 0) return [];
+  const results = [];
+  const used = new Set();
+
+  for (let i = 0; i < atoms.length; i++) {
+    if (used.has(atoms[i].id)) continue;
+    const group = [atoms[i]];
+    used.add(atoms[i].id);
+
+    for (let j = i + 1; j < atoms.length; j++) {
+      if (used.has(atoms[j].id)) continue;
+      const sim = structuralSim(atoms[i], atoms[j]);
+      if (sim > 0.5) {
+        group.push(atoms[j]);
+        used.add(atoms[j].id);
+      }
+    }
+
+    // Synthesize: merge similar atoms, generalize language
+    const synthesized = generalizeAtomContent(group);
+    results.push({ synthesizedContent: synthesized, sourceAtoms: group });
+  }
+
+  return results;
+}
+
+/**
+ * Main shadow compile entry point.
+ * Scan high-importance atoms, synthesize wiki blocks, insert into wiki_blocks table.
+ *
+ * @param {number} minImportance - Minimum importance threshold (default 0.6)
+ * @returns {Promise<{ created: number, skipped: number, errors: string[] }>}
+ */
+async function shadowCompile(minImportance = 0.6) {
+  const db = getDb();
+
+  // Fetch high-importance atoms
+  const atoms = db.prepare(`
+    SELECT id, content, confidence, importance, human_pin, namespace, created_at
+    FROM memory_atom
+    WHERE importance >= ?
+    ORDER BY namespace, importance DESC
+  `).all(minImportance);
+
+  if (atoms.length === 0) {
+    return { created: 0, skipped: 0, errors: [], message: 'No atoms meeting importance threshold' };
+  }
+
+  // Group by namespace
+  const nsGroups = {};
+  for (const atom of atoms) {
+    if (!nsGroups[atom.namespace]) nsGroups[atom.namespace] = [];
+    nsGroups[atom.namespace].push(atom);
+  }
+
+  const errors = [];
+  let created = 0, skipped = 0;
+
+  for (const [namespace, groupAtoms] of Object.entries(nsGroups)) {
+    // Cluster within namespace by topic
+    const topicClusters = clusterAtomsByTopic(groupAtoms);
+
+    for (const [, { topic, atoms: clusterAtoms }] of topicClusters) {
+      // Synthesize each topic cluster
+      const synthesized = synthesizeGroup(clusterAtoms);
+
+      for (const { synthesizedContent, sourceAtoms } of synthesized) {
+        // Check for near-duplicate wiki block (exact content match, same namespace)
+        const existing = db.prepare(`
+          SELECT id FROM wiki_blocks WHERE namespace = ? AND content = ?
+        `).get(namespace, synthesizedContent);
+
+        if (existing) {
+          skipped++;
+          continue;
+        }
+
+        // Generate embedding for synthesized content
+        let embStr = null;
+        try {
+          const embs = await ollamaEmbed([synthesizedContent]);
+          if (embs && embs[0] && embs[0].length > 0) {
+            embStr = JSON.stringify(embs[0]);
+          }
+        } catch(e) {
+          errors.push('embedding failed for: ' + synthesizedContent.slice(0, 40) + ' �?' + e.message);
+        }
+
+        const sourceIds = JSON.stringify(sourceAtoms.map(a => a.id));
+        const importance = Math.max(...sourceAtoms.map(a => a.importance));
+        const confidence = sourceAtoms.reduce((s, a) => s + a.confidence, 0) / sourceAtoms.length;
+        const id = crypto.randomUUID();
+        const now = new Date().toISOString();
+
+        try {
+          db.prepare(`
+            INSERT INTO wiki_blocks (id, content, source_ids, topic, importance, confidence, embedding, human_pin, namespace, version, status, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 'active', ?, ?)
+          `).run(id, synthesizedContent, sourceIds, topic || null, importance, confidence, embStr, 0, namespace, now, now);
+          created++;
+        } catch(e) {
+          errors.push('insert failed: ' + e.message);
+        }
+      }
+    }
+  }
+
+  return { created, skipped, errors };
+}
+
+/**
+ * List wiki blocks with optional filters.
+ */
+function listWikiBlocks(opts = {}) {
+  const db = getDb();
+  const { namespace, topic, limit = 50 } = opts;
+  let sql = 'SELECT * FROM wiki_blocks WHERE status = ?';
+  const params = ['active'];
+  if (namespace) { sql += ' AND namespace = ?'; params.push(namespace); }
+  if (topic) { sql += ' AND topic = ?'; params.push(topic); }
+  sql += ' ORDER BY importance DESC LIMIT ?';
+  params.push(limit);
+  return db.prepare(sql).all(...params);
+}
+
+/**
+ * Get wiki block count.
+ */
+function getWikiBlockCount() {
+  const db = getDb();
+  const row = db.prepare('SELECT COUNT(*) as cnt FROM wiki_blocks WHERE status = ?').get('active');
+  return row ? row.cnt : 0;
+}

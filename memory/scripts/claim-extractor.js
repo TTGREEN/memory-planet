@@ -5,7 +5,32 @@
 
 const https = require('https');
 
-const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || '';
+// ─── .env 加载（与 llm_gateway.js 完全一致）───────────────────────────────
+// 优先读 process.env，fallback 到 .env 文件（llm_gateway 用此路径）
+function loadEnv() {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const envPath = path.join(__dirname, '..', '..', '.env');
+    if (fs.existsSync(envPath)) {
+      const lines = fs.readFileSync(envPath, 'utf8').split(/\r?\n/);
+      const env = {};
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const [key, ...vals] = trimmed.split('=');
+        if (key && vals.length) env[key.trim()] = vals.join('=').trim();
+      }
+      return env;
+    }
+  } catch (e) { /* ignore */ }
+  return {};
+}
+
+const _env = loadEnv();
+
+// 兼容两个变量名：优先用 LLM_API_KEY（与 llm_gateway 一致），也读 MINIMAX_API_KEY
+const MINIMAX_API_KEY = process.env.LLM_API_KEY || _env.LLM_API_KEY || process.env.MINIMAX_API_KEY || '';
 
 function callMiniMax({ system, user, messages = [], max_tokens = 1024, thinking = false }) {
   return new Promise((resolve, reject) => {

@@ -1,0 +1,18 @@
+{
+  "memoryRoot": "C:/Users/Administrator/.openclaw/workspace/memory",
+  "workspaceRoot": "C:/Users/Administrator/.openclaw/workspace",
+  "memoryFile": "C:/Users/Administrator/.openclaw/workspace/MEMORY.md",
+  "lineHardLimit": 200,
+  "lineSoftLimit": 150,
+  "activationThreshold": 20,
+  "staleDays": 30,
+  "patternMinCount": 3,
+  "searchDbPath": "C:/Users/Administrator/.openclaw/workspace/memory/logs.db",
+  "dailyLogsDir": "C:/Users/Administrator/.openclaw/workspace/memory/daily-logs",
+  "topicsDir": "C:/Users/Administrator/.openclaw/workspace/memory/topics",
+  "stateDir": "C:/Users/Administrator/.openclaw/workspace/memory/state",
+  "archiveDir": "C:/Users/Administrator/.openclaw/workspace/memory/archive",
+  "recallStorePath": "C:/Users/Administrator/.openclaw/workspace/memory/.dreams/short-term-recall.json",
+  "sessionCorpusDir": "C:/Users/Administrator/.openclaw/workspace/memory/.dreams/session-corpus",
+  "indexDir": "C:/Users/Administrator/.openclaw/workspace/memory/indexes"
+}

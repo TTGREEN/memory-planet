@@ -624,8 +624,44 @@ async function cmdAtoms(args) {
   } else if (action === 'pin') {
     const id = args[1];
     if (!id) { console.error('Usage: node memory.js atoms pin <id>'); process.exit(1); }
-    atomsDb.pinAtom(id, 1);
+    const result = atomsDb.pinAtom(id, 1);
+    if (!result.success) {
+      console.error('[FAIL] ' + result.error);
+      const recents = atomsDb.listAtoms(5);
+      console.log('最近 5 条 atom:');
+      for (const a of recents) console.log('  ' + a.id + '  ' + a.content.slice(0, 60));
+      process.exit(1);
+    }
     console.log('[OK] atom', id, '已 pin');
+  } else if (action === 'unpin') {
+    const id = args[1];
+    if (!id) { console.error('Usage: node memory.js atoms unpin <id>'); process.exit(1); }
+    const result = atomsDb.pinAtom(id, 0);
+    if (!result.success) {
+      console.error('[FAIL] atom not found:', id);
+      const recents = atomsDb.listAtoms(5);
+      console.log('最近 5 条 atom:');
+      for (const a of recents) console.log('  ' + a.id + '  ' + a.content.slice(0, 60));
+      process.exit(1);
+    }
+    console.log('[OK] atom', id, '已 unpin');
+  } else if (action === 'info') {
+    const id = args[1];
+    if (!id) { console.error('Usage: node memory.js atoms info <id>'); process.exit(1); }
+    const atom = atomsDb.getAtom(id);
+    if (!atom) { console.error('Atom not found:', id); process.exit(1); }
+    const age = Math.round((Date.now() - new Date(atom.created_at).getTime()) / (1000*60*60*24));
+    console.log('=== Atom Info ===');
+    console.log('  ID:              ', atom.id);
+    console.log('  Content:         ', atom.content);
+    console.log('  Namespace:       ', atom.namespace);
+    console.log('  Confidence:      ', atom.confidence);
+    console.log('  Importance:      ', atom.importance);
+    console.log('  Human Pin:      ', atom.human_pin);
+    console.log('  Status:          ', atom.status);
+    console.log('  Embedding:       ', atom.embedding ? '✓ (' + atom.embedding.length + ' chars)' : '✗');
+    console.log('  Created:         ', atom.created_at, '(' + age + 'd ago)');
+    console.log('  Updated:         ', atom.updated_at);
   } else if (action === 'recall') {
     const query = args[1];
     if (!query) { console.error('Usage: node memory.js atoms recall "查询词" [--top 5]'); process.exit(1); }
@@ -652,31 +688,138 @@ async function cmdAtoms(args) {
   } else if (action === 'update-importance') {
     const updated = atomsDb.updateAllImportance();
     console.log('[OK] importance 更新完成，', updated.length, '条 atom 已更新');
+  } else if (action === 'conflicts') {
+    const conflicts = atomsDb.getConflicts();
+    if (!conflicts || conflicts.length === 0) {
+      console.log('[OK] 无认知冲突，系统主干稳固 ✅');
+    } else {
+      console.log('\n⚠️  发现', conflicts.length, '处认知冲突：\n');
+      conflicts.forEach((c, i) => {
+        console.log('[' + (i+1) + '] ID:', c.id);
+        console.log('    来源:', c.origin_agent || 'unknown');
+        console.log('    内容:', c.content.slice(0, 80) + (c.content.length > 80 ? '...' : ''));
+        console.log('    标签:', c.tags || '');
+        console.log('---');
+      });
+    }
+  } else if (action === 'resolve') {
+    const winnerId = args[1];
+    const loserId  = args[2];
+    if (!winnerId || !loserId) { console.error('Usage: memory.js atoms resolve <winner_id> <loser_id>'); process.exit(1); }
+    const winnerAtom = atomsDb.getAtom(winnerId);
+    const loserAtom  = atomsDb.getAtom(loserId);
+    if (!winnerAtom) { console.error('Winner atom not found:', winnerId); process.exit(1); }
+    if (!loserAtom)  { console.error('Loser atom not found:', loserId); process.exit(1); }
+    console.log('  Winner: ' + winnerId + ' — "' + winnerAtom.content.slice(0, 60) + (winnerAtom.content.length > 60 ? '...' : '') + '"');
+    console.log('  Loser:  ' + loserId  + ' — "' + loserAtom.content.slice(0, 60) + (loserAtom.content.length > 60 ? '...' : '') + '"');
+    const readline = require('readline');
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('[y/N]: ', answer => {
+      rl.close();
+      if (answer.trim().toLowerCase() !== 'y') { console.log('Aborted.'); return; }
+      const result = atomsDb.resolveConflict(winnerId, loserId);
+      if (!result.success) { console.error('[FAIL]', result.error); process.exit(1); }
+      console.log('[OK] 冲突已裁决：winner=Committed, loser=Deprecated');
+    });
+    return;
+  } else if (action === 'wiki-blocks') {
+    const nsIdx   = args.indexOf('--namespace');
+    const topicIdx = args.indexOf('--topic');
+    const limitIdx = args.indexOf('--limit');
+    const namespace = nsIdx >= 0 ? args[nsIdx + 1] : undefined;
+    const topic    = topicIdx >= 0 ? args[topicIdx + 1] : undefined;
+    const limit    = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 20;
+    const count = atomsDb.getWikiBlockCount();
+    console.log('[OK] wiki_blocks 表有', count, '条 active block');
+    const blocks = atomsDb.listWikiBlocks({ namespace, topic, limit });
+    if (blocks.length === 0) {
+      console.log('  (空，shadow-compile 未运行或无高重要性 atoms)');
+    } else {
+      console.log('显示 ' + blocks.length + ' 条:');
+      for (const b of blocks) {
+        const srcIds = (() => { try { return JSON.parse(b.source_ids || '[]').length; } catch { return 0; } })();
+        console.log('  [' + b.importance.toFixed(3) + '][' + b.namespace + '] ' + b.content.slice(0, 80) + (b.content.length > 80 ? '...' : ''));
+        console.log('    topic=' + (b.topic || 'n/a') + ' src=' + srcIds + ' atoms conf=' + b.confidence.toFixed(2));
+      }
+    }
   } else {
     console.error('Unknown atoms action:', action);
-    console.log('Usage: node memory.js atoms [list|pin|recall|update-importance]');
+    console.log('Usage: node memory.js atoms [list|pin|recall|update-importance|wiki-blocks]');
   }
 }
 
 // ─── Governance Plane CLI ─────────────────────────────────────────────────────
 
 async function cmdGovernance(args) {
-  const { spawn } = require('child_process');
-  const gpPath = path.join(__dirname, 'governance-plane.js');
-  const gpArgs = args.length > 0 ? args : ['--help'];
+  const action = args[0] || 'list';
+  const readline = require('readline');
 
-  return new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, [gpPath, ...gpArgs], { cwd: __dirname });
-    let out = '', err = '';
-    child.stdout.on('data', d => out += d);
-    child.stderr.on('data', d => err += d);
-    child.on('close', code => {
-      if (out) process.stdout.write(out);
-      if (err) process.stderr.write(err);
-      process.exit(code || 0);
-    });
-    child.on('error', reject);
-  });
+  if (action === 'list' || action === 'status') {
+    const conflicts = atomsDb.getConflicts();
+    if (!conflicts || conflicts.length === 0) {
+      console.log('\n✅ Memory Planet v2.1 治理平面 — 系统主干稳固，无冲突');
+    } else {
+      console.log('\n🪐 Memory Planet v2.1 治理平面 — 发现', conflicts.length, '处认知冲突\n');
+      conflicts.forEach((c, i) => {
+        console.log('[' + (i+1) + '] ──────────────────────────────────────────');
+        console.log('    ID:', c.id.slice(0, 8) + '...');
+        console.log('    来源Agent:', c.origin_agent || 'system');
+        console.log('    会话:', c.session_id || 'n/a');
+        console.log('    状态:', c.status);
+        console.log('    内容:', c.content.slice(0, 100) + (c.content.length > 100 ? '...' : ''));
+        console.log();
+      });
+      console.log('请用以下命令裁决：');
+      console.log('  memory.js governance resolve <winner_id> <loser_id>');
+      console.log('  memory.js governance synthesize <id1> <id2> --text "综合结论内容"');
+    }
+    return;
+  }
+
+  if (action === 'resolve') {
+    const [winnerId, loserId] = [args[1], args[2]];
+    if (!winnerId || !loserId) { console.error('Usage: governance resolve <winner_id> <loser_id>'); process.exit(1); }
+    atomsDb.resolveConflict(winnerId, loserId);
+    console.log('[OK] 冲突裁决完成 — winner=Committed, loser=Deprecated');
+    return;
+  }
+
+  if (action === 'synthesize') {
+    const [id1, id2] = [args[1], args[2]];
+    const textIdx = args.indexOf('--text');
+    if (!id1 || !id2 || textIdx < 0) {
+      console.error('Usage: governance synthesize <id1> <id2> --text "综合结论"'); process.exit(1);
+    }
+    const synthesizedContent = args[textIdx + 1];
+    if (!synthesizedContent) { console.error('--text 参数需要内容'); process.exit(1); }
+    const result = atomsDb.resolveConflictSynthesize(id1, id2, synthesizedContent, 'governance-plane');
+    console.log('[OK] 综合裁决完成，生成新atom:', result.id);
+    return;
+  }
+
+  if (action === 'help') {
+    console.log('\n🪐 Memory Planet v2.1 治理平面 CLI');
+    console.log('Usage: memory.js governance <action>');
+    console.log('');
+    console.log('  list/status   — 列出所有 Conflict_Pending 冲突');
+    console.log('  resolve <win> <lose>  — 裁决：winner设为Committed，loser标为Deprecated');
+    console.log('  synthesize <id1> <id2> --text "综合结论"  — 综合两者生成新结论');
+    console.log('  ping  — 测试云端Skeptic连通性');
+    return;
+  }
+
+  if (action === 'ping') {
+    const lg = require('./llm_gateway');
+    lg.ping().then(r => {
+      if (r.ok) { console.log('[OK] Skeptic连通性正常'); }
+      else { console.error('[FAIL] Skeptic故障:', r.reason); }
+    }).catch(e => console.error('[ERR]', e.message));
+    return;
+  }
+
+  console.error('Unknown governance action:', action);
+  console.error('Try: list | resolve | synthesize | ping | help');
+  process.exit(1);
 }
 
 // ─── P0: Session Inject CLI ─────────────────────────────────────────────────
@@ -825,6 +968,156 @@ async function cmdSummarize(args) {
 
 const [, , cmd, ...cmdArgs] = process.argv;
 
+// ─── P0: Ingest CLI ───────────────────────────────────────────────────────────
+// node memory.js ingest [--file <json> --topic <name>]
+// JSON array from stdin or file: [{ title, concept, applicable_scenario, tags[], confidence?, namespace? }]
+
+
+async function cmdIngest(args) {
+  const fileIdx  = args.indexOf('--file');
+  const topicIdx = args.indexOf('--topic');
+
+
+  let atoms = [];
+  let topicTitle = 'untitled';
+
+  if (fileIdx >= 0) {
+    const filePath = args[fileIdx + 1];
+    if (!filePath) { console.error('Usage: ingest --file <json> [--topic <name>]'); process.exit(1); }
+    if (!fs.existsSync(filePath)) { console.error('File not found: ' + filePath); process.exit(1); }
+    try { atoms = JSON.parse(fs.readFileSync(filePath, 'utf8')); } catch(e) {
+      console.error('Invalid JSON: ' + e.message); process.exit(1);
+    }
+    if (topicIdx >= 0) topicTitle = args[topicIdx + 1];
+  } else {
+    // read from stdin
+    process.stdin.setEncoding('utf8');
+    let jsonStr = '';
+    for await (const chunk of process.stdin) { jsonStr += chunk; }
+    try { atoms = JSON.parse(jsonStr); } catch(e) {
+      console.error('Invalid JSON from stdin: ' + e.message); process.exit(1);
+    }
+    if (topicIdx >= 0) topicTitle = args[topicIdx + 1];
+  }
+
+  if (!Array.isArray(atoms) || atoms.length === 0) {
+    console.error('Expected JSON array of atoms, got: ' + JSON.stringify(atoms).slice(0, 80));
+    process.exit(1);
+  }
+
+  const ns = args.indexOf('--namespace') >= 0 ? args[args.indexOf('--namespace') + 1] : 'pattern';
+  const dryRun = args.includes('--dry-run');
+
+  log('Ingesting ' + atoms.length + ' atom(s) into namespace="' + ns + '"' + (dryRun ? ' (DRY RUN)' : ''));
+
+
+  // Archive full source markdown to topicsDir
+  if (!dryRun) {
+    ensureDir(cfg.topicsDir);
+    const dateStr  = today();
+    const safeName = topicTitle.replace(/[^\w.-]/g, '_');
+    const fileName = dateStr + '-' + safeName + '.md';
+    const topicPath = path.join(cfg.topicsDir, fileName);
+    const mdLines = [
+      '# Topic: ' + topicTitle,
+      '_Archived: ' + new Date().toISOString() + '_',
+      '',
+      '## Source Atoms (' + atoms.length + ')',
+      ''
+    ];
+    for (const atom of atoms) {
+      mdLines.push('### ' + atom.title);
+      mdLines.push('');
+      mdLines.push('- **概念**: ' + (atom.concept || ''));
+      mdLines.push('- **适用场景**: ' + (atom.applicable_scenario || ''));
+      mdLines.push('- **标签**: ' + ((atom.tags || []).join(', ')));
+      mdLines.push('- **置信度**: ' + (atom.confidence || 0.6));
+      mdLines.push('');
+    }
+    fs.writeFileSync(topicPath, mdLines.join('\n'), 'utf8');
+    log('Archived to topics: ' + fileName);
+
+    // Update MEMORY.md pointer
+    const pointerEntry = '\n- **' + dateStr + '** ' + topicTitle + ': `memory/topics/' + fileName + '`  (' + atoms.length + ' atoms)';
+    const memLines = readLines(cfg.memoryFile);
+    const insertIdx = memLines.findIndex((l, i) => i > 5 && l.trim() === '' && memLines[i+1] && memLines[i+1].trim() === '');
+    if (insertIdx > 0) {
+      memLines.splice(insertIdx, 0, pointerEntry.trim());
+    } else {
+      memLines.push(pointerEntry.trim());
+    }
+    writeLines(cfg.memoryFile, memLines);
+    log('Updated MEMORY.md pointer');
+  }
+
+  // Batch ingest atoms
+  let success = 0, failed = 0;
+  for (const atom of atoms) {
+    if (!atom.concept && !atom.content) {
+      console.warn('  [SKIP] atom missing concept: ' + JSON.stringify(atom).slice(0, 60));
+      failed++; continue;
+    }
+    const content = atom.concept || atom.content;
+    if (dryRun) {
+      console.log('  [DRY] ' + atom.title + ' → "' + content.slice(0, 60) + '..."');
+      success++; continue;
+    }
+    try {
+      const result = await atomsDb.ingestAtomWithEmbedding({
+        content,
+        confidence: atom.confidence ?? 0.6,
+        namespace:  ns,
+        atom_type:  'pattern',
+        origin_agent: 'memory-cli',
+        session_id: process.env.OPENCLAW_SESSION_ID || null,
+        trace_id: process.env.OPENCLAW_TRACE_ID || null,
+      });
+      console.log('  [OK] ' + atom.title + ' → ' + result.id);
+      success++;
+    } catch(e) {
+      console.error('  [FAIL] ' + atom.title + ': ' + e.message);
+      failed++;
+    }
+  }
+
+  log('Done: ' + success + ' ingested, ' + failed + ' failed');
+  if (dryRun) log('(DRY RUN — no actual writes)');
+}
+
+// ─── P0: Shadow Compiler CLI ─────────────────────────────────────────────────
+// node memory.js shadow-compile [--min-importance 0.6]
+
+async function cmdShadowCompile(args) {
+  const minIdx = args.indexOf('--min-importance');
+  const minImp = minIdx >= 0 ? parseFloat(args[minIdx + 1]) : 0.6;
+
+  if (isNaN(minImp) || minImp < 0 || minImp > 1) {
+    console.error('Usage: shadow-compile [--min-importance 0.6]');
+    process.exit(1);
+  }
+
+  log('Shadow Compiler starting (min-importance=' + minImp + ')');
+
+  const result = await atomsDb.shadowCompile(minImp);
+
+  if (result.errors && result.errors.length > 0) {
+    console.log('\n⚠️  Errors during compilation:');
+    result.errors.forEach(e => console.log('  - ' + e));
+  }
+
+  console.log('\n[OK] Shadow Compiler complete:');
+  console.log('  wiki_blocks created : ' + result.created);
+  console.log('  duplicates skipped  : ' + result.skipped);
+
+  if (result.created > 0) {
+    console.log('\nTop importance blocks:');
+    const blocks = atomsDb.listWikiBlocks({ limit: 10 });
+    for (const b of blocks) {
+      console.log('  [' + b.importance.toFixed(3) + '] ' + b.content.slice(0, 80) + (b.content.length > 80 ? '...' : ''));
+    }
+  }
+}
+
 const COMMANDS = {
   flush:          { fn: cmdFlush,          desc: 'Session-end checkpoint (writes daily logs)' },
   health:         { fn: cmdHealth,         desc: 'Index drift + MEMORY.md cap check' },
@@ -837,6 +1130,8 @@ const COMMANDS = {
   'session-inject': { fn: cmdSessionInject, desc: 'P0: Tiered session injection (L0/L1/user_profile)' },
   profile:          { fn: cmdProfile,        desc: 'P0: User profile tag management (list/add/remove)' },
   summarize:        { fn: cmdSummarize,      desc: 'P0: Write dialog summary to raw_atoms L0' },
+  ingest:           { fn: cmdIngest,         desc: 'Ingest JSON atoms [--file <json> --topic <name>]' },
+  'shadow-compile': { fn: cmdShadowCompile,  desc: 'Synthesize wiki blocks from high-importance atoms' },
 };
 
 function showHelp() {

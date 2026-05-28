@@ -1,0 +1,27 @@
+# ─── Data (private) ─────────────────────────────────────────────────
+storage/
+memory/daily-logs/
+memory/archive/
+memory/.dreams/
+memory/topics/
+memory/.cache/
+
+# ─── Config / Secrets ─────────────────────────────────────────────
+.env
+.env.*
+.openclaw/
+.clawhub/
+
+# ─── Temp / Debug ─────────────────────────────────────────────────
+check-db*.js
+diag-*.js
+final-*.js
+header-test*.js
+temp_*.js
+*.log
+*.tmp
+crawl4ai.tar.gz
+
+# ─── OS ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
